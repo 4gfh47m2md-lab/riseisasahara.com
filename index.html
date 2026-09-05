@@ -10,109 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0c0c0c; --bg2:#141414; --line:rgba(255,255,255,.10);
-    --ink:#f2efe8; --ink2:rgba(242,239,232,.62); --ink3:rgba(242,239,232,.38);
-    --acc:#ffd400;
-    --serif:Inter,"Noto Sans JP","Hiragino Sans",sans-serif;
-    --jp:"Noto Sans JP","Hiragino Sans",sans-serif;
-    --sans:Inter,"Noto Sans JP",-apple-system,"Hiragino Sans",sans-serif;
-    --mono:Inter,"Noto Sans JP",sans-serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-
-  /* grain */
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.9'/></svg>")}
-  main,header,footer{position:relative;z-index:1}
-
-  /* nav */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
-  nav .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-right:10px;vertical-align:1px}
-  nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
-  nav a:hover{color:var(--ink)}
-  @media (max-width:640px){nav ul{display:none}}
-
-  /* hero */
-  .hero{padding:clamp(56px,10vw,140px) 0 clamp(48px,7vw,96px);border-bottom:1px solid var(--line)}
-  .kicker{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0 0 28px}
-  h1{margin:0;font-family:var(--serif);font-weight:800;font-size:clamp(56px,11vw,160px);line-height:.9;letter-spacing:-.05em}
-  h1 em{font-style:normal;font-weight:400;color:var(--ink2);letter-spacing:-.04em}
-  .hero .jp{font-family:var(--jp);font-weight:700;font-size:clamp(22px,3vw,36px);margin:26px 0 0;letter-spacing:.06em}
-  .hero .lead{max-width:38em;color:var(--ink2);font-size:clamp(15px,1.3vw,18px);margin:22px 0 0}
-  .meta{display:flex;flex-wrap:wrap;gap:8px 34px;margin-top:44px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink3)}
-  .meta b{color:var(--ink);font-weight:600}
-
-  /* ratings */
-  .ratings{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg2);margin-top:56px}
-  .r{padding:26px 28px;border-right:1px solid var(--line)}
-  .r:last-child{border-right:0}
-  .r .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-  .r .num{font-family:var(--serif);font-weight:800;font-size:clamp(48px,5.2vw,72px);white-space:nowrap;line-height:1;margin:6px 0 4px;letter-spacing:-.05em}
-  .r .num sup{font-size:.24em;font-weight:600;vertical-align:top;top:.9em;position:relative;color:var(--acc);margin-left:6px;letter-spacing:.06em}
-  .r .tier{color:var(--ink2);font-size:13px}
-  .r .bar{height:2px;background:var(--line);margin-top:18px;position:relative}
-  .r .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--acc)}
-  .ratings-note{font-family:var(--mono);font-size:11px;color:var(--ink3);margin:12px 2px 0;letter-spacing:.04em}
-  @media (max-width:980px){.ratings{grid-template-columns:1fr 1fr}.r:nth-child(2){border-right:0}.r:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-  @media (max-width:560px){.ratings{grid-template-columns:1fr}.r{border-right:0;border-bottom:1px solid var(--line)}.r:last-child{border-bottom:0}}
-
-  /* sections */
-  section{padding:clamp(56px,8vw,112px) 0;border-bottom:1px solid var(--line)}
-  .sh{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:end;margin-bottom:44px}
-  .sh h2{margin:0;font-family:var(--jp);font-weight:900;font-size:clamp(30px,4vw,56px);line-height:1.15;letter-spacing:-.02em}
-  .sh p{margin:0;color:var(--ink2);max-width:34em}
-  .sh .n{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.14em;display:block;margin-bottom:14px}
-  @media (max-width:720px){.sh{grid-template-columns:1fr}}
-
-  /* categories */
-  .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .cat{background:var(--bg);padding:26px 22px 30px;min-height:250px;display:flex;flex-direction:column;transition:background .25s}
-  .cat:hover{background:var(--bg2)}
-  .cat .idx{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.14em}
-  .cat h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.05;margin:44px 0 6px;letter-spacing:-.03em}
-  .cat h3 span{display:block;color:var(--ink2);font-weight:400}
-  .cat .ja{font-family:var(--jp);font-size:13px;color:var(--ink2);letter-spacing:.02em;margin:8px 0 0}
-  .cat .tag{margin-top:auto;padding-top:22px;font-size:12.5px;color:var(--ink3)}
-  @media (max-width:980px){.cats{grid-template-columns:repeat(2,1fr)}.cat{min-height:200px}}
-  @media (max-width:520px){.cats{grid-template-columns:1fr}}
-
-  /* timeline */
-  .tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-  .tl li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
-  .tl .yr{font-family:var(--mono);font-size:13px;color:var(--acc);letter-spacing:.06em;padding-top:5px}
-  .tl h4{margin:0;font-family:var(--jp);font-weight:700;font-size:18px;letter-spacing:.01em}
-  .tl p{margin:6px 0 0;color:var(--ink2);font-size:14.5px;max-width:44em}
-  @media (max-width:640px){.tl li{grid-template-columns:1fr;gap:6px}}
-
-  /* year lines */
-  .yl{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .yl div{background:var(--bg);padding:20px 22px}
-  .yl b{display:block;font-family:var(--mono);font-weight:600;font-size:12px;color:var(--ink3);letter-spacing:.14em;margin-bottom:6px}
-  .yl span{font-size:14.5px;color:var(--ink2)}
-  .yl strong{color:var(--ink);font-weight:500}
-  @media (max-width:640px){.yl{grid-template-columns:1fr}}
-
-  /* quote */
-  .quote{padding:clamp(72px,10vw,140px) 0;text-align:center;border-bottom:1px solid var(--line)}
-  .quote p{margin:0 auto;max-width:22em;font-family:var(--jp);font-weight:700;font-size:clamp(22px,3.2vw,40px);line-height:1.5;letter-spacing:.06em}
-  .quote small{display:block;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase}
-
-  /* links / footer */
-  .links{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .links a{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);transition:border-color .2s,transform .2s}
-  .links a:hover{border-color:var(--acc);transform:translateY(-2px)}
-  .links .l{font-size:15px}
-  .links .l small{display:block;font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.1em;margin-top:2px}
-  .links .arr{color:var(--acc);font-size:18px}
-  @media (max-width:720px){.links{grid-template-columns:1fr}}
-  footer{padding:36px 0 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3)}
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header class="wrap">
@@ -195,7 +93,7 @@
         <p class="ja">Painting · Design · Publishing</p>
         
       </a>
-      <a class="cat" href="#">
+      <a class="cat" href="/game/">
         <span class="idx">V</span>
         <h3>Game <span>+ Strategy</span></h3>
         <p class="ja">NBA 2K · Reading · Decisions</p>
