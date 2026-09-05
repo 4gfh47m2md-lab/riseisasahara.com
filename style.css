@@ -99,3 +99,12 @@
   .links .arr{color:var(--acc);font-size:18px}
   @media (max-width:720px){.links{grid-template-columns:1fr}}
   footer{padding:36px 0 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3)}
+
+/* photos */
+.photo{margin:44px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.photo figcaption{padding:10px 14px;font-size:12px;color:var(--ink3);letter-spacing:.04em}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.hero-grid .photo{margin:0}
+.hero-grid .photo img{aspect-ratio:4/5}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-grid .photo{margin-top:36px}.hero-grid .photo img{aspect-ratio:4/3}}
