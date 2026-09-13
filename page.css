@@ -8,7 +8,7 @@
   th:last-child,td:last-child{padding-right:0}
   td.k{color:var(--ink);font-weight:600}
   td.m{color:var(--ink2);font-size:13.5px;white-space:normal;text-align:left}
-  tr.total td{border-top:1px solid rgba(255,255,255,.28);border-bottom:0;font-weight:700;color:var(--ink)}
+  tr.total td{border-top:1px solid rgba(0,0,0,.28);border-bottom:0;font-weight:700;color:var(--ink)}
   .tbl{overflow-x:auto}
   .bars{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;height:220px;margin-top:8px}
   .bars .b{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}

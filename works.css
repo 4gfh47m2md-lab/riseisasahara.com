@@ -13,5 +13,5 @@
 .lb[hidden]{display:none}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
 .lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain;border-radius:6px;cursor:e-resize}
-.lb p{margin:14px 0 0;font-size:13px;color:var(--ink2);letter-spacing:.04em}
-.lb .x{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--ink);font-size:32px;line-height:1;cursor:pointer;font-family:var(--sans)}
+.lb p{margin:14px 0 0;font-size:13px;color:rgba(255,255,255,.72);letter-spacing:.04em}
+.lb .x{position:absolute;top:14px;right:18px;background:none;border:0;color:#fff;font-size:32px;line-height:1;cursor:pointer;font-family:var(--sans)}
