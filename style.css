@@ -76,6 +76,8 @@
   .kind{display:inline-block;font-size:11px;letter-spacing:.12em;padding:2px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);margin-bottom:8px}
   .k-edu{border-color:#B9C7E8;color:#3D5A99} .k-work{border-color:#CFE3D2;color:#2E7D4F} .k-life{border-color:var(--line)}
   .tl h4{margin:0;font-family:var(--jp);font-weight:700;font-size:18px;letter-spacing:.01em}
+  .tl h4 a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+  .tl p a{text-decoration:underline;text-underline-offset:3px}
   .tl p{margin:6px 0 0;color:var(--ink2);font-size:14.5px;max-width:44em}
   @media (max-width:640px){.tl li{grid-template-columns:1fr;gap:6px}}
 
