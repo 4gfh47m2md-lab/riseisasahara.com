@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="英検1級の一次に向けて、何をやって、大問ごとに何点動いたかを1枚で見るボード。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0A0A0A;--panel:#1C1C1C;--line:#2A2A2A;--ink:#FFFFFF;--mute:#8A8A8A;--yel:#FFD400;
+  --disp:"Oswald","Noto Sans JP",system-ui,sans-serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:dark}
+a{color:inherit} .crumb{color:#8A8A8A;font-size:12px;margin:0 0 16px} .crumb a{color:#8A8A8A;text-decoration:none}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);padding:0 16px;padding-block:28px 48px;max-width:960px;margin:0 auto;line-height:1.55}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,7vw,56px);letter-spacing:.02em;line-height:1;margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--body);font-weight:500;font-size:13px;color:var(--mute);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.asof{color:var(--mute);font-size:13px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tile{background:var(--panel);padding:20px 18px 16px}
+.tile.accent .big{color:var(--yel)}
+.big{font-family:var(--disp);font-weight:600;font-size:clamp(34px,6vw,48px);line-height:1;font-variant-numeric:tabular-nums}
+.unit{font-size:.45em;margin-left:3px;color:var(--mute)}
+.lab{margin-top:8px;font-size:13px;font-weight:700}
+.sub{font-size:12px;color:var(--mute)}
+section{margin-top:34px}
+h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:500;margin:0 0 12px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--mute);font-size:12px;letter-spacing:.06em;padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.q{white-space:nowrap} .qn{display:inline-block;min-width:3.6em;color:var(--mute);font-family:var(--disp);letter-spacing:.04em}
+.num{font-family:var(--disp);font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.den{color:var(--mute);font-size:.7em}
+.now{color:var(--yel)} .now:empty::after{content:"—"}
+.did{color:#CFCFCF} .note{color:var(--mute);font-size:13px}
+th.num,td.num{text-align:right}
+.foot{margin-top:12px;color:var(--mute);font-size:13px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px 10px}
+.card h3{margin:0 0 6px;font-size:14px;font-weight:700} .card p{margin:0 0 10px;color:var(--mute);font-size:12px}
+.chart{width:100%;height:auto;display:block} .chart text{font-family:var(--body);font-size:12px;fill:var(--mute)}
+.chart .cv{fill:var(--ink);font-family:var(--disp);font-size:14px} .chart .grid{stroke:var(--line);stroke-width:1}
+@media (max-width:640px){.charts{grid-template-columns:1fr}}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)} .num{font-size:18px}}
+</style>
+</head>
+<body>
+<p class="crumb"><a href="/">ホーム</a> / <a href="/building/">Building</a> / 前進ボード</p>
+
+<header>
+  <h1><small>Eiken Grade 1 · Progress</small>これだけやって、<br>ここがこれだけ動いた</h1>
+  <div class="asof">2026-09-19 時点</div>
+</header>
+<div class="tiles"><div class="tile"><div class="big">15<span class="unit">日</span></div><div class="lab">英検1級 一次 まで</div><div class="sub">10/4</div></div><div class="tile"><div class="big">57<span class="unit">日</span></div><div class="lab">TOEIC 第442回 まで</div><div class="sub">11/15</div></div><div class="tile"><div class="big">1,940</div><div class="lab">前回の一次</div><div class="sub">2026年6月・合格 2,028</div></div><div class="tile accent"><div class="big">88<span class="unit">点</span></div><div class="lab">合格まで</div><div class="sub">読解 大問2・3は 4/13</div></div></div>
+<section>
+  <h2>グラフ</h2>
+  <div class="charts">
+    <div class="card"><h3>技能別のスコア（前回）</h3><p>満点850。点線は合格ラインを3技能で割った平均。</p><svg class="chart" viewBox="0 0 640 150" role="img" aria-label="技能別CSEと合格に必要な平均"><text x="80" y="34" class="cl" text-anchor="end">Reading</text><rect x="92" y="18" width="386" height="22" rx="0" fill="#259460"><title>Reading 627 / 850</title></rect><text x="486" y="34" class="cv">627</text><text x="80" y="74" class="cl" text-anchor="end">Listening</text><rect x="92" y="58" width="408" height="22" rx="0" fill="#259460"><title>Listening 662 / 850</title></rect><text x="508" y="74" class="cv">662</text><text x="80" y="114" class="cl" text-anchor="end">Writing</text><rect x="92" y="98" width="401" height="22" rx="0" fill="#259460"><title>Writing 651 / 850</title></rect><text x="501" y="114" class="cv">651</text><line x1="508.7" y1="8" x2="508.7" y2="128" stroke="#D7761A" stroke-width="2" stroke-dasharray="4 4"/><text x="508.7" y="144" class="cl" text-anchor="middle">合格に必要な平均 676</text><text x="616" y="144" class="cl" text-anchor="end">850</text></svg></div>
+    <div class="card"><h3>mikan 1日の語数</h3><p>記録がある日だけ。点線が本番 10/4。</p><svg class="chart" viewBox="0 0 640 170" role="img" aria-label="mikan 日別語数"><line x1="36" y1="144.0" x2="632" y2="144.0" class="grid"/><text x="30" y="148.0" class="cl" text-anchor="end">0</text><line x1="36" y1="77.0" x2="632" y2="77.0" class="grid"/><text x="30" y="81.0" class="cl" text-anchor="end">150</text><line x1="36" y1="10.0" x2="632" y2="10.0" class="grid"/><text x="30" y="14.0" class="cl" text-anchor="end">300</text><rect x="32.2" y="54.7" width="7.7" height="89.3" fill="#259460"><title>2026-07-30 200語</title></rect><rect x="176.7" y="56.9" width="7.7" height="87.1" fill="#259460"><title>2026-08-15 195語</title></rect><rect x="185.7" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-08-16 0語</title></rect><rect x="194.7" y="54.7" width="7.7" height="89.3" fill="#259460"><title>2026-08-17 200語</title></rect><rect x="203.8" y="54.7" width="7.7" height="89.3" fill="#259460"><title>2026-08-18 200語</title></rect><rect x="212.8" y="51.1" width="7.7" height="92.9" fill="#259460"><title>2026-08-19 208語</title></rect><rect x="221.8" y="81.5" width="7.7" height="62.5" fill="#259460"><title>2026-08-20 140語</title></rect><rect x="230.8" y="57.8" width="7.7" height="86.2" fill="#259460"><title>2026-08-21 193語</title></rect><rect x="239.9" y="54.2" width="7.7" height="89.8" fill="#259460"><title>2026-08-22 201語</title></rect><rect x="248.9" y="99.3" width="7.7" height="44.7" fill="#259460"><title>2026-08-23 100語</title></rect><rect x="257.9" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-08-24 0語</title></rect><rect x="267.0" y="116.3" width="7.7" height="27.7" fill="#259460"><title>2026-08-25 62語</title></rect><rect x="276.0" y="112.3" width="7.7" height="31.7" fill="#259460"><title>2026-08-26 71語</title></rect><rect x="285.0" y="117.2" width="7.7" height="26.8" fill="#259460"><title>2026-08-27 60語</title></rect><rect x="294.1" y="98.4" width="7.7" height="45.6" fill="#259460"><title>2026-08-28 102語</title></rect><rect x="303.1" y="137.3" width="7.7" height="6.7" fill="#259460"><title>2026-08-29 15語</title></rect><rect x="312.1" y="142.2" width="7.7" height="1.8" fill="#259460"><title>2026-08-30 4語</title></rect><rect x="321.1" y="135.1" width="7.7" height="8.9" fill="#259460"><title>2026-08-31 20語</title></rect><rect x="330.2" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-09-01 0語</title></rect><rect x="339.2" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-09-02 0語</title></rect><rect x="348.2" y="88.6" width="7.7" height="55.4" fill="#259460"><title>2026-09-03 124語</title></rect><rect x="357.3" y="119.9" width="7.7" height="24.1" fill="#259460"><title>2026-09-04 54語</title></rect><rect x="366.3" y="139.5" width="7.7" height="4.5" fill="#259460"><title>2026-09-05 10語</title></rect><rect x="375.3" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-09-06 0語</title></rect><rect x="384.4" y="49.8" width="7.7" height="94.2" fill="#259460"><title>2026-09-07 211語</title></rect><rect x="393.4" y="53.3" width="7.7" height="90.7" fill="#259460"><title>2026-09-08 203語</title></rect><rect x="402.4" y="54.7" width="7.7" height="89.3" fill="#259460"><title>2026-09-09 200語</title></rect><rect x="411.4" y="144.0" width="7.7" height="0.0" fill="#259460"><title>2026-09-10 0語</title></rect><rect x="420.5" y="61.8" width="7.7" height="82.2" fill="#259460"><title>2026-09-11 184語</title></rect><rect x="429.5" y="109.6" width="7.7" height="34.4" fill="#259460"><title>2026-09-12 77語</title></rect><rect x="438.5" y="139.5" width="7.7" height="4.5" fill="#259460"><title>2026-09-13 10語</title></rect><rect x="447.6" y="59.6" width="7.7" height="84.4" fill="#259460"><title>2026-09-14 189語</title></rect><rect x="456.6" y="54.7" width="7.7" height="89.3" fill="#259460"><title>2026-09-15 200語</title></rect><rect x="465.6" y="77.4" width="7.7" height="66.6" fill="#259460"><title>2026-09-16 149語</title></rect><text x="469.5" y="71.4" class="cv" text-anchor="middle">149</text><text x="54.1" y="162" class="cl" text-anchor="middle">8月</text><text x="334.0" y="162" class="cl" text-anchor="middle">9月</text><line x1="632.0" y1="10" x2="632.0" y2="144" stroke="#D7761A" stroke-width="2" stroke-dasharray="4 4"/><text x="628.0" y="162" class="cl" text-anchor="end">10/4</text></svg></div>
+  </div>
+</section>
+<section>
+  <h2>大問ごと　前回 → 今回 → やったこと</h2>
+  <div class="wrap"><table>
+    <thead><tr><th>大問</th><th class="num">前回</th><th class="num">今回</th><th>やったこと（6月以降）</th></tr></thead>
+    <tbody><tr><td class="q"><span class="qn">大問1</span>語彙</td><td class="num">11<span class="den">/22</span></td><td class="num now">—</td><td class="did">mikan パス単 2周・習得率100%</td></tr><tr><td class="q"><span class="qn">大問2</span>空所（長文）</td><td class="num">2<span class="den">/6</span></td><td class="num now">—</td><td class="did">長文 0本</td></tr><tr><td class="q"><span class="qn">大問3</span>内容（長文）</td><td class="num">2<span class="den">/7</span></td><td class="num now">—</td><td class="did">長文 0本</td></tr><tr><td class="q"><span class="qn">大問4</span>要約</td><td class="num">16<span class="den">/32</span></td><td class="num now">—</td><td class="did">要約 2本</td></tr><tr><td class="q"><span class="qn">大問5</span>英作文</td><td class="num">21<span class="den">/32</span></td><td class="num now">—</td><td class="did">英作文 2本</td></tr><tr><td class="q"><span class="qn">L</span>Part1–4</td><td class="num">14<span class="den">/27</span></td><td class="num now">—</td><td class="did">L音声 移動中のみ・未記録</td></tr></tbody>
+  </table></div>
+  <p class="foot">「読めるようになったか」は大問2・3の行で見る。今回の列は 10/4 の成績表で埋まる。</p>
+</section>
+<section>
+  <h2>練習の中で見える成長　1本ごと</h2>
+  <div class="wrap"><table>
+    <thead><tr><th>日</th><th>種別</th><th class="num">直し÷1文</th><th class="num">所要</th><th class="num">語数</th><th></th></tr></thead>
+    <tbody><tr><td>08/12</td><td>英作文</td><td class="num">1.67</td><td class="num">—</td><td class="num">237</td><td class="note">数え方が違うため比較不可</td></tr><tr><td>08/13</td><td>要約</td><td class="num">3.0</td><td class="num">26分</td><td class="num">97</td><td class="note">基準値</td></tr><tr><td>08/14</td><td>英作文</td><td class="num">5.14</td><td class="num">—</td><td class="num">239</td><td class="note">基準値</td></tr><tr><td>08/17</td><td>要約</td><td class="num">—</td><td class="num">21分</td><td class="num">96</td><td class="note">英語化は本人未実施・計測なし</td></tr></tbody>
+  </table></div>
+  <p class="foot">下がっていけば成長。要約は要約どうし、英作文は英作文どうしで比べる。</p>
+</section>
+
+</body>
+</html>

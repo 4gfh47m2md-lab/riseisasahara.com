@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building + Systems — 笹原理成</title>
+<meta name="description" content="笹原理成が作っているもの。AIでの自動化、ウェブサイト、進みを見るボード。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--panel:#1C1C1C;--line:#2A2A2A;--ink:#FFFFFF;--mute:#8A8A8A;--yel:#FFD400;
+  --disp:"Oswald","Noto Sans JP",system-ui,sans-serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:13px;color:var(--mute)}
+nav .home{font-weight:700;color:var(--ink)} nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;letter-spacing:.08em;text-transform:uppercase}
+.hero{padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.crumb{font-size:12px;color:var(--mute);margin:0 0 14px} .crumb a{color:var(--mute)}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(64px,14vw,150px);line-height:.92;letter-spacing:.01em;margin:0 0 22px;
+   background:linear-gradient(180deg,#FFFFFF 0%,#B9B9B9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:34em;color:#CFCFCF;margin:0;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:36px 0 0}
+.st{background:var(--panel);padding:22px 20px 18px}
+.st .n{font-family:var(--disp);font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1;font-variant-numeric:tabular-nums}
+.st .n small{font-size:.45em;color:var(--mute);margin-left:3px}
+.st .l{margin-top:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+section{padding:44px 0 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:500;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{position:relative;display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;min-height:240px;transition:border-color .15s}
+.card:hover,.card:focus-visible{border-color:#5A5A5A;outline:none}
+.card .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.card h3{font-family:var(--disp);font-weight:600;font-size:30px;line-height:1.05;margin:0 0 10px}
+.card p{margin:0;color:#CFCFCF;font-size:14px}
+.card .go{position:absolute;right:16px;bottom:14px;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--mute);font-size:14px}
+.card.hot{border-color:#3A3A3A} .card.hot h3{color:var(--yel)}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.li{background:var(--panel);padding:18px 20px} .li b{display:block;font-size:14px;margin-bottom:4px} .li span{font-size:13px;color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.step{background:var(--panel);padding:18px 20px} .step .k{font-family:var(--disp);color:var(--mute);letter-spacing:.1em;font-size:13px} .step b{display:block;margin:6px 0 4px;font-size:14px} .step p{margin:0;font-size:13px;color:var(--mute)}
+footer{margin-top:56px;padding:24px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.list{grid-template-columns:1fr}}
+@media (max-width:480px){.stats{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="/">笹原理成</a><ul><li><a href="#work">Work</a></li><li><a href="#how">How</a></li><li><a href="/">Home</a></li></ul></nav>
+
+<section class="hero">
+  <p class="crumb"><a href="/">ホーム</a> / 記録 / VI</p>
+  <p class="kicker">Building + Systems</p>
+  <h1>BUILDING</h1>
+  <p class="lead">AIと一緒に作っているもの。毎朝の計測を自動で集める仕組み、このサイト、試験までの進みを見るボード。数字は全部、自分の記録から出している。</p>
+  <div class="stats">
+    <div class="st"><div class="n">25<small>本</small></div><div class="l">毎日動く自動化</div></div>
+    <div class="st"><div class="n">1</div><div class="l">ウェブサイト</div></div>
+    <div class="st"><div class="n">1</div><div class="l">ボード</div></div>
+    <div class="st"><div class="n">2026<small>.09</small></div><div class="l">Building 開始</div></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sh"><h2>Featured Work</h2></div>
+  <div class="cards">
+    <a class="card hot" href="/building/eiken/">
+      <p class="tag">Web App · 進行中</p>
+      <h3>前進ボード</h3>
+      <p>英検1級の一次に向けて、何をやって、大問ごとに何点動いたかを1枚で見る。試験までの日数、技能別のスコア、練習1本ごとの数字。</p>
+      <span class="go">↗</span>
+    </a>
+    <a class="card" href="/">
+      <p class="tag">Website · 2026.09.05</p>
+      <h3>riseisasahara.com</h3>
+      <p>自分そのものの記録。6つの領域と年表、作品49点。HTMLとCSSだけで書いている。</p>
+      <span class="go">↗</span>
+    </a>
+    <div class="card">
+      <p class="tag">Automation · Slack</p>
+      <h3>毎朝の計測</h3>
+      <p>睡眠・コンディション・体組成・天気・出勤・試合の記録を毎朝自動で集めて、Slackに1本ずつ流す。手で写す作業をなくした。</p>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="sh"><h2>How I Build</h2></div>
+  <div class="steps">
+    <div class="step"><span class="k">01</span><b>課題を1行にする</b><p>「何が見えていないか」を自分の言葉で書く。</p></div>
+    <div class="step"><span class="k">02</span><b>まず自分が使う</b><p>最初の利用者は自分。毎日触る理由がないものは作らない。</p></div>
+    <div class="step"><span class="k">03</span><b>記録から出す</b><p>数字は台帳（CSV）から。手で打った数字を画面に置かない。</p></div>
+    <div class="step"><span class="k">04</span><b>見せられる形にする</b><p>使った実績がそのまま人に見せるものになる。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><h2>Tools</h2></div>
+  <div class="list">
+    <div class="li"><b>Claude Code</b><span>設計と実装の相棒。ターミナルから</span></div>
+    <div class="li"><b>Python</b><span>台帳の読み書き・集計・ページ生成</span></div>
+    <div class="li"><b>launchd</b><span>Macで毎朝決まった時刻に動かす</span></div>
+    <div class="li"><b>Slack API</b><span>結果を1本ずつ通知する</span></div>
+    <div class="li"><b>Oura / InBody</b><span>睡眠・コンディション・体組成の計測元</span></div>
+    <div class="li"><b>HTML / CSS / SVG</b><span>このサイトとボード。ライブラリなし</span></div>
+  </div>
+</section>
+
+<footer><span>© 2026 笹原理成</span><span>自動化の本数は 2026年8月 時点。ほかは 2026年9月19日 時点。</span></footer>
+</div>
+</body>
+</html>
