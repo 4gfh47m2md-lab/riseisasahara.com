@@ -7,104 +7,162 @@
 <meta name="description" content="笹原理成の英語スコア・学んだ言語・指導歴。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=20260913">
-<link rel="stylesheet" href="/page.css?v=20260913">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3F5F9;--card:#FFFFFF;--line:#D8DEE8;--rule:#C3CAD6;--text:#1E2430;--mute:#6C7482;--ink:#1F3A6E;--ink-soft:#E7ECF5;
+  --serif:"Newsreader","Times New Roman",Georgia,serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);line-height:1.7;
+  background-image:linear-gradient(transparent 31px,rgba(31,58,110,.05) 32px);background-size:100% 32px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:13px;color:var(--mute);border-bottom:1px solid var(--rule)}
+nav .home{font-weight:700;color:var(--text)} nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;font-family:var(--serif);font-size:15px;letter-spacing:.02em}
+nav ul a{border-bottom:1px solid transparent} nav ul a:hover{border-bottom-color:var(--ink);color:var(--ink)}
+.crumb{font-size:12px;color:var(--mute);margin:24px 0 0} .crumb a{color:var(--mute)}
+
+/* 見出し語（辞書のエントリー） */
+.entry{margin-top:14px}
+.runhead{display:flex;justify-content:space-between;font-family:var(--serif);font-size:13px;color:var(--mute);letter-spacing:.06em;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.runhead b{font-weight:400;color:var(--ink)}
+.head{padding:34px 0 8px}
+.head h1{margin:0;font-weight:400;line-height:1}
+.head .en{font-family:var(--serif);font-size:clamp(64px,11vw,124px);letter-spacing:-.02em;color:var(--ink);display:inline-block;line-height:.95}
+.head .meta{display:inline-flex;gap:14px;align-items:baseline;margin-left:14px;vertical-align:baseline;flex-wrap:wrap}
+.ipa{font-family:var(--serif);font-size:clamp(15px,2vw,20px);color:var(--mute);letter-spacing:.02em}
+.pos{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--mute)}
+.head .ja{display:block;font-size:clamp(28px,4.6vw,44px);font-weight:700;margin-top:14px;letter-spacing:.06em}
+.head .ja::before{content:"— ";color:var(--rule);font-weight:400}
+.def{max-width:38em;margin:14px 0 0;font-size:15px}
+.def .sense{font-family:var(--serif);color:var(--ink);margin-right:8px}
+
+/* 単語カード */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.vc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 18px 16px 22px;box-shadow:0 1px 0 rgba(31,58,110,.06),0 8px 22px -14px rgba(31,58,110,.28);overflow:hidden}
+.vc::before{content:"";position:absolute;top:12px;left:12px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--rule)}
+.vc::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--ink)}
+.vc .lbl{font-size:11px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;margin-top:6px}
+.vc .num{font-family:var(--serif);font-size:clamp(40px,4.6vw,52px);line-height:1;color:var(--ink);margin-top:10px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.vc .num sup{font-family:var(--body);font-size:.3em;color:var(--mute);vertical-align:top;margin-left:2px;top:.6em;position:relative}
+.vc .tier{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.5}
+.cards-note{color:var(--mute);font-size:12px;margin:10px 0 0;font-family:var(--serif);letter-spacing:.02em}
+
+.photo{margin:24px 0 0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;padding:10px}
+.photo img{display:block;width:100%;height:auto;max-width:100%;border-radius:6px}
+.photo figcaption{padding:10px 4px 2px;color:var(--mute);font-size:12.5px;font-family:var(--serif)}
+
+/* セクション＝見出し語 */
+section{margin-top:52px}
+.sh{border-top:1px solid var(--rule);padding-top:16px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:end}
+.sh .no{grid-column:1/-1;font-family:var(--serif);font-size:12px;letter-spacing:.2em;color:var(--mute)}
+.sh h2{margin:0;font-weight:400;line-height:1.1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.sh h2 .en{font-family:var(--serif);font-size:clamp(34px,5vw,48px);color:var(--ink);letter-spacing:-.01em}
+.sh h2 .ja{font-size:17px;font-weight:700;letter-spacing:.08em}
+.sh h2 .ja::before{content:"— ";color:var(--rule);font-weight:400}
+.sh p{margin:0;color:var(--mute);font-size:13px;text-align:right;max-width:26em}
+
+/* 表 */
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-family:var(--serif);text-align:left;font-weight:500;white-space:nowrap;font-size:13px;letter-spacing:.04em;color:var(--mute);padding:12px 18px;border-bottom:1px solid var(--line);background:var(--ink-soft)}
+td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.k{white-space:nowrap;color:var(--ink);font-weight:500}
+td.s{font-family:var(--serif);font-size:22px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.m{color:var(--mute)}
+td .lv{display:inline-block;font-family:var(--serif);font-style:italic;color:var(--ink);margin-right:8px}
+
+/* 用例（指導歴） */
+.ex{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.ex li{display:grid;grid-template-columns:44px 170px 1fr;gap:6px 18px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.ex li:last-child{border-bottom:0}
+.ex .sn{font-family:var(--serif);color:var(--ink);font-size:20px;line-height:1.2}
+.ex .yr{font-family:var(--serif);color:var(--mute);font-size:14px;letter-spacing:.02em;padding-top:3px;white-space:nowrap}
+.ex h4{margin:0;font-size:15px;font-weight:700;letter-spacing:.02em}
+.ex p{margin:4px 0 0;font-size:14px;color:var(--text)}
+.ex p::before{content:"‣ ";color:var(--rule)}
+
+footer{margin-top:64px;padding:22px 0 44px;border-top:1px solid var(--rule);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){.cards{grid-template-columns:1fr 1fr}.ex li{grid-template-columns:36px 1fr}.ex li .yr{grid-column:2}.ex li div{grid-column:2}.sh{grid-template-columns:1fr}.sh p{text-align:left}}
+@media (max-width:480px){.head{padding-top:26px}.head .meta{display:flex;margin:10px 0 0}.cards{gap:10px}.vc{padding:20px 14px 14px 18px}.vc .num{font-size:34px}.ex li{padding:16px 16px}nav ul{gap:14px;font-size:14px}}
+</style>
 </head>
 <body>
-<header class="wrap">
-  <nav>
-    <a href="/"><span class="dot"></span>笹原理成</a>
-    <ul><li><a href="#toeic">TOEIC</a></li><li><a href="#languages">言語</a></li><li><a href="#teaching">指導</a></li></ul>
-  </nav>
-</header>
+<div class="wrap">
+<nav><a class="home" href="/">笹原理成</a><ul><li><a href="#toeic">TOEIC</a></li><li><a href="#languages">言語</a></li><li><a href="#teaching">指導</a></li><li><a href="/">Home</a></li></ul></nav>
+<p class="crumb"><a href="/">ホーム</a> / 記録 / III</p>
 
-<main class="wrap page">
-  <section class="hero">
-    <p class="crumb"><a href="/">ホーム</a> / 記録 / III</p>
-    <p class="kicker">Language + Communication</p>
-    <h1>言語</h1>
-    <p class="lead">英語は指導・通訳・修士課程で日常的に使用。2018年から一人ずつ相手にする指導を続けている。</p>
-    <div class="ratings">
-      <div class="r">
-        <div class="lbl">TOEIC · 自己ベスト</div>
-        <div class="num">870</div>
-        <div class="tier">2025年8月</div>
-      </div>
-      <div class="r">
-        <div class="lbl">TOEIC · 伸び</div>
-        <div class="num">+190</div>
-        <div class="tier">2017年 680 → 2025年 870</div>
-      </div>
-      <div class="r">
-        <div class="lbl">英検</div>
-        <div class="num">準1級</div>
-        <div class="tier">2025年2月 · 1級一次 2026年10月</div>
-      </div>
-      <div class="r">
-        <div class="lbl">指導開始</div>
-        <div class="num">2018<sup>年</sup></div>
-        <div class="tier">中学生・高校生</div>
-      </div>
-    </div>
-    <p class="ratings-note">数字は 2026年9月5日 時点。</p>
-    <figure class="photo"><img src="/img/portrait-2.jpg" alt="笹原理成、2020年5月" width="1600" height="1200" loading="lazy"><figcaption>2020年5月。</figcaption></figure>
-  </section>
+<section class="entry" aria-label="見出し語">
+  <div class="runhead"><span>Language + Communication</span><span><b>III</b> · language</span></div>
+  <div class="head">
+    <h1><span class="en">language</span><span class="meta"><span class="ipa">/ˈlæŋɡwɪdʒ/</span><span class="pos">n.</span></span><span class="ja">言語</span></h1>
+    <p class="def"><span class="sense">1.</span>英語は指導・通訳・修士課程で日常的に使用。2018年から一人ずつ相手にする指導を続けている。</p>
+  </div>
 
-  <section id="toeic">
-    <div class="sh">
-      <h2><span class="n">01 — TOEIC</span>スコア推移</h2>
-      <p>Listening &amp; Reading、受験日ベース。</p>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>受験日</th><th>スコア</th><th>メモ</th></tr></thead>
-      <tbody>
-        <tr><td class="k">2017年4月</td><td>680</td><td>大学の入学式の翌日</td></tr>
-        <tr><td class="k">2023年4月23日</td><td>720</td><td></td></tr>
-        <tr><td class="k">2024年9月14日</td><td>835</td><td></td></tr>
-        <tr><td class="k">2025年8月24日</td><td>870</td><td>自己ベスト</td></tr>
-        <tr><td class="k">2026年4月19日</td><td>840</td><td>L435 / R405</td></tr>
-      </tbody>
-    </table></div>
-  </section>
+  <div class="cards">
+    <div class="vc"><div class="lbl">TOEIC · 自己ベスト</div><div class="num">870</div><div class="tier">2025年8月</div></div>
+    <div class="vc"><div class="lbl">TOEIC · 伸び</div><div class="num">+190</div><div class="tier">2017年 680 → 2025年 870</div></div>
+    <div class="vc"><div class="lbl">英検</div><div class="num">準1級</div><div class="tier">2025年2月 · 1級一次 2026年10月</div></div>
+    <div class="vc"><div class="lbl">指導開始</div><div class="num">2018<sup>年</sup></div><div class="tier">中学生・高校生</div></div>
+  </div>
+  <p class="cards-note">数字は 2026年9月5日 時点。</p>
 
-  <section id="languages">
-    <div class="sh">
-      <h2><span class="n">02 — 言語</span>学んだ言語</h2>
-      <p></p>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>言語</th><th>レベル</th></tr></thead>
-      <tbody>
-        <tr><td class="k">日本語</td><td>母語</td></tr>
-        <tr><td class="k">英語</td><td>上級 — 英検準1級・TOEIC 870。米国の修士課程を全て英語で修了</td></tr>
-        <tr><td class="k">韓国語</td><td>大学で基礎課程を履修</td></tr>
-        <tr><td class="k">ロシア語</td><td>大学で基礎課程を履修</td></tr>
-        <tr><td class="k">中国語</td><td>大学で基礎課程を履修</td></tr>
-        <tr><td class="k">イタリア語</td><td>大学で基礎課程を履修</td></tr>
-      </tbody>
-    </table></div>
-  </section>
+  <figure class="photo"><img src="/img/portrait-2.jpg" alt="笹原理成、2020年5月" width="1600" height="1200" loading="lazy"><figcaption>2020年5月。</figcaption></figure>
+</section>
 
-  <section id="teaching" style="border-bottom:0">
-    <div class="sh">
-      <h2><span class="n">03 — 指導</span>指導歴</h2>
-      <p></p>
-    </div>
-    <ul class="tl">
-      <li><span class="yr">2017 – 2018</span><div><h4>英語指導 — EDO</h4><p>大学受験。18〜19歳。</p></div></li>
-      <li><span class="yr">2018年度・2020年</span><div><h4>英語の家庭教師</h4><p>中学生・高校生（弟とそのクラスメイト）。オンライン・オフライン。人に英語を教えた最初。</p></div></li>
-      <li><span class="yr">2024年8月 – 2026年7月</span><div><h4>塾講師 — eX.media / EDO 小学生部門</h4><p>中学受験。高円寺南で平日夕方。</p></div></li>
-      <li><span class="yr">2025年9月 –</span><div><h4>英語講師・通訳 — Athlete Force</h4><p>2025年に英語教室を立ち上げ。26歳で通訳として実務。</p></div></li>
-      <li><span class="yr">2026年1月 –</span><div><h4>高校生へのオンライン英語指導</h4><p>定期試験対策をリモートで。担当した生徒が2026年、英語2科目とも学年1位（論理・表現 100点／英語コミュニケーション 94点）。</p></div></li>
-      <li><span class="yr">2026年1月 –</span><div><h4>英語によるバスケットボール指導</h4><p>幕張インターナショナルスクール、K〜G5。</p></div></li>
-    </ul>
-  </section>
-</main>
+<section id="toeic">
+  <div class="sh">
+    <span class="no">01 — TOEIC</span>
+    <h2><span class="en">score</span><span class="ipa">/skɔːr/</span><span class="pos">n.</span><span class="ja">スコア推移</span></h2>
+    <p>Listening &amp; Reading、受験日ベース。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>受験日</th><th>スコア</th><th>メモ</th></tr></thead>
+    <tbody>
+      <tr><td class="k">2017年4月</td><td class="s">680</td><td class="m">大学の入学式の翌日</td></tr>
+      <tr><td class="k">2023年4月23日</td><td class="s">720</td><td class="m"></td></tr>
+      <tr><td class="k">2024年9月14日</td><td class="s">835</td><td class="m"></td></tr>
+      <tr><td class="k">2025年8月24日</td><td class="s">870</td><td class="m">自己ベスト</td></tr>
+      <tr><td class="k">2026年4月19日</td><td class="s">840</td><td class="m">L435 / R405</td></tr>
+    </tbody>
+  </table></div>
+</section>
 
-<footer class="wrap">
-  <span>© 2026 笹原理成</span>
-  <span><a href="/">← ホーム</a></span>
-</footer>
+<section id="languages">
+  <div class="sh">
+    <span class="no">02 — 言語</span>
+    <h2><span class="en">languages</span><span class="ipa">/ˈlæŋɡwɪdʒɪz/</span><span class="pos">pl.</span><span class="ja">学んだ言語</span></h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>言語</th><th>レベル</th></tr></thead>
+    <tbody>
+      <tr><td class="k">日本語</td><td>母語</td></tr>
+      <tr><td class="k">英語</td><td><span class="lv">上級</span>英検準1級・TOEIC 870。米国の修士課程を全て英語で修了</td></tr>
+      <tr><td class="k">韓国語</td><td>大学で基礎課程を履修</td></tr>
+      <tr><td class="k">ロシア語</td><td>大学で基礎課程を履修</td></tr>
+      <tr><td class="k">中国語</td><td>大学で基礎課程を履修</td></tr>
+      <tr><td class="k">イタリア語</td><td>大学で基礎課程を履修</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="teaching">
+  <div class="sh">
+    <span class="no">03 — 指導</span>
+    <h2><span class="en">teach</span><span class="ipa">/tiːtʃ/</span><span class="pos">v.</span><span class="ja">指導歴</span></h2>
+  </div>
+  <ol class="ex">
+    <li><span class="sn">1</span><span class="yr">2017 – 2018</span><div><h4>英語指導 — EDO</h4><p>大学受験。18〜19歳。</p></div></li>
+    <li><span class="sn">2</span><span class="yr">2018年度・2020年</span><div><h4>英語の家庭教師</h4><p>中学生・高校生（弟とそのクラスメイト）。オンライン・オフライン。人に英語を教えた最初。</p></div></li>
+    <li><span class="sn">3</span><span class="yr">2024年8月 – 2026年7月</span><div><h4>塾講師 — eX.media / EDO 小学生部門</h4><p>中学受験。高円寺南で平日夕方。</p></div></li>
+    <li><span class="sn">4</span><span class="yr">2025年9月 –</span><div><h4>英語講師・通訳 — Athlete Force</h4><p>2025年に英語教室を立ち上げ。26歳で通訳として実務。</p></div></li>
+    <li><span class="sn">5</span><span class="yr">2026年1月 –</span><div><h4>高校生へのオンライン英語指導</h4><p>定期試験対策をリモートで。担当した生徒が2026年、英語2科目とも学年1位（論理・表現 100点／英語コミュニケーション 94点）。</p></div></li>
+    <li><span class="sn">6</span><span class="yr">2026年1月 –</span><div><h4>英語によるバスケットボール指導</h4><p>幕張インターナショナルスクール、K〜G5。</p></div></li>
+  </ol>
+</section>
+
+<footer><span>© 2026 笹原理成</span><span><a href="/">← ホーム</a></span></footer>
+</div>
 </body>
 </html>

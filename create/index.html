@@ -7,112 +7,199 @@
 <meta name="description" content="笹原理成の美術の訓練・画材・使用ソフト。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=20260913">
-<link rel="stylesheet" href="/page.css?v=20260913">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wall:#F5F4F1;--wall2:#EDECE8;--frame:#FFFFFF;--line:#D9D7D2;--ink:#1A1A1A;--mute:#7A7873;--soft:#4A4844;--mark:#B2442E;
+  --disp:"Cormorant Garamond","Noto Sans JP",Georgia,serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--wall);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.8;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:12.5px;color:var(--mute);gap:16px}
+nav .home{font-weight:500;color:var(--ink);letter-spacing:.04em}
+nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;flex-wrap:wrap;justify-content:flex-end}
+nav a:hover{color:var(--ink)}
+.crumb{font-size:12px;color:var(--mute);margin:30px 0 0;letter-spacing:.02em} .crumb a{color:var(--mute)}
+
+/* hero = 展示室の入口 */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;padding:28px 0 56px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--disp);font-weight:400;font-style:italic;font-size:20px;letter-spacing:.02em;color:var(--soft);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mark);flex:none}
+h1{font-weight:300;font-size:clamp(56px,9vw,104px);line-height:1;letter-spacing:.12em;margin:0 0 26px}
+.lead{font-size:15px;color:var(--soft);max-width:30em;margin:0}
+.hero .piece{margin:0}
+.frame{background:var(--frame);padding:14px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 40px -24px rgba(0,0,0,.18)}
+.frame img{display:block;width:100%;height:auto}
+.label{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--soft);line-height:1.6}
+.label b{display:block;font-weight:500;color:var(--ink);font-size:13px}
+.label a{color:var(--mute)}
+
+/* 概要ラベル（学位・在学・制作・作品） */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:40px 0 8px}
+.f{border-top:1px solid var(--ink);padding-top:14px;display:block}
+.f .l{font-size:11.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.f .n{font-family:var(--disp);font-weight:300;font-size:clamp(44px,5vw,60px);line-height:1;margin:10px 0 8px;font-variant-numeric:tabular-nums}
+.f .n small{font-family:var(--body);font-size:13px;color:var(--mute);margin-left:6px;letter-spacing:.02em}
+.f .d{font-size:12.5px;color:var(--soft)}
+a.f:hover .n{color:var(--mark)}
+.asof{font-size:12px;color:var(--mute);margin:14px 0 0}
+
+/* 展示室 */
+section{padding:64px 0 0}
+.room{display:flex;align-items:baseline;gap:18px;margin:0 0 30px}
+.room .no{font-family:var(--disp);font-weight:300;font-size:15px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;white-space:nowrap}
+.room h2{font-weight:400;font-size:20px;letter-spacing:.06em;margin:0}
+.room h2 span{font-family:var(--disp);font-weight:300;font-style:italic;font-size:22px;color:var(--soft);margin-left:12px;letter-spacing:.01em}
+.room p{margin:0;font-size:13px;color:var(--mute)}
+.room-lead{max-width:38em;color:var(--soft);font-size:14px;margin:-16px 0 30px}
+
+/* 作品の壁（多段カラム） */
+.wall{columns:3;column-gap:28px}
+.wall figure{break-inside:avoid;margin:0 0 36px;display:block}
+.wall .frame{padding:10px}
+.wall .label{margin-top:10px}
+.more{display:inline-flex;align-items:baseline;gap:10px;margin-top:6px;font-size:13.5px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+.more:hover{color:var(--mark);border-color:var(--mark)}
+
+/* 年表（訓練・仕事） */
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.tl .yr{font-family:var(--disp);font-weight:400;font-size:17px;color:var(--soft);letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.5}
+.tl h4{margin:0;font-weight:500;font-size:15px;letter-spacing:.02em}
+.tl p{margin:6px 0 0;font-size:13.5px;color:var(--soft)}
+.tl a{border-bottom:1px solid var(--line)} .tl a:hover{border-color:var(--ink)}
+
+/* 素材表示（画材・ソフト） */
+.spec{margin:0;border-top:1px solid var(--line)}
+.spec .row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-size:12px;letter-spacing:.1em;color:var(--mute);padding-top:3px}
+.spec dd{margin:0;font-size:14px;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.two h3{font-weight:400;font-size:13px;letter-spacing:.12em;color:var(--mute);margin:0 0 14px;text-transform:uppercase}
+.two h3 span{font-family:var(--body);text-transform:none;letter-spacing:.06em;color:var(--ink);font-weight:500;margin-left:10px}
+
+/* 写真 */
+.photo{margin:44px 0 0}
+.photo .frame{padding:12px}
+
+footer{margin-top:80px;padding:26px 0 48px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;align-items:start;padding-top:20px}
+  .hero .piece{max-width:520px}
+  .facts{grid-template-columns:1fr 1fr;gap:22px}
+  .wall{columns:2;column-gap:20px}
+  .two{grid-template-columns:1fr;gap:44px}
+  .tl li,.spec .row{grid-template-columns:140px 1fr;gap:16px}
+}
+@media (max-width:480px){
+  nav{padding:20px 0} nav ul{gap:14px}
+  h1{font-size:clamp(48px,15vw,64px);letter-spacing:.1em}
+  .kicker{font-size:18px}
+  .facts{grid-template-columns:1fr 1fr;gap:18px}
+  .f .n{font-size:40px}
+  .wall{columns:1}
+  .wall figure{margin-bottom:28px}
+  .room{flex-direction:column;gap:6px}
+  .tl li,.spec .row{grid-template-columns:1fr;gap:4px;padding:14px 0}
+  .tl .yr{font-size:15px}
+  section{padding-top:52px}
+}
+</style>
 </head>
 <body>
-<header class="wrap">
-  <nav>
-    <a href="/"><span class="dot"></span>笹原理成</a>
-    <ul><li><a href="#training">訓練</a></li><li><a href="#media">画材</a></li><li><a href="#tools">ソフト</a></li><li><a href="#work">仕事</a></li><li><a href="/works/">作品</a></li></ul>
-  </nav>
-</header>
+<div class="wrap">
+<nav><a class="home" href="/">笹原理成</a><ul><li><a href="#training">訓練</a></li><li><a href="#media">画材</a></li><li><a href="#tools">ソフト</a></li><li><a href="#work">仕事</a></li><li><a href="/works/">作品</a></li><li><a href="/">Home</a></li></ul></nav>
+<p class="crumb"><a href="/">ホーム</a> / 記録 / IV</p>
 
-<main class="wrap page">
-  <section class="hero">
-    <p class="crumb"><a href="/">ホーム</a> / 記録 / IV</p>
+<section class="hero">
+  <div>
     <p class="kicker">Create + Expression</p>
     <h1>つくる</h1>
     <p class="lead">Fine Art（Illustration）の修士。骨格から人体を描くデッサンが土台。2020年からイベントとSNSのデザインも。</p>
-    <div class="ratings">
-      <div class="r">
-        <div class="lbl">学位</div>
-        <div class="num">MA</div>
-        <div class="tier">Fine Art · Illustration</div>
-      </div>
-      <div class="r">
-        <div class="lbl">在学</div>
-        <div class="num">3.5<sup>年</sup></div>
-        <div class="tier">2023年1月 – 2026年6月</div>
-      </div>
-      <div class="r">
-        <div class="lbl">Canva 制作</div>
-        <div class="num">80<sup>件以上</sup></div>
-        <div class="tier">フライヤー・チラシ 2022 – 2025</div>
-      </div>
-      <a class="r" href="/works/">
-        <div class="lbl">作品</div>
-        <div class="num">49<sup>点</sup></div>
-        <div class="tier">デッサン・デジタル・スタンプ・デザイン →</div>
-      </a>
-    </div>
-    <p class="ratings-note">数字は 2026年9月5日 時点。</p>
-    <figure class="photo"><img src="/img/aau.jpg" alt="Academy of Art University にて、2023年5月" width="1600" height="1200" loading="lazy"><figcaption>Academy of Art University（サンフランシスコ）、2023年5月。</figcaption></figure>
-  </section>
+  </div>
+  <figure class="piece">
+    <div class="frame"><img src="/img/works/d15-figure.jpg" alt="人体（全身）" width="1206" height="1587" loading="lazy"></div>
+    <figcaption class="label"><b>人体（全身）</b><a href="/works/">作品 49点 →</a></figcaption>
+  </figure>
+</section>
 
-  <section id="training">
-    <div class="sh">
-      <h2><span class="n">01 — 訓練</span>Academy of Art University</h2>
-      <p>米国サンフランシスコ。全課程を東京からオンライン・英語で受講。在学中は常に就業。</p>
-    </div>
-    <ul class="tl">
-      <li><span class="yr">2023年1月</span><div><h4>入学</h4></div></li>
-      <li><span class="yr">2023 – 2026</span><div><h4>Fine Art（Illustration）修士課程</h4><p>Master of Arts。GPA 3.08 / 4.0。</p></div></li>
-      <li><span class="yr">2026年6月</span><div><h4>修了</h4></div></li>
-    </ul>
-  </section>
+<div class="facts">
+  <div class="f"><div class="l">学位</div><div class="n">MA</div><div class="d">Fine Art · Illustration</div></div>
+  <div class="f"><div class="l">在学</div><div class="n">3.5<small>年</small></div><div class="d">2023年1月 – 2026年6月</div></div>
+  <div class="f"><div class="l">Canva 制作</div><div class="n">80<small>件以上</small></div><div class="d">フライヤー・チラシ 2022 – 2025</div></div>
+  <a class="f" href="/works/"><div class="l">作品</div><div class="n">49<small>点</small></div><div class="d">デッサン・デジタル・スタンプ・デザイン →</div></a>
+</div>
+<p class="asof">数字は 2026年9月5日 時点。</p>
 
-  <section id="media">
-    <div class="sh">
-      <h2><span class="n">02 — 画材</span>描けるもの</h2>
-      <p></p>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>区分</th><th>画材</th></tr></thead>
-      <tbody>
-        <tr><td class="k">デッサン</td><td>鉛筆（人体・骨格・アスリート）・木炭・チャコール・クロッキー・人体解剖</td></tr>
-        <tr><td class="k">絵画</td><td>水彩・アクリル・ガッシュ・油彩</td></tr>
-        <tr><td class="k">イラスト</td><td>リアル寄り（人物・モチーフ）・アニメ調</td></tr>
-        <tr><td class="k">漫画</td><td>2点透視・3点透視図法</td></tr>
-        <tr><td class="k">デジタル</td><td>Procreate・Adobe Photoshop / Illustrator / InDesign</td></tr>
-      </tbody>
-    </table></div>
-  </section>
+<section id="gallery">
+  <div class="room"><span class="no">Room 00</span><h2>展示<span>Selected Works</span></h2></div>
+  <div class="wall">
+    <figure><div class="frame"><img src="/img/works/d21-player-head.jpg" alt="バスケットボール選手（頭部）" width="1382" height="1600" loading="lazy"></div><figcaption class="label"><b>バスケットボール選手（頭部）</b></figcaption></figure>
+    <figure><div class="frame"><img src="/img/works/g07-cheetah.jpg" alt="チーター" width="1600" height="957" loading="lazy"></div><figcaption class="label"><b>チーター</b></figcaption></figure>
+    <figure><div class="frame"><img src="/img/works/d18-head-3.jpg" alt="頭部（女性）" width="1206" height="1594" loading="lazy"></div><figcaption class="label"><b>頭部（女性）</b></figcaption></figure>
+    <figure><div class="frame"><img src="/img/works/g10-player-dribble.jpg" alt="バスケットボール選手（ドリブル）" width="1600" height="1112" loading="lazy"></div><figcaption class="label"><b>バスケットボール選手（ドリブル）</b></figcaption></figure>
+    <figure><div class="frame"><img src="/img/works/d24-acrylic-sea.jpg" alt="アクリル・海" width="1200" height="1600" loading="lazy"></div><figcaption class="label"><b>アクリル・海</b></figcaption></figure>
+    <figure><div class="frame"><img src="/img/works/g08-lizard.jpg" alt="トカゲ（骨格から）" width="1600" height="1112" loading="lazy"></div><figcaption class="label"><b>トカゲ（骨格から）</b></figcaption></figure>
+  </div>
+  <a class="more" href="/works/">作品 49点をすべて見る <span aria-hidden="true">→</span></a>
+</section>
 
-  <section id="tools">
-    <div class="sh">
-      <h2><span class="n">03 — ソフト</span>使用ソフト</h2>
-      <p></p>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>分野</th><th>ソフト</th></tr></thead>
-      <tbody>
-        <tr><td class="k">デザイン</td><td>Adobe Photoshop / Illustrator / InDesign・Procreate・Canva</td></tr>
-        <tr><td class="k">データ</td><td>Google スプレッドシート・Notion・Python</td></tr>
-        <tr><td class="k">AI</td><td>ChatGPT・Gemini・Claude（Claude Code で自動化）</td></tr>
-        <tr><td class="k">音楽</td><td>Rekordbox・Serato DJ</td></tr>
-        <tr><td class="k">マーケティング</td><td>LINE公式アカウント・L-Step</td></tr>
-      </tbody>
-    </table></div>
-  </section>
+<section id="training">
+  <div class="room"><span class="no">Room 01</span><h2>訓練<span>Academy of Art University</span></h2></div>
+  <p class="room-lead">米国サンフランシスコ。全課程を東京からオンライン・英語で受講。在学中は常に就業。</p>
+  <ul class="tl">
+    <li><span class="yr">2023年1月</span><div><h4>入学</h4></div></li>
+    <li><span class="yr">2023 – 2026</span><div><h4>Fine Art（Illustration）修士課程</h4><p>Master of Arts。GPA 3.08 / 4.0。</p></div></li>
+    <li><span class="yr">2026年6月</span><div><h4>修了</h4></div></li>
+  </ul>
+  <figure class="photo">
+    <div class="frame"><img src="/img/aau.jpg" alt="Academy of Art University にて、2023年5月" width="1600" height="1200" loading="lazy"></div>
+    <figcaption class="label">Academy of Art University（サンフランシスコ）、2023年5月。</figcaption>
+  </figure>
+</section>
 
-  <section id="work" style="border-bottom:0">
-    <div class="sh">
-      <h2><span class="n">04 — 仕事</span>デザインとDJ</h2>
-      <p></p>
+<section id="media">
+  <div class="room"><span class="no">Room 02</span><h2>素材<span>Materials &amp; Tools</span></h2></div>
+  <div class="two">
+    <div id="media-list">
+      <h3>画材<span>描けるもの</span></h3>
+      <dl class="spec">
+        <div class="row"><dt>デッサン</dt><dd>鉛筆（人体・骨格・アスリート）・木炭・チャコール・クロッキー・人体解剖</dd></div>
+        <div class="row"><dt>絵画</dt><dd>水彩・アクリル・ガッシュ・油彩</dd></div>
+        <div class="row"><dt>イラスト</dt><dd>リアル寄り（人物・モチーフ）・アニメ調</dd></div>
+        <div class="row"><dt>漫画</dt><dd>2点透視・3点透視図法</dd></div>
+        <div class="row"><dt>デジタル</dt><dd>Procreate・Adobe Photoshop / Illustrator / InDesign</dd></div>
+      </dl>
     </div>
-    <ul class="tl">
-      <li><span class="yr">2022年8月 –</span><div><h4>SNS運用代行／専属DJ</h4></div></li>
-      <li><span class="yr">2020年10月 – 2022年12月</span><div><h4>株式会社UNREAL</h4><p>20歳で設立（代表）。イベント用フライヤー、L-Step の構築と運用。2022年12月に停止。</p></div></li>
-      <li><span class="yr">作品</span><div><h4><a href="/works/">riseisasahara.com/works</a> · instagram.com/risei_art</h4><p>人物デッサンと絵画習作が中心。頭部・手・動きのあるアスリート。</p></div></li>
-    </ul>
-  </section>
-</main>
+    <div id="tools">
+      <h3>ソフト<span>使用ソフト</span></h3>
+      <dl class="spec">
+        <div class="row"><dt>デザイン</dt><dd>Adobe Photoshop / Illustrator / InDesign・Procreate・Canva</dd></div>
+        <div class="row"><dt>データ</dt><dd>Google スプレッドシート・Notion・Python</dd></div>
+        <div class="row"><dt>AI</dt><dd>ChatGPT・Gemini・Claude（Claude Code で自動化）</dd></div>
+        <div class="row"><dt>音楽</dt><dd>Rekordbox・Serato DJ</dd></div>
+        <div class="row"><dt>マーケティング</dt><dd>LINE公式アカウント・L-Step</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
 
-<footer class="wrap">
-  <span>© 2026 笹原理成</span>
-  <span><a href="/">← ホーム</a></span>
-</footer>
+<section id="work">
+  <div class="room"><span class="no">Room 03</span><h2>仕事<span>Design &amp; DJ</span></h2></div>
+  <ul class="tl">
+    <li><span class="yr">2022年8月 –</span><div><h4>SNS運用代行／専属DJ</h4></div></li>
+    <li><span class="yr">2020年10月 – 2022年12月</span><div><h4>株式会社UNREAL</h4><p>20歳で設立（代表）。イベント用フライヤー、L-Step の構築と運用。2022年12月に停止。</p></div></li>
+    <li><span class="yr">作品</span><div><h4><a href="/works/">riseisasahara.com/works</a> · instagram.com/risei.sasahara</h4><p>人物デッサンと絵画習作が中心。頭部・手・動きのあるアスリート。</p></div></li>
+  </ul>
+</section>
+
+<footer><span>© 2026 笹原理成</span><span><a href="/">← ホーム</a></span></footer>
+</div>
 </body>
 </html>
