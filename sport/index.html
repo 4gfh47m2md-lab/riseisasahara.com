@@ -4,95 +4,151 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sport + Training — 笹原理成</title>
-<meta name="description" content="笹原理成のスポーツ歴。野球・バレーボール・バスケットボール・NBA現地観戦。">
+<meta name="description" content="笹原理成のスポーツの記録。野球・バレーボール・バスケットボール、NBA現地観戦、バスケットボールの指導。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=20260913">
-<link rel="stylesheet" href="/page.css?v=20260913">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0D12;--panel:#151922;--panel2:#1B2130;--line:#262D3D;--ink:#F3F4F6;--mute:#8B93A7;--acc:#FFD400;--blue:#1D428A;
+  --disp:"Anton","Oswald","Noto Sans JP",Impact,sans-serif;--cond:"Oswald","Noto Sans JP",sans-serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:13px;color:var(--mute)}
+nav .home{font-weight:700;color:var(--ink)} nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;letter-spacing:.1em;text-transform:uppercase;font-family:var(--cond)}
+.crumb{font-size:12px;color:var(--mute);margin:26px 0 0} .crumb a{color:var(--mute)}
+
+/* 選手カード */
+.card{position:relative;margin-top:16px;background:linear-gradient(135deg,var(--panel2) 0%,var(--panel) 60%);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:10px;background:var(--acc)}
+.card::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;border:44px solid rgba(255,212,0,.06)}
+.card-in{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;padding:34px 34px 30px 40px;position:relative}
+.kicker{font-family:var(--cond);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:0 0 8px}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(56px,10vw,112px);line-height:.9;letter-spacing:.01em;margin:0;text-transform:uppercase}
+h1 span{display:block;color:var(--mute);font-size:.34em;letter-spacing:.12em;font-family:var(--cond);margin-top:12px;text-transform:none}
+.lead{color:#C9CEDA;margin:18px 0 0;max-width:36em;font-size:15px}
+.ovr{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-content:start}
+.ovr .o{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:4px;padding:14px 14px 12px;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
+.ovr .n{font-family:var(--disp);font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
+.ovr .n small{font-size:.38em;color:var(--mute);margin-left:4px;font-family:var(--cond)}
+.ovr .l{font-family:var(--cond);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.ovr .o.acc .n{color:var(--acc)}
+.card-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 34px 12px 40px;border-top:1px solid var(--line);font-family:var(--cond);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);background:rgba(0,0,0,.25)}
+
+section{margin-top:40px}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.sh h2{font-family:var(--disp);font-size:28px;letter-spacing:.04em;margin:0;text-transform:uppercase}
+.sh .n{font-family:var(--cond);color:var(--acc);font-size:13px;letter-spacing:.2em}
+.sh p{margin:0;color:var(--mute);font-size:13px}
+
+/* バッジ */
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.badge{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 16px 14px;position:relative;overflow:hidden}
+.badge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acc)}
+.badge.g::before{background:#C9A227} .badge.s::before{background:#B8C2D6} .badge.b::before{background:#8D6E4E}
+.badge .t{font-family:var(--cond);font-weight:600;font-size:17px;letter-spacing:.02em;line-height:1.2;padding-right:64px}
+.badge .d{color:var(--mute);font-size:12.5px;margin-top:6px}
+.badge .lv{position:absolute;right:12px;top:12px;font-family:var(--cond);font-size:10px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+
+/* キャリア（3競技） */
+.career{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cr{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px 20px 18px}
+.cr .yrs{font-family:var(--cond);color:var(--acc);letter-spacing:.14em;font-size:12px}
+.cr h3{font-family:var(--disp);font-size:34px;margin:6px 0 4px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.cr .jp{font-family:var(--cond);font-size:14px;color:var(--mute)}
+.cr p{margin:10px 0 0;font-size:13.5px;color:#C9CEDA}
+.cr .big{font-family:var(--disp);font-size:40px;line-height:1;margin-top:14px}
+.cr .big small{font-size:.4em;color:var(--mute);margin-left:4px;font-family:var(--cond)}
+
+/* ゲームログ */
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-family:var(--cond);text-align:left;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.25)}
+td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.k{font-family:var(--cond);white-space:nowrap;color:var(--acc)}
+td .tag{display:inline-block;font-family:var(--cond);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:1px 6px;margin-left:8px;color:var(--mute);vertical-align:middle}
+
+.photo{margin:18px 0 0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.photo img{display:block;width:100%;height:auto;max-width:100%}
+.photo figcaption{padding:10px 14px;color:var(--mute);font-size:12.5px}
+footer{margin-top:56px;padding:24px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.note{color:var(--mute);font-size:12.5px;margin:10px 0 0}
+@media (max-width:860px){.card-in{grid-template-columns:1fr}.badges{grid-template-columns:1fr 1fr}.career{grid-template-columns:1fr}}
+@media (max-width:480px){.badges{grid-template-columns:1fr}.ovr{grid-template-columns:1fr 1fr}.card-in{padding:26px 20px 22px 26px}.card-foot{padding:12px 20px 12px 26px}}
+</style>
 </head>
 <body>
-<header class="wrap">
-  <nav>
-    <a href="/"><span class="dot"></span>笹原理成</a>
-    <ul><li><a href="#history">経歴</a></li><li><a href="#nba">NBA</a></li><li><a href="#now">現在</a></li></ul>
-  </nav>
-</header>
+<div class="wrap">
+<nav><a class="home" href="/">笹原理成</a><ul><li><a href="#badges">Badges</a></li><li><a href="#career">Career</a></li><li><a href="#nba">NBA</a></li><li><a href="#coach">Coach</a></li><li><a href="/">Home</a></li></ul></nav>
+<p class="crumb"><a href="/">ホーム</a> / 記録 / I</p>
 
-<main class="wrap page">
-  <section class="hero">
-    <p class="crumb"><a href="/">ホーム</a> / 記録 / I</p>
-    <p class="kicker">Sport + Training</p>
-    <h1>スポーツ</h1>
-    <p class="lead">野球、バレーボール、バスケットボールの順。バスケットボールは2017年4月から、9年目。</p>
-    <div class="ratings">
-      <div class="r">
-        <div class="lbl">バスケットボール</div>
-        <div class="num">9<sup>年目</sup></div>
-        <div class="tier">2017年4月〜</div>
-      </div>
-      <div class="r">
-        <div class="lbl">野球</div>
-        <div class="num">8<sup>年</sup></div>
-        <div class="tier">小学2年〜高校1年</div>
-      </div>
-      <div class="r">
-        <div class="lbl">NBA現地観戦</div>
-        <div class="num">3<sup>試合</sup></div>
-        <div class="tier">渡米2回</div>
-      </div>
-      <div class="r">
-        <div class="lbl">指導</div>
-        <div class="num">K–G5</div>
-        <div class="tier">幕張インターナショナルスクール</div>
-      </div>
+<section class="card" aria-label="選手カード">
+  <div class="card-in">
+    <div>
+      <p class="kicker">Sport + Training · Player Card</p>
+      <h1>Risei<br>Sasahara<span>笹原理成 · 東京 · 1998</span></h1>
+      <p class="lead">野球、バレーボール、バスケットボールの順に来た。バスケットボールは2017年4月から、9年目。数字は記録にあるものだけ。</p>
     </div>
-    <p class="ratings-note">数字は 2026年9月5日 時点。</p>
-    <figure class="photo"><img src="/img/chase-center-2025.jpg" alt="Chase Center にて、2025年4月" width="1600" height="1200" loading="lazy"><figcaption>Chase Center（サンフランシスコ）、2025年4月。Warriors vs Rockets プレーオフ1回戦。</figcaption></figure>
-  </section>
-
-  <section id="history">
-    <div class="sh">
-      <h2><span class="n">01 — 経歴</span>3つの競技</h2>
-      <p>中学で野球の杉並区選抜、高校でバレーボール部キャプテン。</p>
+    <div class="ovr">
+      <div class="o acc"><div class="n">9<small>年目</small></div><div class="l">Basketball</div></div>
+      <div class="o"><div class="n">8<small>年</small></div><div class="l">Baseball</div></div>
+      <div class="o"><div class="n">3<small>年</small></div><div class="l">Volleyball</div></div>
+      <div class="o"><div class="n">3<small>試合</small></div><div class="l">NBA Live</div></div>
     </div>
-    <ul class="tl">
-      <li><span class="yr">2006 – 2014</span><div><h4>野球</h4><p>小学2年から高校1年まで。杉並区選抜（オール杉並）に選出。台湾戦に5番ファーストで出場。</p></div></li>
-      <li><span class="yr">2015 – 2017</span><div><h4>バレーボール</h4><p>目白研心高等学校。高校2年でキャプテン。</p></div></li>
-      <li><span class="yr">2017 –</span><div><h4>バスケットボール</h4><p>2017年4月、学習院大学の授業から始めた。2026年で9年目。</p></div></li>
-    </ul>
-  </section>
+  </div>
+  <div class="card-foot"><span>Career 2006 – </span><span>Coach · MIS K–G5</span><span>数字は 2026年9月19日 時点</span></div>
+</section>
 
-  <section id="nba">
-    <div class="sh">
-      <h2><span class="n">02 — NBA</span>現地観戦</h2>
-      <p>渡米2回で計3試合。</p>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>日付</th><th>試合</th><th>会場</th></tr></thead>
-      <tbody>
-        <tr><td class="k">2023年5月22日</td><td>Lakers vs Nuggets — ウェスタン・カンファレンス・ファイナル</td><td>Crypto.com Arena（ロサンゼルス）</td></tr>
-        <tr><td class="k">2025年4月26日</td><td>Warriors vs Rockets — プレーオフ1回戦</td><td>Chase Center（サンフランシスコ）</td></tr>
-        <tr><td class="k">2025年4月28日</td><td>Warriors vs Rockets — プレーオフ1回戦</td><td>Chase Center（サンフランシスコ）</td></tr>
-      </tbody>
-    </table></div>
-  </section>
+<section id="badges">
+  <div class="sh"><span class="n">01</span><h2>Badges</h2><p>記録に残っている実績だけ。</p></div>
+  <div class="badges">
+    <div class="badge g"><span class="lv">Gold</span><div class="t">杉並区選抜</div><div class="d">野球。2012年8月、オール杉並に選出。</div></div>
+    <div class="badge g"><span class="lv">Gold</span><div class="t">台湾戦 5番ファースト</div><div class="d">杉並区と台湾の中学生野球交流。先発出場。</div></div>
+    <div class="badge s"><span class="lv">Silver</span><div class="t">バレーボール部キャプテン</div><div class="d">目白研心高等学校。高校2年。</div></div>
+    <div class="badge s"><span class="lv">Silver</span><div class="t">Coach</div><div class="d">インターナショナルスクールで K〜G5 にバスケットボールを英語で指導。2026年1月〜。</div></div>
+    <div class="badge b"><span class="lv">Bronze</span><div class="t">NBA 現地観戦 3試合</div><div class="d">2023年 Lakers vs Nuggets、2025年 Warriors vs Rockets ×2。</div></div>
+    <div class="badge b"><span class="lv">Bronze</span><div class="t">Athlete Force</div><div class="d">2025年9月〜。バスケ指導・通訳・英語講師・デザイン。</div></div>
+  </div>
+</section>
 
-  <section id="now" style="border-bottom:0">
-    <div class="sh">
-      <h2><span class="n">03 — 現在</span>指導</h2>
-      <p></p>
-    </div>
-    <ul class="tl">
-      <li><span class="yr">2026年1月 –</span><div><h4>バスケットボールコーチ — 幕張インターナショナルスクール</h4><p>K〜G5（幼稚園〜小学5年）に週1回・1時間、英語で指導。</p></div></li>
-      <li><span class="yr">2025年9月 –</span><div><h4>バスケ指導・通訳 — Athlete Force</h4><p>バスケ指導、通訳、英語講師、デザイン。</p></div></li>
-    </ul>
-  </section>
-</main>
+<section id="career">
+  <div class="sh"><span class="n">02</span><h2>Career</h2><p>3つの競技。</p></div>
+  <div class="career">
+    <div class="cr"><div class="yrs">2006 – 2014</div><h3>Baseball</h3><div class="jp">野球</div><p>小学2年から高校1年まで。杉並区選抜（オール杉並）に選出、台湾戦に5番ファーストで出場。</p><div class="big">8<small>年</small></div></div>
+    <div class="cr"><div class="yrs">2015 – 2017</div><h3>Volleyball</h3><div class="jp">バレーボール</div><p>目白研心高等学校。高校2年でキャプテン。</p><div class="big">3<small>年</small></div></div>
+    <div class="cr"><div class="yrs">2017 –</div><h3>Basketball</h3><div class="jp">バスケットボール</div><p>2017年4月、学習院大学の授業から始めた。2026年で9年目。今はプレーと指導の両方。</p><div class="big">9<small>年目</small></div></div>
+  </div>
+</section>
 
-<footer class="wrap">
-  <span>© 2026 笹原理成</span>
-  <span><a href="/">← ホーム</a></span>
-</footer>
+<section id="nba">
+  <div class="sh"><span class="n">03</span><h2>NBA Game Log</h2><p>渡米2回で計3試合。全てホームゲーム。</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Date</th><th>Game</th><th>Arena</th></tr></thead>
+    <tbody>
+      <tr><td class="k">2023.05.22</td><td>Lakers vs Nuggets<span class="tag">WCF</span></td><td>Crypto.com Arena（ロサンゼルス）</td></tr>
+      <tr><td class="k">2025.04.26</td><td>Warriors vs Rockets<span class="tag">R1</span></td><td>Chase Center（サンフランシスコ）</td></tr>
+      <tr><td class="k">2025.04.28</td><td>Warriors vs Rockets<span class="tag">R1</span></td><td>Chase Center（サンフランシスコ）</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="photo"><img src="/img/chase-center-2025.jpg" alt="Chase Center にて、2025年4月" width="1600" height="1200" loading="lazy"><figcaption>Chase Center（サンフランシスコ）、2025年4月。Warriors vs Rockets プレーオフ1回戦。</figcaption></figure>
+</section>
+
+<section id="coach">
+  <div class="sh"><span class="n">04</span><h2>Coach</h2><p>現在の指導。</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Since</th><th>Role</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td class="k">2026.01</td><td>バスケットボールコーチ — 幕張インターナショナルスクール</td><td>K〜G5（幼稚園〜小学5年）に週1回・1時間、英語で指導。</td></tr>
+      <tr><td class="k">2025.09</td><td>Athlete Force</td><td>バスケ指導、通訳、英語講師、デザイン。</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">能力値（OVR）は置いていない。自己採点になるため。</p>
+</section>
+
+<footer><span>© 2026 笹原理成</span><span><a href="/">← ホーム</a></span></footer>
+</div>
 </body>
 </html>
