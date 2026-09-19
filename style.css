@@ -98,6 +98,9 @@
   .quote small{display:block;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase}
 
   /* links / footer */
+  .story{max-width:40em}
+  .story p{font-size:17px;line-height:2;margin:0 0 18px;color:var(--ink)}
+  .story p:last-child{margin-bottom:0}
   .links{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   .links a{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);transition:border-color .2s,transform .2s}
   .links a:hover{border-color:var(--acc);transform:translateY(-2px)}
