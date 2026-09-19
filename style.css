@@ -98,6 +98,8 @@
   .quote small{display:block;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink3);text-transform:uppercase}
 
   /* links / footer */
+  .story-top{margin-top:48px}
+  .story-top .sh{margin-bottom:24px}
   .story{max-width:40em}
   .story p{font-size:17px;line-height:2;margin:0 0 18px;color:var(--ink)}
   .story p:last-child{margin-bottom:0}
