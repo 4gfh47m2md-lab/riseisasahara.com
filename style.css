@@ -82,6 +82,9 @@
   /* year lines */
   .yl{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .yl div{background:var(--bg);padding:20px 22px}
+  .yl h4{margin:0 0 6px;font-family:var(--jp);font-weight:700;font-size:16px;letter-spacing:.01em}
+  .yl p{margin:0;color:var(--ink2);font-size:14px;line-height:1.7}
+  .yl p a{text-decoration:underline;text-underline-offset:3px}
   .yl b{display:block;font-family:var(--mono);font-weight:600;font-size:12px;color:var(--ink3);letter-spacing:.14em;margin-bottom:6px}
   .yl span{font-size:14.5px;color:var(--ink2)}
   .yl strong{color:var(--ink);font-weight:500}
