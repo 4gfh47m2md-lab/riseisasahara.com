@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>つくったWebサイト — 笹原理成</title>
+<meta name="description" content="2026年に作ったWebサイトとWebの道具の一覧。何をするページか、見た目、できること、しくみ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<style>
+  /* 2026-09-23 本人「ウェブサイトのポートフォリオのWebサイトを作りたい」→ riseisasahara.com/web/。
+     書き方は個人サイトと同じ：事実だけ（何をするページか・見た目・できること・しくみ・アドレスと見られる人）。評価・自己採点は書かない。
+     画面の画像は人に見せる用に伏せたもの（生徒名は「生徒A」・予定の題名なし）。体の数値とお金のページは載せない。 */
+  :root { --bg: #ffffff; --ink: #111; --ink-2: #444; --muted: #777; --edge: #e6e6e6; --panel: #f4f4f2; --acc: #111; }
+  * { box-sizing: border-box; } html { background: var(--bg); scroll-behavior: smooth; }
+  body { margin: 0; color: var(--ink); font-family: "Inter", "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 15.5px; line-height: 1.75; font-weight: 500; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  nav.top { padding: 18px 0; display: flex; gap: 18px; align-items: center; font-size: 13.5px; border-bottom: 1px solid var(--edge); } nav.top a { text-decoration: none; color: var(--ink-2); } nav.top a.home { font-weight: 800; color: var(--ink); } nav.top span { margin-left: auto; color: var(--muted); }
+  header.hero { padding: 64px 0 40px; border-bottom: 1px solid var(--edge); }
+  .kick { font: 700 12px/1 "Inter", sans-serif; letter-spacing: .28em; color: var(--muted); text-transform: uppercase; }
+  h1 { margin: 14px 0 0; font-size: clamp(34px, 5.4vw, 60px); font-weight: 900; letter-spacing: -.01em; line-height: 1.12; }
+  .lead { margin: 22px 0 0; max-width: 720px; font-size: 16.5px; color: var(--ink-2); }
+  .facts { margin-top: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } .facts div { background: var(--panel); padding: 14px 16px; border-radius: 10px; } .facts b { display: block; font: 800 30px/1.1 "Inter", sans-serif; letter-spacing: -.02em; } .facts b small { font-size: 13px; font-weight: 700; margin-left: 3px; font-family: "Noto Sans JP", sans-serif; } .facts span { font-size: 12.5px; color: var(--muted); }
+  .toc { padding: 26px 0 8px; display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; } .toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--edge); border-radius: 999px; padding: 4px 12px; } .toc a b { font-family: "Inter", sans-serif; color: var(--muted); margin-right: 6px; }
+  section.item { padding: 56px 0; border-bottom: 1px solid var(--edge); }
+  .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 34px; align-items: start; } section.item:nth-child(even) .grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } section.item:nth-child(even) .shot { order: 2; }
+  .shot { border: 1px solid var(--edge); border-radius: 12px; overflow: hidden; background: #fafafa; box-shadow: 0 20px 50px -30px rgba(0,0,0,.35); } .shot .bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #ececea; border-bottom: 1px solid var(--edge); } .shot .bar i { width: 10px; height: 10px; border-radius: 50%; background: #d3d3cf; } .shot .bar span { margin-left: 8px; font: 500 12px/1 "Inter", sans-serif; color: var(--muted); }
+  .shot a { display: block; } .shot img { display: block; width: 100%; height: auto; } .shot .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 8px; background: #e9e9e4; } .shot .two img { border-radius: 4px; }
+  .side .no { font: 800 13px/1 "Inter", sans-serif; letter-spacing: .2em; color: var(--muted); } .side h2 { margin: 8px 0 0; font-size: 26px; font-weight: 900; letter-spacing: -.01em; line-height: 1.25; } .side h2 small { display: block; font: 600 12px/1.4 "Inter", sans-serif; letter-spacing: .12em; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+  .what { margin: 14px 0 0; font-size: 15.5px; color: var(--ink); }
+  dl { margin: 18px 0 0; display: grid; gap: 12px; } dl > div { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; align-items: start; } dt { font: 700 11.5px/1.9 "Inter", sans-serif; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; } dd { margin: 0; font-size: 14px; color: var(--ink-2); } dd ul { margin: 0; padding-left: 1.1em; } dd li { margin: 2px 0; }
+  .url { margin-top: 18px; padding: 10px 14px; background: var(--panel); border-radius: 8px; font: 600 13px/1.5 "Inter", "Noto Sans JP", sans-serif; word-break: break-all; } .url small { display: block; font-weight: 500; color: var(--muted); font-family: "Noto Sans JP", sans-serif; font-size: 12px; } .url a { text-decoration: none; }
+  .date { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+  section.sys { padding: 56px 0; } .sys h2 { margin: 0; font-size: 26px; font-weight: 900; } .sys .cols { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } .sys .cols > div { background: var(--panel); border-radius: 12px; padding: 18px 20px; } .sys h3 { margin: 0 0 8px; font-size: 14.5px; font-weight: 900; } .sys ul { margin: 0; padding-left: 1.1em; font-size: 13.5px; color: var(--ink-2); } .sys li { margin: 4px 0; }
+  footer { padding: 30px 0 60px; border-top: 1px solid var(--edge); font-size: 13px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; } footer a { color: var(--ink-2); text-decoration: none; font-weight: 700; }
+  @media (max-width: 860px) { .grid, section.item:nth-child(even) .grid { grid-template-columns: minmax(0, 1fr); } section.item:nth-child(even) .shot { order: 0; } .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sys .cols { grid-template-columns: minmax(0, 1fr); } header.hero { padding: 44px 0 30px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top"><a class="home" href="/">笹原理成</a><a href="/works/">作品</a><a href="/building/">Building</a><a href="/web/">Webサイト</a><span>riseisasahara.com/web/</span></nav>
+
+  <header class="hero">
+    <div class="kick">Web — 2026</div>
+    <h1>つくったWebサイト</h1>
+    <p class="lead">2026年9月に作ったWebサイトと、Webの道具。何をするページか、見た目、できること、しくみを、1つずつ書いています。画面の画像は、名前や予定など人に関わる部分を伏せたものです。</p>
+    <div class="facts">
+      <div><b>13<small>件</small></b><span>ここに載せたもの</span></div>
+      <div><b>19<small>日</small></b><span>2026-09-05 〜 09-23</span></div>
+      <div><b>5<small>分</small></b><span>ページの入力が台帳に写る間隔</span></div>
+      <div><b>0<small>個</small></b><span>グラフに使った外部の部品</span></div>
+    </div>
+    <div class="toc">
+      <a href="#s01"><b>01</b>個人サイト</a><a href="#s02"><b>02</b>週の目安</a><a href="#s03"><b>03</b>毎日のチェック</a><a href="#s04"><b>04</b>ゲームの試合記録</a><a href="#s05"><b>05</b>1年ぶんの試合記録</a><a href="#s06"><b>06</b>バスケの記録</a><a href="#s07"><b>07</b>体育館の個人開放</a><a href="#s08"><b>08</b>NBA 日本時間</a><a href="#s09"><b>09</b>生徒の成績の推移</a><a href="#s10"><b>10</b>数学の勉強</a><a href="#s11"><b>11</b>単語テストの自動作成</a><a href="#s12"><b>12</b>カウンター</a><a href="#s13"><b>13</b>作ったサイトの一覧</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="item" id="s01"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>riseisasahara.com</span></div><div class="two"><a href="img/site_top_n.jpg"><img src="img/site_top_n.jpg" alt="個人サイトのトップ" loading="lazy"></a><a href="img/site_works_n.jpg"><img src="img/site_works_n.jpg" alt="作品ページ" loading="lazy"></a></div></div>
+      <div class="side"><div class="no">01</div><h2>個人サイト<small>Personal site</small></h2>
+        <p class="what">自己紹介と、6つの領域（絵・語学・スポーツなど）の記録、絵の作品49点を載せた公開サイト。</p>
+        <dl><div><dt>Design</dt><dd>白地に太いゴシック。数字を大きく、説明は短く。写真と作品が主役になる余白の取り方。6つの領域のページは、それぞれ別の見た目（選手カード・成績表・辞書・展示室・スコアボード・黒のLP）。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>作品は画像を押すと拡大</li><li>手描き／デジタル／スタンプ／デザインで分類</li><li>スマホ・タブレット・PCで崩れない</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>HTMLとCSSだけの軽いサイト。独自ドメインで公開。</dd></div></dl>
+        <div class="url"><a href="https://riseisasahara.com">https://riseisasahara.com</a><small>だれでも見られます</small></div><div class="date">公開 2026-09-05</div></div>
+    </div></section>
+
+    <section class="item" id="s02"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com</span></div><a href="img/week.jpg"><img src="img/week.jpg" alt="週の目安トラッカー" loading="lazy"></a></div>
+      <div class="side"><div class="no">02</div><h2>週の目安トラッカー<small>Weekly tracker</small></h2>
+        <p class="what">歩数・単語・練習の回数など6項目を、週単位で「あとどれだけ」で見せるページ。</p>
+        <dl><div><dt>Design</dt><dd>グレーのスタジオ背景に、レモンイエローの太い数字。ポスターのような1枚。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>ボタンを押して、その場で記録（+100 など）</li><li>歩数は iPhone から自動で入る</li><li>過去4週と、累計・1日平均を自動で集計</li><li>入力の取り消しと、保存の状態の表示</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>ページで入れた分は、5分おきに手元の台帳（CSV）へ写る。台帳が正本。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-19</div></div>
+    </div></section>
+
+    <section class="item" id="s03"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/daily</span></div><a href="img/daily.jpg"><img src="img/daily.jpg" alt="毎日のチェック" loading="lazy"></a></div>
+      <div class="side"><div class="no">03</div><h2>毎日のチェック<small>Daily check</small></h2>
+        <p class="what">「やったら押す」だけの習慣の記録。週に7回の項目、週に1回の項目、月に1回の項目を同じ画面で数える。</p>
+        <dl><div><dt>Design</dt><dd>02 と同じ世界観。押す場所を1つに絞った大きいボタン。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>今日のボタンを押す／もう一度押すと取り消し</li><li>曜日の丸を押すと、前の日の分も入れ直せる</li><li>続けて何日・過去4週・月ごとの表</li><li>項目は台帳に1行足すだけで増やせる</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>先の日付は保存できない、合言葉がないと保存できない、などの確認を入れている。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/daily<small>画面の項目は見本です</small></div><div class="date">公開 2026-09-21</div></div>
+    </div></section>
+
+    <section class="item" id="s04"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/2k</span></div><a href="img/2k.jpg"><img src="img/2k.jpg" alt="ゲームの試合記録" loading="lazy"></a></div>
+      <div class="side"><div class="no">04</div><h2>ゲームの試合記録<small>Game log</small></h2>
+        <p class="what">バスケットボールゲームのオンライン対戦の記録から、戦績と「次にどうするか」を自動で出すページ。</p>
+        <dl><div><dt>Design</dt><dd>ゲームの画面に寄せた黒×黄。見出しと数字の太さをゲーム内の表示に合わせた。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>勝敗・連勝・直近10試合・チーム別・時間帯別の勝率</li><li>ランクの見込み（いまのペースで、期限までにどこまで届くか）</li><li>ルールから「次に使えるチーム」を計算</li><li>相手の強さを時間帯ごとに集計し、「何時にどのチームで」を2案まで出す</li><li>試合ごとのスタッツ（Box Score）と、連勝・連敗のニュース</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>試合の結果は、ゲーム機の画面写真をUSBで取り込み、文字認識で台帳へ。ページは見るだけ。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/2k<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-20</div></div>
+    </div></section>
+
+    <section class="item" id="s05"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/2k26</span></div><a href="img/2k26.jpg"><img src="img/2k26.jpg" alt="1年ぶんの試合記録" loading="lazy"></a></div>
+      <div class="side"><div class="no">05</div><h2>1年ぶんの試合記録<small>Season archive</small></h2>
+        <p class="what">前作の1年ぶん、526試合の記録。ゲーム機に残っていた3,716枚の画面写真から作った。</p>
+        <dl><div><dt>Design</dt><dd>04 とは別の、前作のゲームの配色（グレー×白）。同じ構成で、色だけを作品ごとに変えた。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>月ごと・時間帯ごと・曜日ごとの勝率</li><li>使ったチーム、相手のチーム、相手のランク帯ごとの成績</li><li>3作ぶん（2025・2026・2027）を1つにまとめたページも別にある</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>画面写真の種類（結果・スタッツ・対戦前）を自動で見分け、数字を読み取って台帳に入れる。読み取りの検算つき。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/2k26<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-23</div></div>
+    </div></section>
+
+    <section class="item" id="s06"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/hoop</span></div><a href="img/hoop.jpg"><img src="img/hoop.jpg" alt="バスケットボールの記録" loading="lazy"></a></div>
+      <div class="side"><div class="no">06</div><h2>バスケットボールの記録<small>Basketball log</small></h2>
+        <p class="what">体育館でのプレー、指導、自主練、筋トレを1枚にまとめたページ。</p>
+        <dl><div><dt>Design</dt><dd>スポーツ中継のようなネイビー×青×赤。上に流れるスコアボード。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>得点の壁（5・10・15・20・25点）と自己ベスト</li><li>1日の合計点の棒グラフ、推定のシュート本数</li><li>体育館ごとの回数、月ごとの回数</li><li>教わったことと、その練習の記録</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>2025年5月からの記録を、古い表計算とメモから1つの台帳にまとめ直した。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/hoop<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-20</div></div>
+    </div></section>
+
+    <section class="item" id="s07"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/gyms</span></div><a href="img/gyms.jpg"><img src="img/gyms.jpg" alt="体育館の個人開放" loading="lazy"></a></div>
+      <div class="side"><div class="no">07</div><h2>体育館の個人開放<small>Open gym</small></h2>
+        <p class="what">近くの5つの体育館のバスケットボール個人開放を、日付順に並べたページ。自分のカレンダーと照らして「行ける」「予定と重なる」を出す。</p>
+        <dl><div><dt>Design</dt><dd>体育館の床の色（茶×橙）。行ける枠は明るく、重なる枠は打ち消し線。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>60日先までの土日の枠を日付順に</li><li>予定との重なり（前後60分の余裕込み）を自動で判定</li><li>週に1つ、候補の枠に★（連続する日は避ける・優先する体育館の順）</li><li>体育館ごとの、次の開放日・行った回数・家からの所要時間</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>各施設の公式サイトの日程を1つの表にまとめ、カレンダー（ICS）と突き合わせる。月のカレンダーのページにも同じ候補が出る。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/gyms<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-23</div></div>
+    </div></section>
+
+    <section class="item" id="s08"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/nba-jst</span></div><a href="img/nba_gsw.jpg"><img src="img/nba_gsw.jpg" alt="NBA 日本時間" loading="lazy"></a></div>
+      <div class="side"><div class="no">08</div><h2>NBA 日本時間<small>NBA in Japan time</small></h2>
+        <p class="what">NBAの全1,267試合の日程を日本時間に直して見せる公開ページ。30チームどれでも選べる。</p>
+        <dl><div><dt>Design</dt><dd>選んだチームの2色に、ページ全体が切り替わる。公式のロゴや画像は使わず、チームカラーと略称だけで表現した。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>次の試合まで「あと何日何時間」</li><li>日付ごとのリーグ全体の日程、月ごとのチームの日程</li><li>見る端末の設定に関係なく、必ず日本時間</li><li>チームごとのアドレス（…/nba-jst/lal など）</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>日程は毎週月曜に自動で取り直す。公開する前に、権利まわりで出せるもの・出せないものを分けた。</dd></div></dl>
+        <div class="url"><a href="https://tracker.riseisasahara.com/nba-jst">https://tracker.riseisasahara.com/nba-jst</a><small>だれでも見られます</small></div><div class="date">公開 2026-09-20</div></div>
+    </div></section>
+
+    <section class="item" id="s09"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/…</span></div><a href="img/taichi.jpg"><img src="img/taichi.jpg" alt="生徒の成績の推移" loading="lazy"></a></div>
+      <div class="side"><div class="no">09</div><h2>生徒の成績の推移<small>Student report</small></h2>
+        <p class="what">指導している高校生の、定期試験の点数・学年順位・偏差値の推移を見せるページ。名前は伏せています。</p>
+        <dl><div><dt>Design</dt><dd>黒地に白のドット。折れ線はドットの列、大問ごとの棒はドットの積み上げ、題字の横にゆっくり回るドットの輪。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>年5回×2年ぶんの折れ線。点に触れると順位と偏差値</li><li>指導の前と後の平均の差（+14.5点）</li><li>大問ごとの得点率から、落としやすい大問を色で示す</li><li>次のテストと、前の年の同じ回の点数</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>結果が出たら台帳に1行足すだけで、グラフと表に入る。生徒の情報なので合言葉つき。</dd></div></dl>
+        <div class="url">合言葉を入れた端末だけ<small>氏名と学校名はページに載せていません</small></div><div class="date">公開 2026-09-20／見た目の更新 2026-09-23</div></div>
+    </div></section>
+
+    <section class="item" id="s10"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/math</span></div><a href="img/math.jpg"><img src="img/math.jpg" alt="数学の勉強" loading="lazy"></a></div>
+      <div class="side"><div class="no">10</div><h2>数学の勉強<small>Math study log</small></h2>
+        <p class="what">問題集の1ページごとに、問題数と間違えた問題の番号を記録するページ。表計算で付けていた記録を、そのままの列で置き換えた。</p>
+        <dl><div><dt>Design</dt><dd>黒地に白の等幅の字。0と1が降る背景、＋と &gt;_ の罫線。間違いだけ赤。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>間違えた番号を入れると、正解数と正答率をその場で計算</li><li>ページ番号を入れると、もくじから単元の名前が自動で入る</li><li>もくじの地図（42単元×203ページ）で、どこまで進んだかを見せる</li><li>1日に解いた問題数、解き直すリスト、単元ごとの正答率</li><li>教えた授業の記録</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>先の日付や、問題数より大きい番号は保存できない。入れた分は5分おきに手元の台帳へ写る。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/math<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-21／見た目の更新 2026-09-23</div></div>
+    </div></section>
+
+    <section class="item" id="s11"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>A4 — 問題と解答</span></div><div class="two"><a href="img/vocab_q.jpg"><img src="img/vocab_q.jpg" alt="単語テストの問題" loading="lazy"></a><a href="img/vocab_a.jpg"><img src="img/vocab_a.jpg" alt="単語テストの解答" loading="lazy"></a></div></div>
+      <div class="side"><div class="no">11</div><h2>単語テストの自動作成<small>Vocabulary test maker</small></h2>
+        <p class="what">単語帳の写真12枚から100語を読み取り、ランダムに10問の小テストを、問題と解答の2枚で作る。</p>
+        <dl><div><dt>Design</dt><dd>印刷しても、写真で送っても読める A4 の1枚。名前・日付・点数の欄つき。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>問題数と出題範囲を指定できる</li><li>同じ番号を指定すれば、同じ問題をもう一度作れる</li><li>単語帳に写真を足せば、出題範囲が広がる</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>1回の命令で、問題と解答の2枚ができる。作るのにかかる時間は数秒。</dd></div></dl>
+        <div class="url">Webページではなく、手元で動く道具です<small>英検2級の単語帳 Section 1（100語）で作成</small></div><div class="date">作成 2026-09-20</div></div>
+    </div></section>
+
+    <section class="item" id="s12"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/counter</span></div><a href="img/counter.jpg"><img src="img/counter.jpg" alt="カウンター" loading="lazy"></a></div>
+      <div class="side"><div class="no">12</div><h2>カウンター<small>Counter</small></h2>
+        <p class="what">「カフェに行った」「ジムに行った」を +1 で数えるページ。回数と、かかった金額を並べて見せる。</p>
+        <dl><div><dt>Design</dt><dd>大きな +1 のボタンと、項目ごとの数字。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>+1 を押すだけで、今日の日付で記録</li><li>今週・今月・累計と、最後に行った日</li><li>月額や1回の金額から、1回あたりの費用を計算</li><li>項目は台帳に1行足すだけで増やせる</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>押した分は5分おきに手元の台帳へ写る。過去の記録は、会話のメモから台帳に入れ直した。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/counter<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-23</div></div>
+    </div></section>
+
+    <section class="item" id="s13"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/sites</span></div><a href="img/sites.jpg"><img src="img/sites.jpg" alt="作ったサイトの一覧" loading="lazy"></a></div>
+      <div class="side"><div class="no">13</div><h2>作ったサイトの一覧<small>Index of pages</small></h2>
+        <p class="what">作ったページを日付ごとに並べ、押すとそのページへ飛ぶ一覧。合言葉つきのページの入口。</p>
+        <dl><div><dt>Design</dt><dd>日付で区切った縦の一覧。1行に、名前・ひとこと・アドレス。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>公開日順に、これまでの全ページ（2026-09-23 時点で 25ページ）</li><li>スマホのホーム画面に置いて、ここから開く</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>新しいページを作ったら、この一覧に1行足す。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/sites<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-22</div></div>
+    </div></section>
+
+    <section class="sys">
+      <h2>共通のしくみ</h2>
+      <div class="cols">
+        <div><h3>データの流れ</h3><ul><li>ページで入れた分は、5分おきに手元の台帳（CSV）へ写る。台帳が正本</li><li>手元で集計した数字を、5分おきにページへ渡す</li><li>歩数は iPhone から自動で届く。ゲームの結果は画面写真の文字認識から</li></ul></div>
+        <div><h3>公開のまえに確かめていること</h3><ul><li>合言葉なしで開けないこと、保存できないこと</li><li>実際に使うブラウザで、表示されているかを測る（広告ブロックで消える部品がないか）</li><li>人の名前・生徒の情報・権利のある画像を出していないか</li></ul></div>
+        <div><h3>制作の環境</h3><ul><li>Claude Code（AI）と対話しながら制作</li><li>Cloudflare Workers・D1（サイトと保存）／Python（集計と同期）</li><li>HTML・CSS・JavaScript（外部の部品は使っていない）</li></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a href="/">← トップ</a><a href="/works/">作品 49点</a><a href="/building/">Building</a><span>riseisasahara.com/web/</span></footer>
+</div>
+</body>
+</html>
