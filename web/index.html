@@ -10,7 +10,7 @@
 <style>
   /* 2026-09-23 本人「ウェブサイトのポートフォリオのWebサイトを作りたい」→ riseisasahara.com/web/。
      書き方は個人サイトと同じ：事実だけ（何をするページか・見た目・できること・しくみ・アドレスと見られる人）。評価・自己採点は書かない。
-     画面の画像は人に見せる用に伏せたもの（生徒名は「生徒A」・予定の題名なし）。体の数値とお金のページは載せない。 */
+     ★2026-09-23 本人「作ったサイトから、俺の情報は出ないようにできる？」→ 画面は全部「見本の数字」（automation/portfolio_fake.py で作り物のデータから撮る）。体の数値とお金のページは載せない。 */
   :root { --bg: #ffffff; --ink: #111; --ink-2: #444; --muted: #777; --edge: #e6e6e6; --panel: #f4f4f2; --acc: #111; }
   * { box-sizing: border-box; } html { background: var(--bg); scroll-behavior: smooth; }
   body { margin: 0; color: var(--ink); font-family: "Inter", "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 15.5px; line-height: 1.75; font-weight: 500; }
@@ -44,7 +44,7 @@
   <header class="hero">
     <div class="kick">Web — 2026</div>
     <h1>つくったWebサイト</h1>
-    <p class="lead">2026年9月に作ったWebサイトと、Webの道具。何をするページか、見た目、できること、しくみを、1つずつ書いています。画面の画像は、名前や予定など人に関わる部分を伏せたものです。</p>
+    <p class="lead">2026年9月に作ったWebサイトと、Webの道具。何をするページか、見た目、できること、しくみを、1つずつ書いています。画面の画像は、どれも見本の数字（作り物のデータ）で表示したものです。実際の記録は載せていません。</p>
     <div class="facts">
       <div><b>13<small>件</small></b><span>ここに載せたもの</span></div>
       <div><b>19<small>日</small></b><span>2026-09-05 〜 09-23</span></div>
@@ -100,7 +100,7 @@
     <section class="item" id="s05"><div class="grid">
       <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/2k26</span></div><a href="img/2k26.jpg"><img src="img/2k26.jpg" alt="1年ぶんの試合記録" loading="lazy"></a></div>
       <div class="side"><div class="no">05</div><h2>1年ぶんの試合記録<small>Season archive</small></h2>
-        <p class="what">前作の1年ぶん、526試合の記録。ゲーム機に残っていた3,716枚の画面写真から作った。</p>
+        <p class="what">前作の1年ぶんの試合の記録。ゲーム機に残っていた画面写真から作った。</p>
         <dl><div><dt>Design</dt><dd>04 とは別の、前作のゲームの配色（グレー×白）。同じ構成で、色だけを作品ごとに変えた。</dd></div>
           <div><dt>できること</dt><dd><ul><li>月ごと・時間帯ごと・曜日ごとの勝率</li><li>使ったチーム、相手のチーム、相手のランク帯ごとの成績</li><li>3作ぶん（2025・2026・2027）を1つにまとめたページも別にある</li></ul></dd></div>
           <div><dt>しくみ</dt><dd>画面写真の種類（結果・スタッツ・対戦前）を自動で見分け、数字を読み取って台帳に入れる。読み取りの検算つき。</dd></div></dl>
@@ -142,7 +142,7 @@
       <div class="side"><div class="no">09</div><h2>生徒の成績の推移<small>Student report</small></h2>
         <p class="what">指導している高校生の、定期試験の点数・学年順位・偏差値の推移を見せるページ。名前は伏せています。</p>
         <dl><div><dt>Design</dt><dd>黒地に白のドット。折れ線はドットの列、大問ごとの棒はドットの積み上げ、題字の横にゆっくり回るドットの輪。</dd></div>
-          <div><dt>できること</dt><dd><ul><li>年5回×2年ぶんの折れ線。点に触れると順位と偏差値</li><li>指導の前と後の平均の差（+14.5点）</li><li>大問ごとの得点率から、落としやすい大問を色で示す</li><li>次のテストと、前の年の同じ回の点数</li></ul></dd></div>
+          <div><dt>できること</dt><dd><ul><li>年5回×2年ぶんの折れ線。点に触れると順位と偏差値</li><li>指導の前と後の平均の差</li><li>大問ごとの得点率から、落としやすい大問を色で示す</li><li>次のテストと、前の年の同じ回の点数</li></ul></dd></div>
           <div><dt>しくみ</dt><dd>結果が出たら台帳に1行足すだけで、グラフと表に入る。生徒の情報なので合言葉つき。</dd></div></dl>
         <div class="url">合言葉を入れた端末だけ<small>氏名と学校名はページに載せていません</small></div><div class="date">公開 2026-09-20／見た目の更新 2026-09-23</div></div>
     </div></section>
@@ -182,7 +182,7 @@
       <div class="side"><div class="no">13</div><h2>作ったサイトの一覧<small>Index of pages</small></h2>
         <p class="what">作ったページを日付ごとに並べ、押すとそのページへ飛ぶ一覧。合言葉つきのページの入口。</p>
         <dl><div><dt>Design</dt><dd>日付で区切った縦の一覧。1行に、名前・ひとこと・アドレス。</dd></div>
-          <div><dt>できること</dt><dd><ul><li>公開日順に、これまでの全ページ（2026-09-23 時点で 25ページ）</li><li>スマホのホーム画面に置いて、ここから開く</li></ul></dd></div>
+          <div><dt>できること</dt><dd><ul><li>公開日順に、これまでの全ページ</li><li>スマホのホーム画面に置いて、ここから開く</li></ul></dd></div>
           <div><dt>しくみ</dt><dd>新しいページを作ったら、この一覧に1行足す。</dd></div></dl>
         <div class="url">tracker.riseisasahara.com/sites<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-22</div></div>
     </div></section>
