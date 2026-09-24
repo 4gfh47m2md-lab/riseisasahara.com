@@ -45,6 +45,13 @@
   .score b small { font-size: 16px; font-weight: 800; margin-left: 4px; letter-spacing: 0; }
   .score p { margin: 12px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
   .score.now { background: #111; color: #fff; border-color: #111; } .score.now .t { color: #aaa; } .score.now p { color: #ddd; }
+  .trial { margin-top: 18px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 22px; align-items: center; border: 1px solid var(--edge); border-radius: 12px; padding: 18px; }
+  .trial img { width: 100%; border-radius: 10px; display: block; }
+  .trial .t { font: 700 11.5px/1.4 "Inter", "Noto Sans JP", sans-serif; letter-spacing: .14em; color: var(--muted); }
+  .trial h3 { margin: 6px 0 0; font-size: 19px; font-weight: 900; line-height: 1.45; }
+  .trial p { margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+  .trial ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .trial li { background: var(--panel); border-radius: 8px; padding: 8px 10px; font-size: 12px; color: var(--muted); line-height: 1.4; } .trial li b { display: block; font: 800 18px/1.2 "Inter", "Noto Sans JP", sans-serif; color: var(--ink); }
   .bars { margin-top: 28px; }
   .bars h3, .cols h3 { margin: 0 0 12px; font-size: 15px; font-weight: 800; }
   .bar-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 46px; gap: 12px; align-items: center; font-size: 13px; padding: 5px 0; }
@@ -102,6 +109,7 @@
   @media (max-width: 860px) {
     .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .scores, .build { grid-template-columns: minmax(0, 1fr); }
+    .trial { grid-template-columns: minmax(0, 1fr); } .trial img { max-width: 240px; } .trial ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cols, .demo, .degree { grid-template-columns: minmax(0, 1fr); }
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .works { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -138,9 +146,17 @@
       <div class="scores">
         <div class="score"><div class="t">TOEIC L&amp;R</div><b>870<small>点</small></b><p>2025年8月。Listening 445・Reading 425。2017年の初受験は680点。</p></div>
         <div class="score"><div class="t">英検 準1級</div><b>合格</b><p>2025年2月。一次 1,810点（合格基準 1,792点）、二次も合格。</p></div>
-        <div class="score now"><div class="t">英検 1級 — 挑戦中</div><b>10/4</b><p>2026年10月4日、一次試験を受験。単語・要約・英作文を毎週続けています。</p></div>
+        <div class="score now"><div class="t">英検 1級 — 挑戦中</div><b>10/4</b><p>2026年10月4日、一次試験を受験。</p></div>
       </div>
 
+      <div class="trial">
+        <a href="img/mikan.jpg"><img src="img/mikan.jpg" alt="英単語アプリ mikan の学習記録" loading="lazy"></a>
+        <div><div class="t">英検1級 — いま試していること</div>
+          <h3>単語だけを3周したら、何点上がって合格できるのか</h3>
+          <p>英検1級の単語を、毎日200語ずつ進めています。単語アプリ mikan の記録（2026年9月24日時点）。</p>
+          <ul><li><b>15,381問</b>合計問題数</li><li><b>11時間31分</b>合計時間</li><li><b>103日</b>学習日数</li><li><b>103日</b>最長連続日数</li></ul>
+        </div>
+      </div>
       <div class="bars">
         <h3>TOEIC のスコアの推移</h3>
         <div class="bar-row"><span class="d">2017年4月</span><span class="track"><i style="width:68%"></i></span><span class="v">680</span></div>
