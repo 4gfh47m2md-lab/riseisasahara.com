@@ -45,6 +45,9 @@
   .score b small { font-size: 16px; font-weight: 800; margin-left: 4px; letter-spacing: 0; }
   .score p { margin: 12px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
   .score.now { background: #111; color: #fff; border-color: #111; } .score.now .t { color: #aaa; } .score.now p { color: #ddd; }
+  .proof { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 14px; align-items: end; }
+  .proof figure { margin: 0; } .proof img { width: 100%; display: block; border: 1px solid var(--edge); border-radius: 10px; }
+  .proof figcaption { margin-top: 6px; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
   .trial { margin-top: 18px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 22px; align-items: center; border: 1px solid var(--edge); border-radius: 12px; padding: 18px; }
   .trial img { width: 100%; border-radius: 10px; display: block; }
   .trial .t { font: 700 11.5px/1.4 "Inter", "Noto Sans JP", sans-serif; letter-spacing: .14em; color: var(--muted); }
@@ -111,6 +114,7 @@
   @media (max-width: 860px) {
     .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .scores, .build { grid-template-columns: minmax(0, 1fr); }
+    .proof { grid-template-columns: minmax(0, 1fr); } .proof figure:last-child img { max-width: 240px; }
     .trial { grid-template-columns: minmax(0, 1fr); } .trial img { max-width: 240px; } .trial ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cols, .demo, .degree { grid-template-columns: minmax(0, 1fr); }
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -151,6 +155,10 @@
         <div class="score now"><div class="t">英検 1級 — 挑戦中</div><b>10/4</b><p>2026年10月4日、一次試験を受験。</p></div>
       </div>
 
+      <div class="proof">
+        <figure><img src="img/toeic.jpg" alt="TOEIC Listening &amp; Reading 公式認定証（870点）" loading="lazy"><figcaption>TOEIC L&amp;R 公式認定証（2025年8月24日受験・870点）。受験番号・生年月日・QRコードは伏せています</figcaption></figure>
+        <figure><img src="img/eiken_pass.jpg" alt="英検準1級 合格記念（英検CSEスコア2364）" loading="lazy"><figcaption>英検準1級 合格（2024年度 第3回・英検CSEスコア 2,364）</figcaption></figure>
+      </div>
       <div class="trial">
         <a href="img/mikan.jpg"><img src="img/mikan.jpg" alt="英単語アプリ mikan の学習記録" loading="lazy"></a>
         <div><div class="t">英検1級 — いま試していること</div>
