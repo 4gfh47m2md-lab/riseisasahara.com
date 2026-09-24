@@ -92,13 +92,15 @@
   .build b { display: block; font-size: 15.5px; font-weight: 800; } .build p { margin: 8px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
 
   /* イラスト */
-  .degree { margin-top: 30px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 30px; align-items: start; }
+  .degree { margin-top: 30px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 30px; align-items: center; }
   .deg-card { background: #111; color: #fff; border-radius: 14px; padding: 26px 26px 24px; }
   .deg-card .t { font: 700 11.5px/1.4 "Inter", sans-serif; letter-spacing: .2em; color: #aaa; }
   .deg-card b { display: block; margin-top: 10px; font: 900 34px/1.15 "Inter", "Noto Sans JP", sans-serif; }
   .deg-card .sch { margin-top: 10px; font-size: 16px; font-weight: 700; }
   .deg-card ul { margin: 16px 0 0; padding-left: 1.1em; font-size: 14px; color: #ddd; } .deg-card li { margin: 3px 0; }
-  .works { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .deg-col { display: grid; gap: 14px; }
+  .diploma { margin: 0; } .diploma img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--edge); } .diploma figcaption { margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+  .works { margin-top: 24px; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; }
   .works figure { margin: 0; } .works a { display: block; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--panel); }
   .works img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .works figcaption { margin-top: 5px; font-size: 12px; color: var(--muted); line-height: 1.4; }
@@ -112,7 +114,7 @@
     .trial { grid-template-columns: minmax(0, 1fr); } .trial img { max-width: 240px; } .trial ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cols, .demo, .degree { grid-template-columns: minmax(0, 1fr); }
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .works { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .works { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     header.hero { padding: 44px 0 30px; } section.part { padding: 48px 0; }
     .bar-row { grid-template-columns: 78px minmax(0, 1fr) 40px; }
   }
@@ -124,8 +126,8 @@
 
   <header class="hero">
     <div class="kick">For EDO — 2026</div>
-    <h1>EDOでできること</h1>
-    <p class="lead">英語の指導、塾で使えるしくみ、Webデザイン、Webの構築、イラスト。これまでの記録と、作ったものを1ページにまとめました。画面の画像は、どれも見本のデータ（作り物）で表示したものです。</p>
+    <h1>実際に働いてみて、<br>貢献できると思ったこと</h1>
+    <p class="lead">実際にEDOで働いてみて、貢献できると思ったことをまとめました。英語の指導、塾で使えるしくみ、Webデザイン、Webの構築、イラストの5つです。画面の画像は、どれも見本のデータ（作り物）で表示したものです。</p>
     <div class="facts">
       <div><b>870<small>点</small></b><span>TOEIC L&amp;R 自己ベスト（2025年8月）</span></div>
       <div><b>準1級</b><span>英検 合格（2025年2月）／1級に挑戦中</span></div>
@@ -242,9 +244,11 @@
       <div class="head"><div class="no">05</div><h2>イラスト<small>Illustration</small></h2>
         <p>アメリカの美術大学で、イラストレーションの修士号を取りました。教材の挿絵・チラシ・SNSの画像も描けます。</p></div>
       <div class="degree">
+        <figure class="diploma"><a href="img/diploma.jpg"><img src="img/diploma.jpg" alt="Academy of Art University の学位記（Master of Arts in Illustration）" loading="lazy"></a><figcaption>学位記　Master of Arts in Illustration（2026年5月19日）</figcaption></figure>
         <div class="deg-card"><div class="t">MASTER OF ARTS</div><b>Fine Art<br>Illustration</b><div class="sch">Academy of Art University<br>米国サンフランシスコ</div>
           <ul><li>2023年1月 入学 — 2026年6月 修了</li><li>全課程を東京からオンライン・英語で受講</li><li>骨格から人体を描くデッサンが土台</li><li>デッサン・水彩・アクリル・デジタル</li></ul></div>
-        <div class="works">
+      </div>
+      <div class="works">
           <figure><a href="/img/works/d10-owl.jpg"><img src="/img/works/d10-owl.jpg" alt="フクロウ" loading="lazy"></a><figcaption>フクロウ</figcaption></figure>
           <figure><a href="/img/works/d14-tiger.jpg"><img src="/img/works/d14-tiger.jpg" alt="トラ" loading="lazy"></a><figcaption>トラ</figcaption></figure>
           <figure><a href="/img/works/d16-head-1.jpg"><img src="/img/works/d16-head-1.jpg" alt="頭部" loading="lazy"></a><figcaption>頭部</figcaption></figure>
@@ -254,7 +258,6 @@
           <figure><a href="/img/works/g10-player-dribble.jpg"><img src="/img/works/g10-player-dribble.jpg" alt="バスケットボール選手（ドリブル）" loading="lazy"></a><figcaption>バスケットボール選手</figcaption></figure>
           <figure><a href="/img/works/g12-character.jpg"><img src="/img/works/g12-character.jpg" alt="キャラクター" loading="lazy"></a><figcaption>キャラクター</figcaption></figure>
         </div>
-      </div>
       <a class="more" href="/works/">作品49点をすべて見る →</a>
     </section>
   </main>
