@@ -81,7 +81,7 @@
   /* Webデザイン */
   .gallery { margin-top: 30px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
   .gallery figure { margin: 0; }
-  .gallery a { display: block; border: 1px solid var(--edge); border-radius: 10px; overflow: hidden; background: #fafafa; aspect-ratio: 4 / 5; }
+  .gallery .pic { display: block; border: 1px solid var(--edge); border-radius: 10px; overflow: hidden; background: #fafafa; aspect-ratio: 4 / 5; }
   .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
   .gallery figcaption { margin-top: 8px; font-size: 13.5px; font-weight: 700; line-height: 1.5; } .gallery figcaption span { display: block; font-weight: 500; color: var(--muted); font-size: 12.5px; }
   .more { margin-top: 26px; display: inline-block; font-weight: 800; text-decoration: none; border-bottom: 2px solid #111; padding-bottom: 2px; }
@@ -203,17 +203,16 @@
       <div class="head"><div class="no">03</div><h2>Webデザイン<small>Web design</small></h2>
         <p>2026年9月に作ったページの見た目。ページごとに色と文字を変えています。数字と名前は見本のデータに差し替えています。</p></div>
       <div class="gallery">
-        <figure><a href="../web/img/taichi.jpg"><img src="../web/img/taichi.jpg" alt="生徒の成績の推移" loading="lazy"></a><figcaption>生徒の成績の推移<span>定期試験・模試の点を科目ごとに</span></figcaption></figure>
-        <figure><a href="../web/img/vocab_q.jpg"><img src="../web/img/vocab_q.jpg" alt="英単語テスト" loading="lazy"></a><figcaption>英単語テスト<span>単語帳から問題と解答を自動で作る</span></figcaption></figure>
-        <figure><a href="../web/img/math.jpg"><img src="../web/img/math.jpg" alt="数学の勉強の記録" loading="lazy"></a><figcaption>数学の勉強の記録<span>方眼ノートの見た目・正答率は自動</span></figcaption></figure>
-        <figure><a href="../web/img/week.jpg"><img src="../web/img/week.jpg" alt="週の目安トラッカー" loading="lazy"></a><figcaption>週の目安トラッカー<span>週単位で「あとどれだけ」</span></figcaption></figure>
-        <figure><a href="../web/img/daily.jpg"><img src="../web/img/daily.jpg" alt="毎日のチェック" loading="lazy"></a><figcaption>毎日のチェック<span>押すだけで記録</span></figcaption></figure>
-        <figure><a href="../web/img/2k.jpg"><img src="../web/img/2k.jpg" alt="ゲームの試合記録" loading="lazy"></a><figcaption>ゲームの試合記録<span>黒と黄・ゲーム画面の型</span></figcaption></figure>
-        <figure><a href="../web/img/hoop.jpg"><img src="../web/img/hoop.jpg" alt="バスケの記録" loading="lazy"></a><figcaption>バスケの記録<span>練習と指導の回数</span></figcaption></figure>
-        <figure><a href="../web/img/gyms.jpg"><img src="../web/img/gyms.jpg" alt="体育館の個人開放" loading="lazy"></a><figcaption>体育館の個人開放<span>曜日と時間の一覧</span></figcaption></figure>
-        <figure><a href="../web/img/site_top_n.jpg"><img src="../web/img/site_top_n.jpg" alt="個人サイト" loading="lazy"></a><figcaption>個人サイト<span>riseisasahara.com</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/taichi.jpg" alt="生徒の成績の推移" loading="lazy"></div><figcaption>生徒の成績の推移<span>定期試験・模試の点を科目ごとに</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/vocab_q.jpg" alt="英単語テスト" loading="lazy"></div><figcaption>英単語テスト<span>単語帳から問題と解答を自動で作る</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/math.jpg" alt="数学の勉強の記録" loading="lazy"></div><figcaption>数学の勉強の記録<span>方眼ノートの見た目・正答率は自動</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/week.jpg" alt="週の目安トラッカー" loading="lazy"></div><figcaption>週の目安トラッカー<span>週単位で「あとどれだけ」</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/daily.jpg" alt="毎日のチェック" loading="lazy"></div><figcaption>毎日のチェック<span>押すだけで記録</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/2k.jpg" alt="ゲームの試合記録" loading="lazy"></div><figcaption>ゲームの試合記録<span>黒と黄・ゲーム画面の型</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/hoop.jpg" alt="バスケの記録" loading="lazy"></div><figcaption>バスケの記録<span>練習と指導の回数</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/gyms.jpg" alt="体育館の個人開放" loading="lazy"></div><figcaption>体育館の個人開放<span>曜日と時間の一覧</span></figcaption></figure>
+        <figure><div class="pic"><img src="../web/img/site_top_n.jpg" alt="個人サイト" loading="lazy"></div><figcaption>個人サイト<span>riseisasahara.com</span></figcaption></figure>
       </div>
-      <a class="more" href="/web/">13件の詳しい説明を見る →</a>
     </section>
 
     <!-- 04 Web構築 -->
