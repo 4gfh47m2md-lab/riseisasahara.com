@@ -122,3 +122,11 @@
 .hero-grid .photo{margin:0}
 .hero-grid .photo img{aspect-ratio:4/5}
 @media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-grid .photo{margin-top:36px}.hero-grid .photo img{aspect-ratio:4/3}}
+
+  /* NEWS（2026-10-16） 英検＝緑・TOEIC＝青 */
+  .k-toeic{border-color:#B9CDF0;color:#2F6FD6} .k-eiken{border-color:#BFE0CC;color:#2E8B57}
+  .tl.news li{padding:16px 0}
+  .tl.news h4 a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+  .tl.news li.more{display:none}.tl.news.all li.more{display:grid}
+  .news-more{margin:18px 0 0;font:inherit;font-size:14px;padding:8px 22px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;cursor:pointer}
+  @media (max-width:640px){.tl.news.all li.more{display:grid}}
