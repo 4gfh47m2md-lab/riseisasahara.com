@@ -7,7 +7,8 @@
 <meta name="description" content="笹原理成の学歴・検定・自動記録の仕組み。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 :root{--paper:#FBF8F0;--sheet:#FFFDF8;--line:#D9D1BF;--rule:#E6DFCF;--grid:rgba(110,92,60,.09);--ink:#1F1D1A;--mute:#6E6960;--soft:#43403A;
   --red:#C8402F;--green:#259460;--blue:#2F62B5;--orange:#D7761A;
@@ -111,6 +112,24 @@ footer{margin-top:56px;padding:24px 0 40px;border-top:1px solid var(--line);font
   .sh p{padding-left:0}
   nav ul{gap:14px}
 }
+
+/* ★2026-10-28 本人（成績表の見た目に）「このデザイン嫌い」→「トップページと同じ雰囲気に」「そう」＝トップ（/theme.css）と同じ紺と赤・Oswald の数字・方眼なし。明るい／暗いはトップの設定（data-theme）に合わせる */
+:root{--paper:var(--bg);--sheet:var(--bg);--line:var(--line-t);--rule:var(--line-t);--ink:var(--ink-t);--mute:var(--ink2-t);--soft:var(--ink2-t);--red:var(--acc-t);
+  --serif:"Oswald","Noto Sans JP",sans-serif;--mono:"Inter","Noto Sans JP",sans-serif;--body:"Inter","Noto Sans JP",sans-serif}
+:root{--bg:#ffffff;--line-t:#d9dee8;--ink-t:#121316;--ink2-t:#4f5562;--acc-t:#c8102e;--acc2:#1d428a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--line-t:#24304a;--ink-t:#eef1f6;--ink2-t:#9aa6bd;--acc-t:#e0344f;--acc2:#7da2e8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1220;--line-t:#24304a;--ink-t:#eef1f6;--ink2-t:#9aa6bd;--acc-t:#e0344f;--acc2:#7da2e8;color-scheme:dark}
+body{background:var(--bg);background-image:none}
+.sheet{border-top:0;box-shadow:none;border:0;background:transparent}
+.sheet-head{display:none}
+.sheet-in{padding:clamp(40px,7vw,96px) 0 clamp(32px,5vw,64px);border-bottom:1px solid var(--line)}
+h1{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:clamp(56px,10vw,130px);letter-spacing:-.04em}
+h1 .u{background:none;padding-bottom:0}
+h1 small{font-family:Inter,sans-serif;font-weight:600;letter-spacing:.14em}
+.grades{background:var(--line);border-color:var(--line);border-radius:12px;overflow:hidden}
+.g{background:var(--bg)}
+.g .num{font-family:"Oswald",sans-serif;font-weight:600;color:var(--ink)}
+.kicker{font-family:Inter,sans-serif;font-weight:600;letter-spacing:.14em}
 </style>
 </head>
 <body>
