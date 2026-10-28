@@ -11,6 +11,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css?v=20260913">
+<!-- ★2026-10-28 色・字体は「技術の記録」のいちばん新しいものを毎晩自動で（theme.css は homepage_sync.py が作る） -->
+<link rel="stylesheet" href="/theme.css?v=20261028">
+<script src="/bars3d.js?v=20261028" defer></script>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<style>
+  .tk{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+  .tk-card{border:1px solid var(--line);border-radius:14px;background:var(--bg2);padding:18px 18px 12px}
+  .tk-card h3{margin:0 0 4px;font-size:15px}
+  .tk-card .s{margin:0;color:var(--ink2);font-size:12.5px}
+  .tk-card svg{width:100%;height:auto;display:block;--b3-floor:var(--bg);--b3-line:var(--line);--b3-ink:var(--ink);--b3-halo:var(--bg2);--b3-mute:var(--ink2)}
+  .tk-pal{display:flex;gap:6px;margin:10px 0 0;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+  .tk-pal i{width:22px;height:22px;border-radius:6px;border:1px solid var(--line);display:inline-block}
+  .tk ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .tk li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .tk .d{color:var(--acc-ink);font-size:14px;padding-top:2px}
+  .tk li b{font-size:15px}.tk li p{margin:3px 0 0;color:var(--ink2);font-size:13.5px}
+  .tk .c{display:inline-block;font-size:11px;padding:1px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);margin-right:8px;vertical-align:1px}
+  .tk-more{margin-top:12px;font:inherit;font-size:14px;padding:8px 22px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;cursor:pointer}
+  .thm{font:inherit;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:3px 12px;cursor:pointer;margin-left:16px}
+  @media (max-width:860px){.tk{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header class="wrap">
@@ -23,8 +45,10 @@
       <li><a href="/works/">作品</a></li>
       <li><a href="/achievements/">アチーブメント</a></li>
       <li><a href="/web/">Webサイト</a></li>
+      <li><a href="#tech">技術</a></li>
       <li><a href="#links">リンク</a></li>
     </ul>
+    <button type="button" class="thm" id="thm" aria-label="明るい画面と暗い画面を切り替える">暗い画面</button>
   </nav>
 </header>
 
@@ -68,11 +92,11 @@
   <section id="news">
     <div class="sh">
       <h2><span class="n">02 — NEWS</span>お知らせ</h2>
-      <p>受験・公開・仕事の出来事を新しい順に。2026年10月16日 時点。</p>
+      <p>受験・公開・仕事の出来事を新しい順に。作ったWebサイトの数は毎晩自動で更新。</p>
     </div>
     <ul class="tl news">
       <li><span class="yr">2026. 11. 15</span><div><span class="kind k-toeic">TOEIC</span><h4>第442回 TOEIC L&amp;R 公開テストを受験予定</h4><p>午後の回。</p></div></li>
-      <li><span class="yr">2026. 10. 28</span><div><span class="kind k-life">Web</span><h4>Webサイトとページを400個 作った</h4><p>2026年9月5日〜10月28日。</p></div></li>
+      <!-- AUTO:sites（homepage_sync.py が毎晩書き換える・手で直さない） --><li><span class="yr">2026. 10. 28</span><div><span class="kind k-life">Web</span><h4>作ったWebサイトとページが 400個に</h4><p>2026年9月5日から。毎晩、自動で数えている。</p></div></li><!-- /AUTO:sites -->
       <li><span class="yr">2026. 10. 26</span><div><span class="kind k-eiken">英検</span><h4>2026年度第2回 英検1級 一次試験 不合格</h4><p>次は2027年1月24日の回を受験予定。</p></div></li>
       <li><span class="yr">2026. 10. 4</span><div><span class="kind k-eiken">英検</span><h4>2026年度第2回 英検1級 一次試験を受験</h4></div></li>
       <li><span class="yr">2026. 9. 28</span><div><span class="kind k-life">Web</span><h4>Webサイトとページを100個 作った</h4><p>2026年9月5日〜9月28日。</p></div></li>
@@ -166,9 +190,28 @@
     </ul>
   </section>
 
+  <!-- ★2026-10-28 本人「最新の俺の使える技術をふんだんに使いたい」「技術の発展のサイトを作って、その最新のものが自動でホームページに採用されるように」＝中身は data/tech.json（毎晩 自動） -->
+  <section id="tech">
+    <div class="sh">
+      <h2><span class="n">05 — 技術</span>作ってきた技術</h2>
+      <p>色・字体・グラフ・仕組みを、作った日の順に。このページの色と字体とグラフは、いちばん新しいものを毎晩自動で使っている。</p>
+    </div>
+    <div class="tk">
+      <div>
+        <div class="tk-card">
+          <h3>TOEIC L&amp;R のリスニングとリーディング</h3>
+          <p class="s" id="tkcs">ドラッグで回せる。ダブルクリックで元の向き。</p>
+          <svg id="tkc" role="img" aria-label="TOEIC の L と R の点を受けた回の順に並べたグラフ"></svg>
+        </div>
+        <p class="tk-pal" id="tkp"></p>
+      </div>
+      <div><ul id="tkl"></ul><button type="button" class="tk-more" id="tkm" hidden>もっと見る</button></div>
+    </div>
+  </section>
+
   <section id="services">
     <div class="sh">
-      <h2><span class="n">05 — できる仕事</span>依頼できること</h2>
+      <h2><span class="n">06 — できる仕事</span>依頼できること</h2>
       <p>実際にやってきた仕事だけ。それぞれ、いつ・どこでやったかを添えている。</p>
     </div>
     <div class="yl">
@@ -190,7 +233,7 @@
 
   <section id="links" style="border-bottom:0">
     <div class="sh">
-      <h2><span class="n">06 — リンク</span>外部</h2>
+      <h2><span class="n">07 — リンク</span>外部</h2>
       <p></p>
     </div>
     <div class="links">
@@ -220,5 +263,29 @@
   <span>© 2026 笹原理成</span>
   <span>東京 · 2026年9月5日 公開</span>
 </footer>
+<script>
+/* ★2026-10-28 明るい画面と暗い画面（押すと切り替え・端末に覚える）と、技術の欄（data/tech.json） */
+(function(){
+  var d=document.documentElement,b=document.getElementById('thm');
+  function dark(){return d.dataset.theme?d.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function lab(){b.textContent=dark()?'明るい画面':'暗い画面'}
+  lab();
+  b.onclick=function(){var go=function(){d.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',d.dataset.theme)}catch(e){}lab();draw()};document.startViewTransition?document.startViewTransition(go):go()};
+  var T=null;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function md(x){return +x.slice(5,7)+'/'+(+x.slice(8,10))}
+  function draw(){
+    if(!T)return;var P=dark()?T.palette.dark:T.palette.light;
+    document.getElementById('tkp').innerHTML='いま使っている色：'+esc(T.palette.name)+' '+['bg','bg2','ink','acc','acc2'].map(function(k){return '<i style="background:'+P[k]+'" title="'+k+'"></i>'}).join('')+'　字体：'+esc(T.font.name);
+    var rows=['2023.4','2024.9','2025.8','2026.4'],v=[[365,355],[435,400],[445,425],[435,405]],sv=document.getElementById('tkc');
+    if(T.chart==='3d'&&window.bars3d){bars3d(sv,{cols:['L','R'],rows:rows,v:v,colors:[P.acc2,P.acc],max:495,unit:'点'})}
+    else{document.getElementById('tkcs').textContent='';var h='';v.forEach(function(r,j){r.forEach(function(n,i){var x=40+j*130+i*48,hh=n/495*220;h+='<rect x="'+x+'" y="'+(260-hh)+'" width="40" height="'+hh+'" fill="'+(i?P.acc:P.acc2)+'"/><text x="'+(x+20)+'" y="'+(252-hh)+'" text-anchor="middle" font-size="14" font-weight="700" fill="'+P.ink+'">'+n+'</text>'});h+='<text x="'+(40+j*130+44)+'" y="282" text-anchor="middle" font-size="12" fill="'+P.ink2+'">'+rows[j]+'</text>'});sv.setAttribute('viewBox','0 0 560 300');sv.innerHTML=h}
+  }
+  function list(all){var it=T.items.slice(0,all?99:6);document.getElementById('tkl').innerHTML=it.map(function(x){return '<li><span class="d">'+md(x.date)+'</span><div><b><span class="c">'+esc(x.cat)+'</span>'+esc(x.name)+'</b><p>'+esc(x.what)+'</p></div></li>'}).join('');var m=document.getElementById('tkm');m.hidden=all||T.items.length<=6;m.onclick=function(){list(true)}}
+  function go(){fetch('/data/tech.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){T=j;list(false);draw()}).catch(function(){})}
+  if(document.readyState==='loading')addEventListener('DOMContentLoaded',go);else go();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){lab();draw()});
+})();
+</script>
 </body>
 </html>

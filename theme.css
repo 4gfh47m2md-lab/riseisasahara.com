@@ -1,0 +1,22 @@
+/* 自動で作っている（automation/homepage_sync.py）。手で直さない。色と字体は 技術の記録 data/gijutsu.json のいちばん新しいもの
+   色：NBA 公式風（紺と赤）（2026-10-03〜）／字体：数字は Oswald（2026-10-03〜） */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
+:root{--bg:#ffffff;--bg2:#eef1f6;--ink:#121316;--ink2:#4f5562;--ink3:#4f5562;--line:#d9dee8;--acc:#c8102e;--acc2:#1d428a;--acc-ink:#c8102e;--num:"Oswald",sans-serif;--head:"Inter","Noto Sans JP",sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--bg2:#121b2e;--ink:#eef1f6;--ink2:#9aa6bd;--ink3:#9aa6bd;--line:#24304a;--acc:#e0344f;--acc2:#7da2e8;--acc-ink:#ff6b81;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1220;--bg2:#121b2e;--ink:#eef1f6;--ink2:#9aa6bd;--ink3:#9aa6bd;--line:#24304a;--acc:#e0344f;--acc2:#7da2e8;--acc-ink:#ff6b81;color-scheme:dark}
+body{background:var(--bg);color:var(--ink)}
+/* 差し色の使い方：見出しの番号・年表の年・リンクの矢印は差し色、区切りの太線は2色目 */
+.sh .n,.tl .yr,.links .arr,.kicker{color:var(--acc-ink)}
+.sh h2{border-left:4px solid var(--acc);padding-left:14px}
+nav .dot{background:var(--acc)}
+.tl .yr,.tk .d,.tk-num{font-family:var(--num);font-weight:600;letter-spacing:.04em}
+.links a:hover{border-color:var(--acc)}
+.cat:hover{background:var(--bg2)}
+.photo,.cats,.yl,.links a,.tk-card{border-color:var(--line)}
+.cats,.yl{background:var(--line)}.cat,.yl div{background:var(--bg)}
+/* ページの移り変わり（同じサイトの中を動く時に、なめらかに切り替える） */
+@view-transition{navigation:auto}
+/* スクロールで出てくる（動きを減らす設定の人には動かさない） */
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
+  section .sh,.tl li,.cat,.yl div,.tk-card{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}}
