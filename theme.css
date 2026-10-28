@@ -10,6 +10,13 @@ body{background:var(--bg);color:var(--ink)}
 .sh h2{border-left:4px solid var(--acc);padding-left:14px}
 nav .dot{background:var(--acc)}
 .tl .yr,.tk .d,.tk-num{font-family:var(--num);font-weight:600;letter-spacing:.04em}
+/* トップの6つの領域のカードの数字（cat_nums） */
+.cat .cn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.cat .cn span{min-width:0;border-top:2px solid var(--acc);padding-top:8px}
+.cat .cn span+span{border-top-color:var(--acc2)}
+.cat .cn b{display:block;font-family:var(--num);font-weight:600;font-size:clamp(22px,2.4vw,30px);line-height:1.05;white-space:nowrap;color:var(--ink)}
+.cat .cn b small{font-family:var(--head);font-size:12px;font-weight:500;color:var(--ink2);margin-left:3px}
+.cat .cn em{display:block;font-style:normal;font-size:11.5px;color:var(--ink2);margin-top:4px;line-height:1.35}
 .links a:hover{border-color:var(--acc)}
 .cat:hover{background:var(--bg2)}
 .photo,.cats,.yl,.links a,.tk-card{border-color:var(--line)}
