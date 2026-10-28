@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ★2026-10-28 本人「英語版も欲しいよね」→「うん」＝トップの英語版。手で訳した（毎晩の自動 homepage_sync.py は日本語の /index.html だけ） -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risei Sasahara</title>
+<meta name="description" content="Risei Sasahara — art, English, basketball, NBA 2K. In dates and numbers.">
+<meta property="og:title" content="Risei Sasahara">
+<meta property="og:description" content="Records of Risei Sasahara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=20260913">
+<!-- ★2026-10-28 色・字体は「技術の記録」のいちばん新しいものを毎晩自動で（theme.css は homepage_sync.py が作る） -->
+<link rel="stylesheet" href="/theme.css?v=20261028">
+<script src="/bars3d.js?v=20261028" defer></script>
+<script src="/demos.js?v=20261028" defer></script>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<style>
+  .tk{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+  .tk-card{border:1px solid var(--line);border-radius:14px;background:var(--bg2);padding:18px 18px 12px}
+  .tk-card h3{margin:0 0 4px;font-size:15px}
+  .tk-card .s{margin:0;color:var(--ink2);font-size:12.5px}
+  .tk-card svg{width:100%;height:auto;display:block;--b3-floor:var(--bg);--b3-line:var(--line);--b3-ink:var(--ink);--b3-halo:var(--bg2);--b3-mute:var(--ink2)}
+  .tk-pal{display:flex;gap:6px;margin:10px 0 0;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+  .tk-pal i{width:22px;height:22px;border-radius:6px;border:1px solid var(--line);display:inline-block}
+  #tkl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  #tkl>li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  #tkl>li>.d{color:var(--acc-ink);font-size:14px;padding-top:2px}
+  #tkl>li>div>b{font-size:15px}#tkl>li>div>p{margin:3px 0 0;color:var(--ink2);font-size:13.5px}
+  #tkl>li>div>b>.c{display:inline-block;font-size:11px;padding:1px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);margin-right:8px;vertical-align:1px}
+  .tk .try{font:inherit;font-size:12px;border:1px solid var(--acc);color:var(--acc-ink);background:transparent;border-radius:999px;padding:1px 12px;margin-top:6px;cursor:pointer}.tk .try.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .tk-more{margin-top:12px;font:inherit;font-size:14px;padding:8px 22px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;cursor:pointer}
+  .thm{font:inherit;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:3px 12px;cursor:pointer;margin-left:16px}
+  @media (max-width:860px){.tk{grid-template-columns:1fr}}
+  /* ★2026-10-28 本人「ロゴをいれて」「関わった企業の」＝関わった会社・団体・学校にロゴ（各サイトのロゴ・アイコン。無いところは名前の札） */
+  .links a .lg{flex:0 0 112px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:6px 10px;border:1px solid var(--line);margin-right:16px;overflow:hidden}
+  .links a .lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .links a .lg b{font-size:15px;color:#111;letter-spacing:.04em}.links a .lg.dk b{color:#fff}
+  .links a:has(.lg) .l{flex:1;min-width:0}
+  .links a.nolink{cursor:default}.links a.nolink:hover{transform:none;border-color:var(--line)}
+  @media (max-width:640px){.links a .lg{flex-basis:76px;height:38px;margin-right:12px;padding:5px 7px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav>
+    <a href="#"><span class="dot"></span>Risei Sasahara</a>
+    <ul>
+      <li><a href="#news">NEWS</a></li>
+      <li><a href="#record">Records</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="/works/">Works</a></li>
+      <li><a href="/achievements/">Achievements</a></li>
+      <li><a href="/web/">Websites</a></li>
+      <li><a href="#tech">Technology</a></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="/" lang="ja">日本語</a></li>
+    </ul>
+    <button type="button" class="thm" id="thm" aria-label="Switch light and dark">Dark</button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero" style="border-bottom:0;padding-bottom:0">
+    <p class="trio" aria-label="絵 かける 英語 かける バスケ">Art<span>×</span>English<span>×</span>Basketball</p>
+    <div class="hero-grid">
+      <div>
+    <p class="kicker">Records — since 1998</p>
+        <h1>Risei<br><em>Sasahara</em></h1>
+        <p class="jp">Risei Sasahara</p>
+            <p class="lead">Art, English, basketball, NBA 2K. Tokyo. A place where I record what I have done, in dates and numbers.</p>
+        <div class="meta">
+          <span>Born <b>Suginami, Tokyo · December 1998</b></span>
+          <span>Based in <b>Tokyo</b></span>
+          <span>Education <b>Academy of Art University, MA (Fine Art) · Gakushuin University, Dept. of English Language and Cultures</b></span>
+          <span>Coaching <b>English · Basketball</b></span>
+          <span>Team <b>Golden State Warriors</b></span>
+        </div>
+      </div>
+      <figure class="photo"><img src="/img/portrait.jpg" alt="笹原理成" width="1600" height="1200"></figure>
+    </div>
+
+    <div id="story" class="story-top">
+    <div class="sh">
+      <h2><span class="n">01 — Story</span>About me</h2>
+      <p>September 19, 2026.</p>
+    </div>
+    <div class="story">
+      <p>I started a company while I was in university. I was 20. It did not go well, but I have used the methods I learned then to add what I can do, one thing at a time.</p>
+      <p>I thought that if I used the management systems I learned from running a company for my own growth, the results could be remarkable. After putting the company on hold, I built a system for my own growth and have been putting it into practice.</p>
+      <p>What I want is work that only I can do. Art, English, basketball, technology. Each one alone is not rare, but by combining them I am building a field of my own.</p>
+      <p>From there, I want to bring many things into the world. This site is the record along the way.</p>
+    </div>
+    </div>
+
+  </section>
+
+
+  <!-- ★2026-10-16 本人「メインの俺のホームページ…にもNEWSをつけて。第何回TOEICを受験とか」＝日付と出来事だけ（評価は書かない）。新しい順。試験を受けたら1行足す -->
+  <section id="news">
+    <div class="sh">
+      <h2><span class="n">02 — NEWS</span>News</h2>
+      <p>Exams, launches and work, newest first. The number of websites I have built updates automatically every night.</p>
+    </div>
+    <ul class="tl news">
+      <li><span class="yr">2026. 11. 15</span><div><span class="kind k-toeic">TOEIC</span><h4>Taking the 442nd TOEIC L&amp;R Public Test</h4><p>Afternoon session.</p></div></li>
+      <!-- AUTO:sites（homepage_sync.py が毎晩書き換える・手で直さない） --><li><span class="yr">2026. 10. 28</span><div><span class="kind k-life">Web</span><h4>Websites and pages built: 401</h4><p>Since September 5, 2026. Counted automatically every night.</p></div></li><!-- /AUTO:sites -->
+      <li><span class="yr">2026. 10</span><div><span class="kind k-work">Work</span><h4>Instructor at Artbar Tokyo</h4><p>A painting class at an art studio. First session.</p></div></li>
+      <li><span class="yr">2026. 10. 26</span><div><span class="kind k-eiken">Eiken</span><h4>Eiken Grade 1, 2026 Session 2, first stage: did not pass</h4><p>Next attempt: January 24, 2027.</p></div></li>
+      <li><span class="yr">2026. 10. 4</span><div><span class="kind k-eiken">Eiken</span><h4>Took Eiken Grade 1, 2026 Session 2, first stage</h4></div></li>
+      <li><span class="yr">2026. 9. 28</span><div><span class="kind k-life">Web</span><h4>Built 100 websites and pages</h4><p>September 5 – September 28, 2026.</p></div></li>
+      <li><span class="yr">2026. 9. 23</span><div><span class="kind k-life">Web</span><h4><a href="/web/">List of websites</a>published</h4></div></li>
+      <li><span class="yr">2026. 9. 17</span><div><span class="kind k-work">Work</span><h4>Full-time at eX.media</h4><p>Teaching junior high and high school students, and systems.</p></div></li>
+      <li><span class="yr">2026. 9. 8</span><div><span class="kind k-work">Work</span><h4>Began basketball coaching at Makuhari International School, Term 2</h4><p>Tuesdays, 10 sessions (through December 1).</p></div></li>
+      <li><span class="yr">2026. 9. 7</span><div><span class="kind k-life">Art</span><h4><a href="/works/">Works page</a>published</h4><p>49 pieces.</p></div></li>
+      <li class="more"><span class="yr">2026. 9. 5</span><div><span class="kind k-life">Web</span><h4>Launched riseisasahara.com</h4></div></li>
+      <li class="more"><span class="yr">2026. 5. 31</span><div><span class="kind k-eiken">Eiken</span><h4>Took Eiken Grade 1, 2026 Session 1, first stage</h4></div></li>
+      <li class="more"><span class="yr">2026. 4. 19</span><div><span class="kind k-toeic">TOEIC</span><h4>Took the 423rd TOEIC L&amp;R Public Test</h4><p>840 (L435 · R405).</p></div></li>
+      <li class="more"><span class="yr">2025. 8. 24</span><div><span class="kind k-toeic">TOEIC</span><h4>Took the 399th TOEIC L&amp;R Public Test</h4><p>870 (L445 · R425). Personal best.</p></div></li>
+      <li class="more"><span class="yr">2025. 2</span><div><span class="kind k-eiken">Eiken</span><h4>Passed Eiken Grade Pre-1, 2024 Session 3</h4><p>First stage 1810 (pass line 1792).</p></div></li>
+      <li class="more"><span class="yr">2024. 9. 14</span><div><span class="kind k-toeic">TOEIC</span><h4>Took the 365th TOEIC L&amp;R Public Test</h4><p>835 (L435 · R400).</p></div></li>
+      <li class="more"><span class="yr">2023. 4. 23</span><div><span class="kind k-toeic">TOEIC</span><h4>Took the 321st TOEIC L&amp;R Public Test</h4><p>720 (L365 · R355).</p></div></li>
+    </ul>
+    <button type="button" class="news-more" onclick="this.previousElementSibling.classList.add('all');this.remove()">See more</button>
+  </section>
+
+  <section id="record">
+    <div class="sh">
+      <h2><span class="n">03 — Records</span>Six areas</h2>
+      <p>Everything on this site belongs to one of these six.</p>
+    </div>
+    <div class="cats">
+      <a class="cat" href="/sport/">
+        <span class="idx">I</span>
+        <h3>Sport <span>+ Training</span></h3>
+        <p class="ja">Basketball · baseball · volleyball</p>
+        
+      </a>
+      <a class="cat" href="/study/">
+        <span class="idx">II</span>
+        <h3>Study <span>+ Thinking</span></h3>
+        <p class="ja">Education · exams · record-keeping systems</p>
+        
+      </a>
+      <a class="cat" href="/language/">
+        <span class="idx">III</span>
+        <h3>Language <span>+ Comm</span></h3>
+        <p class="ja">English · teaching · interpreting</p>
+        
+      </a>
+      <a class="cat" href="/create/">
+        <span class="idx">IV</span>
+        <h3>Create <span>+ Expression</span></h3>
+        <p class="ja">Art · design · DJ</p>
+        <p class="tag">49 works → /works/</p>
+        
+      </a>
+      <a class="cat" href="/game/">
+        <span class="idx">V</span>
+        <h3>Game <span>+ Strategy</span></h3>
+        <p class="ja">NBA 2K record</p>
+        
+      </a>
+      <a class="cat" href="/building/">
+        <span class="idx">VI</span>
+        <h3>Building <span>+ Systems</span></h3>
+        <p class="ja">AI · automation · websites</p>
+        <p class="tag">Progress board → /building/eiken/</p>
+        
+      </a>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="sh">
+      <h2><span class="n">04 — Timeline</span>1998 – 2026</h2>
+      <p>Education, work and milestones on one timeline. Dates from my résumé. As of October 15, 2026.</p>
+    </div>
+    <ul class="tl">
+      <li><span class="yr">1998</span><div><span class="kind k-life">Milestone</span><h4>From Suginami, Tokyo</h4><p>Born December 22, 1998.</p></div></li>
+      <li><span class="yr">2006 – 2014</span><div><span class="kind k-life">Milestone</span><h4>Baseball</h4><p>From 2nd grade to the first year of high school. In August 2012, selected for the Suginami all-star team and played first base, batting 5th, against Taiwan.</p></div></li>
+      <li><span class="yr">2014</span><div><span class="kind k-edu">Education</span><h4>Study in New Zealand</h4><p>Takapuna Grammar School. First year of high school, 68 days from July 21 to September 26.</p></div></li>
+      <li><span class="yr">2014 – 2017</span><div><span class="kind k-edu">Education</span><h4>Mejiro Kenshin High School, Advanced Course</h4><p>Captain of the volleyball team.</p></div></li>
+      <li><span class="yr">2017 – 2021</span><div><span class="kind k-edu">Education</span><h4><a href="https://www.en-gakushuin.jp/" target="_blank" rel="noopener">Gakushuin University, Faculty of Letters, Dept. of English Language and Cultures</a></h4><p>Started basketball in April 2017. First TOEIC, 680, in April 2017.</p></div></li>
+      <li><span class="yr">2017 – 2018</span><div><span class="kind k-work">Work</span><h4>Started teaching English</h4><p>Private tutoring. The first time I taught English to someone.</p></div></li>
+      <li><span class="yr">2019 – 2021</span><div><span class="kind k-work">Work</span><h4>Event management (student group)</h4><p>Ran events in Tokyo. As group leader I handled promotion and operations: about 630 attendees over 9 recorded events, with a maximum of 140 at one.</p></div></li>
+      <li><span class="yr">2020 – 2022</span><div><span class="kind k-work">Work</span><h4>Founded UNREAL Inc., CEO</h4><p>Founded November 10, 2020. Business moved from beauty (cut and styling) → club events (about 12) → staffing (site work, DJ) → a bar (Bar FINEST, April–July 2022). I managed schedules, venues, budgets and attendance targets, built the accounting flow and manuals, set up and ran L-Step, and designed the flyers myself. Suspended in December 2022.</p></div></li>
+      <li><span class="yr">2021. 8</span><div><span class="kind k-life">Milestone</span><h4>Started recording numbers</h4><p>I have kept records of my body, study and games since then.</p></div></li>
+      <li><span class="yr">2022 –</span><div><span class="kind k-work">Work</span><h4>Social media management / resident DJ</h4><p>Since August 2022.</p></div></li>
+      <li><span class="yr">2023 – 2026</span><div><span class="kind k-edu">Education</span><h4><a href="https://www.academyart.edu/" target="_blank" rel="noopener">Academy of Art University</a> — Fine Art (Illustration), MA program</h4><p>Took the entire program online, in English, from Tokyo, while working throughout. GPA 3.08. Completed June 2026.</p></div></li>
+      <li><span class="yr">2024. 8 – 2026. 7</span><div><span class="kind k-work">Work</span><h4><a href="https://ex-media.jp/business/" target="_blank" rel="noopener">eX.media</a>(cram school) after-school teaching for elementary students</h4><p>August 2024 – July 2026.</p></div></li>
+      <li><span class="yr">2025. 2</span><div><span class="kind k-life">Milestone</span><h4>Passed Eiken Grade Pre-1</h4><p>First stage 1810 (pass line 1792), second stage also passed.</p></div></li>
+      <li><span class="yr">2025. 8</span><div><span class="kind k-life">Milestone</span><h4>TOEIC 870</h4><p>Personal best. L445 · R425.</p></div></li>
+      <li><span class="yr">2025. 9 –</span><div><span class="kind k-work">Work</span><h4><a href="https://athlete-force.com/" target="_blank" rel="noopener">Athlete Force</a>（BSKILLS）</h4><p>Basketball school. Joined for English teaching and AI. From January 2026, also coaching basketball at<a href="https://www.mis.ed.jp/" target="_blank" rel="noopener">Makuhari International School</a>.</p></div></li>
+      <li><span class="yr">2026. 6 – 2026. 9</span><div><span class="kind k-work">Work</span><h4><a href="https://supernova-tokyo.jp/" target="_blank" rel="noopener">Supernova Tokyo Inc.</a> Head of Marketing</h4><p>June 5 – September 1, 2026. Marketing for the app <a href="https://flash.me/" target="_blank" rel="noopener">Flash</a> . In 3 months: 1,065 sign-ups, weekly actives from 78 to 321. In August, full automation of my daily-life data went live.</p></div></li>
+      <li><span class="yr">2026. 9. 5</span><div><span class="kind k-life">Milestone</span><h4>Launched riseisasahara.com</h4><p>A record of who I am.</p></div></li>
+      <li><span class="yr">2026. 9. 17 –</span><div><span class="kind k-work">Work</span><h4><a href="https://ex-media.jp/business/" target="_blank" rel="noopener">eX.media</a> Full-time</h4><p>Teaching junior high and high school students, and systems. 5 days a week.</p></div></li>
+      <li><span class="yr">2026. 9. 28</span><div><span class="kind k-life">Milestone</span><h4>Built 100 websites and pages</h4><p>September 5 – September 28, 2026. Built on 11 days.</p></div></li>
+      <li><span class="yr">2026. 10 –</span><div><span class="kind k-work">Work</span><h4><a href="https://artbar.co.jp/" target="_blank" rel="noopener">Artbar Tokyo</a> Instructor</h4><p>Teaching painting classes at an art studio. One session in October 2026.</p></div></li>
+      <li><span class="yr">2026. 10. 4</span><div><span class="kind k-life">Milestone</span><h4>Took Eiken Grade 1, first stage</h4><p>Did not pass (announced October 26). Next attempt: January 24, 2027.</p></div></li>
+    </ul>
+  </section>
+
+  <!-- ★2026-10-28 本人「最新の俺の使える技術をふんだんに使いたい」「技術の発展のサイトを作って、その最新のものが自動でホームページに採用されるように」＝中身は data/tech.json（毎晩 自動） -->
+  <section id="tech">
+    <div class="sh">
+      <h2><span class="n">05 — Technology</span>What I have built</h2>
+      <p>Colors, fonts, charts and systems, in the order I made them. This page automatically uses the newest ones every night.</p>
+    </div>
+    <div class="tk">
+      <div>
+        <div class="tk-card">
+          <h3>TOEIC L&amp;R listening and reading</h3>
+          <p class="s" id="tkcs">Drag to rotate. Double-click to reset.</p>
+          <svg id="tkc" role="img" aria-label="TOEIC の L と R の点を受けた回の順に並べたグラフ"></svg>
+        </div>
+        <p class="tk-pal" id="tkp"></p>
+      </div>
+      <div><ul id="tkl"></ul><button type="button" class="tk-more" id="tkm" hidden>See more</button></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="sh">
+      <h2><span class="n">06 — Services</span>What you can ask me for</h2>
+      <p>Only work I have actually done, each with when and where.</p>
+    </div>
+    <div class="yl">
+      <div class="y"><h4>English teaching</h4><p>Eiken, TOEIC, school exams. Junior high to high school students, and adults. Private tutoring since 2017. High school English at Athlete Force since September 2025.</p></div>
+      <div class="y"><h4>Basketball coaching (in English)</h4><p>Coaching kindergarten to 5th grade in English. Weekly at an international school in Makuhari since January 2026.</p></div>
+      <div class="y"><h4>Interpreting · English writing</h4><p>Interpreting at a sports school, English notices and emails. Athlete Force, since September 2025.</p></div>
+      <div class="y"><h4>Art · illustration</h4><p>Pencil drawing, watercolor, acrylic, oil, digital (Procreate, Adobe). MA in Illustration. 49 works at <a href="/works/">/works/</a> .</p></div>
+      <div class="y"><h4>Design</h4><p>Event flyers, social media images, LINE official account designs. Since 2020.</p></div>
+      <div class="y"><h4>Website building</h4><p>Single-page sites in HTML and CSS, through to launch (domain, DNS). This site is an example.</p></div>
+      <div class="y"><h4>Business automation with AI</h4><p>Building systems that run records, totals and notifications automatically with Claude. 25 automations that run every morning, and the<a href="/building/eiken/">Progress board</a> are examples.</p></div>
+      <div class="y"><h4>Social media · marketing</h4><p>Social media management (2022–). Head of Marketing for an app at Supernova Tokyo Inc., June–September 2026.</p></div>
+      <div class="y"><h4>LINE official · L-Step setup</h4><p>Message design, scenarios, tag management. Ran in-house at UNREAL Inc. (2020–2022).</p></div>
+      <div class="y"><h4>DJ</h4><p>Resident DJ since August 2022. Rekordbox, Serato.</p></div>
+    </div>
+    <p class="ratings-note" style="margin-top:14px">For requests and questions, email <a href="mailto:work@riseisasahara.com">work@riseisasahara.com</a> .</p>
+  </section>
+
+
+
+  <section id="links" style="border-bottom:0">
+    <div class="sh">
+      <h2><span class="n">07 — Links</span>External</h2>
+      <p></p>
+    </div>
+    <div class="links">
+      <a href="/achievements/"><span class="l">Achievements<small>Certifications, completions, records — in dates and numbers</small></span><span class="arr">→</span></a>
+      <a href="/works/"><span class="l">Works<small>Drawing, digital, stamps, design — 49 pieces</small></span><span class="arr">→</span></a>
+      <a href="/web/"><span class="l">Websites I built<small>13 built in September 2026 — look, features, how they work</small></span><span class="arr">→</span></a>
+      <a href="https://www.instagram.com/risei.sasahara/" target="_blank" rel="noopener"><span class="l">Instagram<small>@risei.sasahara</small></span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/risei-sasahara-822903214" target="_blank" rel="noopener"><span class="l">LinkedIn<small>risei-sasahara</small></span><span class="arr">→</span></a>
+    </div>
+    <div class="sh" style="margin-top:40px">
+      <h2><span class="n">Companies, organizations and schools</span></h2>
+      <p>Workplaces, coaching sites and schools from the timeline.</p>
+    </div>
+    <div class="links">
+      <a href="https://ex-media.jp/business/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/exmedia.png" alt=""></span><span class="l">eX.media Inc.<small>Cram school (Koenji) — elementary teaching Aug 2024–Jul 2026 / full-time since Sep 2026</small></span><span class="arr">→</span></a>
+      <a href="https://athlete-force.com/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/athleteforce_crop.png" alt=""></span><span class="l">ATHLETE FORCE (general incorporated association)<small>Basketball school (Chiba) — since September 2025</small></span><span class="arr">→</span></a>
+      <a href="https://www.mis.ed.jp/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/mis_mark.png" alt="" style="max-width:80%"></span><span class="l">Makuhari International School<small>Basketball coaching — since January 2026</small></span><span class="arr">→</span></a>
+      <a href="https://artbar.co.jp/" target="_blank" rel="noopener"><span class="lg dk" style="background:#1a1a1a"><img src="/img/logos/artbar.png" alt=""></span><span class="l">Artbar Tokyo<small>Art studio (Tokyo) — instructor since October 2026. One session</small></span><span class="arr">→</span></a>
+      <a href="https://supernova-tokyo.jp/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/supernova-tokyo.png" alt=""></span><span class="l">Supernova Tokyo Inc.<small>Head of Marketing — June–September 2026</small></span><span class="arr">→</span></a>
+      <a href="https://flash.me/" target="_blank" rel="noopener"><span class="lg dk" style="background:#000"><img src="/img/logos/flash.png" alt=""></span><span class="l">Flash<small>A social app by Supernova Tokyo. The product I worked on</small></span><span class="arr">→</span></a>
+      <a href="https://www.en-gakushuin.jp/" target="_blank" rel="noopener"><span class="lg dk" style="background:#004a98"><img src="/img/logos/gakushuin.svg" alt=""></span><span class="l">Gakushuin University, Faculty of Letters, Dept. of English Language and Cultures<small>April 2017 – March 2021</small></span><span class="arr">→</span></a>
+      <a href="https://www.academyart.edu/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/aau.png" alt=""></span><span class="l">Academy of Art University<small>Fine Art (Illustration), MA — January 2023 – June 2026</small></span><span class="arr">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Risei Sasahara</span>
+  <span>Tokyo · Launched September 5, 2026</span>
+</footer>
+<script>
+/* ★2026-10-28 明るい画面と暗い画面（押すと切り替え・端末に覚える）と、技術の欄（data/tech.json） */
+(function(){
+  var d=document.documentElement,b=document.getElementById('thm');
+  function dark(){return d.dataset.theme?d.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function lab(){b.textContent=dark()?'Light':'Dark'}
+  lab();
+  b.onclick=function(){var go=function(){d.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',d.dataset.theme)}catch(e){}lab();draw()};document.startViewTransition?document.startViewTransition(go):go()};
+  var T=null,O={},SHOWALL=false;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function md(x){return +x.slice(5,7)+'/'+(+x.slice(8,10))}
+  function draw(){
+    if(!T)return;var P=dark()?T.palette.dark:T.palette.light;
+    document.getElementById('tkp').innerHTML='いま使っている色：'+esc(T.palette.name)+' '+['bg','bg2','ink','acc','acc2'].map(function(k){return '<i style="background:'+P[k]+'" title="'+k+'"></i>'}).join('')+'　字体：'+esc(T.font.name);
+    var rows=['2023.4','2024.9','2025.8','2026.4'],v=[[365,355],[435,400],[445,425],[435,405]],sv=document.getElementById('tkc');
+    if(T.chart==='3d'&&window.bars3d){bars3d(sv,{cols:['L','R'],rows:rows,v:v,colors:[P.acc2,P.acc],max:495,unit:'点'})}
+    else{document.getElementById('tkcs').textContent='';var h='';v.forEach(function(r,j){r.forEach(function(n,i){var x=40+j*130+i*48,hh=n/495*220;h+='<rect x="'+x+'" y="'+(260-hh)+'" width="40" height="'+hh+'" fill="'+(i?P.acc:P.acc2)+'"/><text x="'+(x+20)+'" y="'+(252-hh)+'" text-anchor="middle" font-size="14" font-weight="700" fill="'+P.ink+'">'+n+'</text>'});h+='<text x="'+(40+j*130+44)+'" y="282" text-anchor="middle" font-size="12" fill="'+P.ink2+'">'+rows[j]+'</text>'});sv.setAttribute('viewBox','0 0 560 300');sv.innerHTML=h}
+  }
+  function list(all){var it=T.items.slice(0,all?99:6);document.getElementById('tkl').innerHTML=it.map(function(x){return '<li><span class="d">'+md(x.date)+'</span><div><b><span class="c">'+esc(x.cat)+'</span>'+esc(x.name)+'</b><p>'+esc(x.what)+'</p>'+(window.gijutsuHasDemo&&gijutsuHasDemo(x.id)?'<button type="button" class="try'+(O[x.id]?' on':'')+'" data-id="'+x.id+'">'+(O[x.id]?'Close':'Try')+'</button><div class="dm" data-id="'+x.id+'"></div>':'')+'</div></li>'}).join('');
+    /* ★2026-10-28 本人「作ってきた技術は１個ずつ実際に試せる例を表示しよう」＝「試す」でその場に見本（demos.js・数字はすべて見本） */
+    document.querySelectorAll('#tkl .try').forEach(function(b){b.onclick=function(){O[b.dataset.id]=!O[b.dataset.id];list(SHOWALL)}});
+    document.querySelectorAll('#tkl .dm').forEach(function(d){if(O[d.dataset.id])gijutsuDemo(d.dataset.id,d,{palettes:T.palettes||[]})});
+    SHOWALL=all;var m=document.getElementById('tkm');m.hidden=all||T.items.length<=6;m.onclick=function(){list(true)}}
+  function go(){fetch('/data/tech.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){T=j;list(false);draw()}).catch(function(){})}
+  if(document.readyState==='loading')addEventListener('DOMContentLoaded',go);else go();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){lab();draw()});
+})();
+</script>
+</body>
+</html>
