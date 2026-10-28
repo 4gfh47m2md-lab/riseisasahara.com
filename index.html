@@ -34,6 +34,12 @@
   .tk-more{margin-top:12px;font:inherit;font-size:14px;padding:8px 22px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;cursor:pointer}
   .thm{font:inherit;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:3px 12px;cursor:pointer;margin-left:16px}
   @media (max-width:860px){.tk{grid-template-columns:1fr}}
+  /* ★2026-10-28 本人「ロゴをいれて」「関わった企業の」＝関わった会社・団体・学校にロゴ（各サイトのロゴ・アイコン。無いところは名前の札） */
+  .links a .lg{flex:0 0 112px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:6px 10px;border:1px solid var(--line);margin-right:16px;overflow:hidden}
+  .links a .lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .links a .lg b{font-size:15px;color:#111;letter-spacing:.04em}.links a .lg.dk b{color:#fff}
+  .links a:has(.lg) .l{flex:1;min-width:0}
+  @media (max-width:640px){.links a .lg{flex-basis:76px;height:38px;margin-right:12px;padding:5px 7px}}
 </style>
 </head>
 <body>
@@ -252,14 +258,14 @@
       <p>年表に出てくる勤務先・指導先・出身校。</p>
     </div>
     <div class="links">
-      <a href="https://ex-media.jp/business/" target="_blank" rel="noopener"><span class="l">株式会社eX.media<small>学習塾（高円寺）— 2024年8月〜2026年7月 小学生指導／2026年9月〜 正社員</small></span><span class="arr">→</span></a>
-      <a href="https://dxnpf.hp.peraichi.com/" target="_blank" rel="noopener"><span class="l">一般社団法人ATHLETE FORCE<small>バスケットボールスクール（千葉）— 2025年9月〜</small></span><span class="arr">→</span></a>
-      <a href="https://www.mis.ed.jp/" target="_blank" rel="noopener"><span class="l">幕張インターナショナルスクール<small>バスケットボール指導 — 2026年1月〜</small></span><span class="arr">→</span></a>
-      <a href="https://artbar.co.jp/" target="_blank" rel="noopener"><span class="l">Artbar Tokyo<small>アートスタジオ（東京）— 2026年10月〜 インストラクター。講師を1回担当</small></span><span class="arr">→</span></a>
-      <a href="https://supernova-tokyo.jp/" target="_blank" rel="noopener"><span class="l">株式会社Supernova Tokyo<small>マーケティング責任者 — 2026年6月〜9月</small></span><span class="arr">→</span></a>
-      <a href="https://flash.me/" target="_blank" rel="noopener"><span class="l">Flash<small>Supernova Tokyo のソーシャルアプリ。担当したプロダクト</small></span><span class="arr">→</span></a>
-      <a href="https://www.en-gakushuin.jp/" target="_blank" rel="noopener"><span class="l">学習院大学 文学部 英語英米文化学科<small>2017年4月〜2021年3月</small></span><span class="arr">→</span></a>
-      <a href="https://www.academyart.edu/" target="_blank" rel="noopener"><span class="l">Academy of Art University<small>Fine Art（Illustration）修士 — 2023年1月〜2026年6月</small></span><span class="arr">→</span></a>
+      <a href="https://ex-media.jp/business/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/exmedia.png" alt=""></span><span class="l">株式会社eX.media<small>学習塾（高円寺）— 2024年8月〜2026年7月 小学生指導／2026年9月〜 正社員</small></span><span class="arr">→</span></a>
+      <a href="https://dxnpf.hp.peraichi.com/" target="_blank" rel="noopener"><span class="lg dk" style="background:#111"><b>AF</b></span><span class="l">一般社団法人ATHLETE FORCE<small>バスケットボールスクール（千葉）— 2025年9月〜</small></span><span class="arr">→</span></a>
+      <a href="https://www.mis.ed.jp/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/mis.jpg" alt=""></span><span class="l">幕張インターナショナルスクール<small>バスケットボール指導 — 2026年1月〜</small></span><span class="arr">→</span></a>
+      <a href="https://artbar.co.jp/" target="_blank" rel="noopener"><span class="lg dk" style="background:#1a1a1a"><img src="/img/logos/artbar.png" alt=""></span><span class="l">Artbar Tokyo<small>アートスタジオ（東京）— 2026年10月〜 インストラクター。講師を1回担当</small></span><span class="arr">→</span></a>
+      <a href="https://supernova-tokyo.jp/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/supernova.png" alt=""></span><span class="l">株式会社Supernova Tokyo<small>マーケティング責任者 — 2026年6月〜9月</small></span><span class="arr">→</span></a>
+      <a href="https://flash.me/" target="_blank" rel="noopener"><span class="lg dk" style="background:#000"><img src="/img/logos/flash.png" alt=""></span><span class="l">Flash<small>Supernova Tokyo のソーシャルアプリ。担当したプロダクト</small></span><span class="arr">→</span></a>
+      <a href="https://www.en-gakushuin.jp/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><b>学習院</b></span><span class="l">学習院大学 文学部 英語英米文化学科<small>2017年4月〜2021年3月</small></span><span class="arr">→</span></a>
+      <a href="https://www.academyart.edu/" target="_blank" rel="noopener"><span class="lg" style="background:#fff"><img src="/img/logos/aau.png" alt=""></span><span class="l">Academy of Art University<small>Fine Art（Illustration）修士 — 2023年1月〜2026年6月</small></span><span class="arr">→</span></a>
     </div>
   </section>
 </main>
