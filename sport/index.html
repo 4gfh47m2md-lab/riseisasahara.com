@@ -1,154 +1,105 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sport + Training — 笹原理成</title>
-<meta name="description" content="笹原理成のスポーツの記録。野球・バレーボール・バスケットボール、NBA現地観戦、バスケットボールの指導。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="description" content="笹原理成の記録。スポーツ（Sport + Training）。">
+<!-- 自動で作っている（automation/homepage_domains.py・毎晩）。手で直さない。★2026-10-28 本人「6つの領域の中身を最新に」「デザインの感じをこのくらい画面の方に」 -->
+<link rel="stylesheet" href="/theme.css?v=20261028">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-:root{--bg:#0B0D12;--panel:#151922;--panel2:#1B2130;--line:#262D3D;--ink:#F3F4F6;--mute:#8B93A7;--acc:#FFD400;--blue:#1D428A;
-  --disp:"Anton","Oswald","Noto Sans JP",Impact,sans-serif;--cond:"Oswald","Noto Sans JP",sans-serif;--body:"Noto Sans JP",system-ui,-apple-system,sans-serif;color-scheme:dark}
+:root{--r:14px}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:13px;color:var(--mute)}
-nav .home{font-weight:700;color:var(--ink)} nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;letter-spacing:.1em;text-transform:uppercase;font-family:var(--cond)}
-.crumb{font-size:12px;color:var(--mute);margin:26px 0 0} .crumb a{color:var(--mute)}
-
-/* 選手カード */
-.card{position:relative;margin-top:16px;background:linear-gradient(135deg,var(--panel2) 0%,var(--panel) 60%);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.card::before{content:"";position:absolute;inset:0 auto 0 0;width:10px;background:var(--acc)}
-.card::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;border:44px solid rgba(255,212,0,.06)}
-.card-in{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;padding:34px 34px 30px 40px;position:relative}
-.kicker{font-family:var(--cond);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:0 0 8px}
-h1{font-family:var(--disp);font-weight:400;font-size:clamp(56px,10vw,112px);line-height:.9;letter-spacing:.01em;margin:0;text-transform:uppercase}
-h1 span{display:block;color:var(--mute);font-size:.34em;letter-spacing:.12em;font-family:var(--cond);margin-top:12px;text-transform:none}
-.lead{color:#C9CEDA;margin:18px 0 0;max-width:36em;font-size:15px}
-.ovr{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-content:start}
-.ovr .o{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:4px;padding:14px 14px 12px;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
-.ovr .n{font-family:var(--disp);font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
-.ovr .n small{font-size:.38em;color:var(--mute);margin-left:4px;font-family:var(--cond)}
-.ovr .l{font-family:var(--cond);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:6px}
-.ovr .o.acc .n{color:var(--acc)}
-.card-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 34px 12px 40px;border-top:1px solid var(--line);font-family:var(--cond);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);background:rgba(0,0,0,.25)}
-
-section{margin-top:40px}
-.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
-.sh h2{font-family:var(--disp);font-size:28px;letter-spacing:.04em;margin:0;text-transform:uppercase}
-.sh .n{font-family:var(--cond);color:var(--acc);font-size:13px;letter-spacing:.2em}
-.sh p{margin:0;color:var(--mute);font-size:13px}
-
-/* バッジ */
-.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.badge{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 16px 14px;position:relative;overflow:hidden}
-.badge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acc)}
-.badge.g::before{background:#C9A227} .badge.s::before{background:#B8C2D6} .badge.b::before{background:#8D6E4E}
-.badge .t{font-family:var(--cond);font-weight:600;font-size:17px;letter-spacing:.02em;line-height:1.2;padding-right:64px}
-.badge .d{color:var(--mute);font-size:12.5px;margin-top:6px}
-.badge .lv{position:absolute;right:12px;top:12px;font-family:var(--cond);font-size:10px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
-
-/* キャリア（3競技） */
-.career{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.cr{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px 20px 18px}
-.cr .yrs{font-family:var(--cond);color:var(--acc);letter-spacing:.14em;font-size:12px}
-.cr h3{font-family:var(--disp);font-size:34px;margin:6px 0 4px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
-.cr .jp{font-family:var(--cond);font-size:14px;color:var(--mute)}
-.cr p{margin:10px 0 0;font-size:13.5px;color:#C9CEDA}
-.cr .big{font-family:var(--disp);font-size:40px;line-height:1;margin-top:14px}
-.cr .big small{font-size:.4em;color:var(--mute);margin-left:4px;font-family:var(--cond)}
-
-/* ゲームログ */
-.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:6px}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th{font-family:var(--cond);text-align:left;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.25)}
-td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head,Inter),"Noto Sans JP",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+nav{display:flex;align-items:center;gap:18px;padding:20px 0;font-size:12px;font-weight:600;letter-spacing:.12em}
+nav .home{text-decoration:none;display:flex;align-items:center;gap:10px}nav .home i{width:8px;height:8px;border-radius:50%;background:var(--acc);display:inline-block}
+nav ul{display:flex;gap:16px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}nav ul a{text-decoration:none;color:var(--ink2)}nav ul a:hover,nav ul a.on{color:var(--ink)}
+nav ul a.on{border-bottom:2px solid var(--acc)}
+.thm{font:inherit;font-size:11px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:3px 12px;cursor:pointer}
+@media (max-width:760px){nav ul{display:none}}
+.hero{padding:clamp(40px,7vw,96px) 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:12px;color:var(--ink2);letter-spacing:.08em}.crumb a{text-decoration:none}
+.no{font-family:var(--num),sans-serif;font-weight:700;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--acc);letter-spacing:-.02em;margin:18px 0 0}
+h1{margin:6px 0 0;font-size:clamp(34px,5.5vw,68px);line-height:1.05;font-weight:800;letter-spacing:-.02em}h1 span{color:var(--ink2);font-weight:400}
+.lead{max-width:44em;color:var(--ink2);font-size:clamp(15px,1.3vw,17px);margin:18px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+.st{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.st .l{font-size:11.5px;color:var(--ink2);letter-spacing:.06em}
+.st .n{font-family:var(--num),sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1.05;margin-top:4px;white-space:nowrap}
+.st .n small{font-family:var(--head,Inter),"Noto Sans JP",sans-serif;font-size:13px;font-weight:600;color:var(--ink2);margin-left:4px}
+.st .d{font-size:12px;color:var(--ink2);margin-top:4px}
+.asof{font-size:11.5px;color:var(--ink2);margin:10px 0 0}
+section{padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--line)}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.sh .k{font-family:var(--num),sans-serif;font-weight:600;color:var(--acc);letter-spacing:.08em;font-size:14px}
+.sh h2{margin:0;font-size:clamp(22px,2.8vw,32px);font-weight:800;border-left:4px solid var(--acc);padding-left:12px}
+.sh p{margin:0;color:var(--ink2);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.card .t{font-size:11px;letter-spacing:.1em;color:var(--acc-ink);font-weight:700}
+.card h3{margin:4px 0 4px;font-size:17px}
+.card p{margin:0;color:var(--ink2);font-size:14px}
+.card .big{font-family:var(--num),sans-serif;font-weight:700;font-size:28px;margin-top:6px}
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.tl .y{font-family:var(--num),sans-serif;font-weight:600;color:var(--acc-ink);letter-spacing:.04em;padding-top:2px}
+.tl h3{margin:0;font-size:16px}.tl p{margin:4px 0 0;color:var(--ink2);font-size:14px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-size:11.5px;color:var(--ink2);font-weight:600;letter-spacing:.06em}
+td.n{text-align:right;font-family:var(--num),sans-serif;font-weight:600}
 tr:last-child td{border-bottom:0}
-td.k{font-family:var(--cond);white-space:nowrap;color:var(--acc)}
-td .tag{display:inline-block;font-family:var(--cond);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:1px 6px;margin-left:8px;color:var(--mute);vertical-align:middle}
-
-.photo{margin:18px 0 0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
-.photo img{display:block;width:100%;height:auto;max-width:100%}
-.photo figcaption{padding:10px 14px;color:var(--mute);font-size:12.5px}
-footer{margin-top:56px;padding:24px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.note{color:var(--mute);font-size:12.5px;margin:10px 0 0}
-@media (max-width:860px){.card-in{grid-template-columns:1fr}.badges{grid-template-columns:1fr 1fr}.career{grid-template-columns:1fr}}
-@media (max-width:480px){.badges{grid-template-columns:1fr}.ovr{grid-template-columns:1fr 1fr}.card-in{padding:26px 20px 22px 26px}.card-foot{padding:12px 20px 12px 26px}}
+tr.sum td{font-weight:700;border-top:2px solid var(--line)}
+.bars{display:flex;gap:10px;align-items:flex-end;height:180px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+.bars .b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.bars .b i{display:block;width:100%;max-width:44px;background:var(--acc2);border-radius:6px 6px 0 0}
+.bars .b i.hi{background:var(--acc)}
+.bars .b em{font-style:normal;font-family:var(--num),sans-serif;font-weight:600;font-size:13px}
+.bars .b small{font-size:11px;color:var(--ink2);margin-top:4px;white-space:nowrap}
+.photo{margin:18px 0 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.photo img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover}
+.photo figcaption{padding:8px 12px;font-size:12px;color:var(--ink2);background:var(--bg2)}
+.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.wall figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.wall img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.wall figcaption{padding:8px 12px;font-size:12.5px;color:var(--ink2)}
+.more{display:inline-block;margin-top:14px;font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 20px}
+.more:hover{border-color:var(--acc)}
+dl.spec{display:grid;grid-template-columns:120px minmax(0,1fr);margin:0;border-top:1px solid var(--line)}
+dl.spec dt,dl.spec dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}dl.spec dt{color:var(--ink2);font-size:13px}dl.spec dd{font-size:14px}
+.dom{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:6px}
+.dom a{text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;background:var(--bg2)}
+.dom a b{display:block;font-family:var(--num),sans-serif;color:var(--acc);font-size:15px}
+.dom a.on{border-color:var(--acc)}
+footer{padding:28px 0 48px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.wall{grid-template-columns:repeat(2,minmax(0,1fr))}.dom{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.grid,.grid.two{grid-template-columns:1fr}.tl li{grid-template-columns:1fr;gap:4px}dl.spec{grid-template-columns:1fr}dl.spec dt{border-bottom:0;padding-bottom:0}}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){.card,.st,.tl li,.wall figure{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav><a class="home" href="/">笹原理成</a><ul><li><a href="#badges">Badges</a></li><li><a href="#career">Career</a></li><li><a href="#nba">NBA</a></li><li><a href="#coach">Coach</a></li><li><a href="/">Home</a></li></ul></nav>
-<p class="crumb"><a href="/">ホーム</a> / 記録 / I</p>
-
-<section class="card" aria-label="選手カード">
-  <div class="card-in">
-    <div>
-      <p class="kicker">Sport + Training · Player Card</p>
-      <h1>Risei<br>Sasahara<span>笹原理成 · 東京 · 1998</span></h1>
-      <p class="lead">野球、バレーボール、バスケットボールの順に来た。バスケットボールは2017年4月から、9年目。数字は記録にあるものだけ。</p>
-    </div>
-    <div class="ovr">
-      <div class="o acc"><div class="n">9<small>年目</small></div><div class="l">Basketball</div></div>
-      <div class="o"><div class="n">8<small>年</small></div><div class="l">Baseball</div></div>
-      <div class="o"><div class="n">3<small>年</small></div><div class="l">Volleyball</div></div>
-      <div class="o"><div class="n">3<small>試合</small></div><div class="l">NBA Live</div></div>
-    </div>
+<header class="wrap"><nav><a class="home" href="/"><i></i>笹原理成</a><ul><li><a href="#badges">実績</a></li><li><a href="#career">競技</a></li><li><a href="#nba">NBA</a></li><li><a href="#coach">指導</a></li><li><a href="/">ホーム</a></li></ul><button type="button" class="thm" id="thm">明るい画面</button></nav></header>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="/">ホーム</a> / <a href="/#record">記録</a> / I</div>
+    <div class="no">I</div>
+    <h1>Sport <span>+ Training</span></h1>
+    <p class="lead">野球、バレーボール、バスケットボールの順に来た。バスケットボールは2017年4月から。いまはプレーと、英語での指導の両方。</p>
+    <div class="stats"><div class="st"><div class="l">バスケットボール</div><div class="n">10<small>年目</small></div><div class="d">2017年4月から</div></div><div class="st"><div class="l">MIS で教えた回</div><div class="n">6<small>回</small></div><div class="d">Term2（2026年9月〜）</div></div><div class="st"><div class="l">体育館でプレーした日</div><div class="n">30<small>日</small></div><div class="d">記録がある日</div></div><div class="st"><div class="l">NBA 現地観戦</div><div class="n">3<small>試合</small></div><div class="d">2023年・2025年</div></div></div>
+    <p class="asof">数字は 2026年10月28日 時点。毎晩、記録から自動で数え直している。</p>
   </div>
-  <div class="card-foot"><span>Career 2006 – </span><span>Coach · MIS K–G5</span><span>数字は 2026年9月19日 時点</span></div>
-</section>
+  <section id="badges"><div class="sh"><span class="k">01</span><h2>実績</h2><p>記録に残っているものだけ。</p></div><div class="grid"><div class="card"><div class="t">野球</div><h3>杉並区選抜</h3><p>2012年8月、オール杉並に選出。</p></div><div class="card"><div class="t">野球</div><h3>台湾戦 5番ファースト</h3><p>杉並区と台湾の中学生野球交流。先発出場。</p></div><div class="card"><div class="t">バレーボール</div><h3>キャプテン</h3><p>目白研心高等学校。高校2年。</p></div><div class="card"><div class="t">指導</div><h3>インターナショナルスクールでコーチ</h3><p>幕張インターナショナルスクールで、バスケットボールを英語で指導。2026年1月〜。</p></div><div class="card"><div class="t">NBA</div><h3>現地観戦 3試合</h3><p>2023年 Lakers vs Nuggets、2025年 Warriors vs Rockets ×2。</p></div><div class="card"><div class="t">指導</div><h3>Athlete Force</h3><p>2025年9月〜。バスケ指導・通訳・英語講師・デザイン。</p></div></div></section>
+  <section id="career"><div class="sh"><span class="k">02</span><h2>3つの競技</h2></div><ul class="tl"><li><span class="y">2006 – 2014</span><div><h3>野球</h3><p>小学2年から高校1年まで。杉並区選抜（オール杉並）に選出、台湾戦に5番ファーストで出場。</p></div></li><li><span class="y">2015 – 2017</span><div><h3>バレーボール</h3><p>目白研心高等学校。高校2年でキャプテン。</p></div></li><li><span class="y">2017 –</span><div><h3>バスケットボール</h3><p>2017年4月、学習院大学の授業から始めた。2026年で10年目。今はプレーと指導の両方。</p></div></li></ul></section>
+  <section id="nba"><div class="sh"><span class="k">03</span><h2>NBA 現地観戦</h2><p>渡米2回で計3試合。全てホームゲーム。</p></div><div class="tbl"><table><thead><tr><th>日付</th><th>試合</th><th>会場</th></tr></thead><tbody><tr><td>2023.05.22</td><td>Lakers vs Nuggets（WCF）</td><td>Crypto.com Arena（ロサンゼルス）</td></tr><tr><td>2025.04.26</td><td>Warriors vs Rockets（R1）</td><td>Chase Center（サンフランシスコ）</td></tr><tr><td>2025.04.28</td><td>Warriors vs Rockets（R1）</td><td>Chase Center（サンフランシスコ）</td></tr></tbody></table></div><figure class="photo"><img src="/img/chase-center-2025.jpg" alt="Chase Center"><figcaption>Chase Center（サンフランシスコ）、2025年4月。</figcaption></figure></section>
+  <section id="coach"><div class="sh"><span class="k">04</span><h2>いまの指導</h2></div><ul class="tl"><li><span class="y">2026.01 –</span><div><h3>バスケットボールコーチ — 幕張インターナショナルスクール</h3><p>英語で指導。2026年9月からの Term2 は火曜・全10回。これまでに 6回。</p></div></li><li><span class="y">2025.09 –</span><div><h3>Athlete Force</h3><p>バスケ指導、通訳、英語講師、デザイン。</p></div></li></ul></section>
 
-<section id="badges">
-  <div class="sh"><span class="n">01</span><h2>Badges</h2><p>記録に残っている実績だけ。</p></div>
-  <div class="badges">
-    <div class="badge g"><span class="lv">Gold</span><div class="t">杉並区選抜</div><div class="d">野球。2012年8月、オール杉並に選出。</div></div>
-    <div class="badge g"><span class="lv">Gold</span><div class="t">台湾戦 5番ファースト</div><div class="d">杉並区と台湾の中学生野球交流。先発出場。</div></div>
-    <div class="badge s"><span class="lv">Silver</span><div class="t">バレーボール部キャプテン</div><div class="d">目白研心高等学校。高校2年。</div></div>
-    <div class="badge s"><span class="lv">Silver</span><div class="t">Coach</div><div class="d">インターナショナルスクールで K〜G5 にバスケットボールを英語で指導。2026年1月〜。</div></div>
-    <div class="badge b"><span class="lv">Bronze</span><div class="t">NBA 現地観戦 3試合</div><div class="d">2023年 Lakers vs Nuggets、2025年 Warriors vs Rockets ×2。</div></div>
-    <div class="badge b"><span class="lv">Bronze</span><div class="t">Athlete Force</div><div class="d">2025年9月〜。バスケ指導・通訳・英語講師・デザイン。</div></div>
-  </div>
-</section>
-
-<section id="career">
-  <div class="sh"><span class="n">02</span><h2>Career</h2><p>3つの競技。</p></div>
-  <div class="career">
-    <div class="cr"><div class="yrs">2006 – 2014</div><h3>Baseball</h3><div class="jp">野球</div><p>小学2年から高校1年まで。杉並区選抜（オール杉並）に選出、台湾戦に5番ファーストで出場。</p><div class="big">8<small>年</small></div></div>
-    <div class="cr"><div class="yrs">2015 – 2017</div><h3>Volleyball</h3><div class="jp">バレーボール</div><p>目白研心高等学校。高校2年でキャプテン。</p><div class="big">3<small>年</small></div></div>
-    <div class="cr"><div class="yrs">2017 –</div><h3>Basketball</h3><div class="jp">バスケットボール</div><p>2017年4月、学習院大学の授業から始めた。2026年で9年目。今はプレーと指導の両方。</p><div class="big">9<small>年目</small></div></div>
-  </div>
-</section>
-
-<section id="nba">
-  <div class="sh"><span class="n">03</span><h2>NBA Game Log</h2><p>渡米2回で計3試合。全てホームゲーム。</p></div>
-  <div class="tbl"><table>
-    <thead><tr><th>Date</th><th>Game</th><th>Arena</th></tr></thead>
-    <tbody>
-      <tr><td class="k">2023.05.22</td><td>Lakers vs Nuggets<span class="tag">WCF</span></td><td>Crypto.com Arena（ロサンゼルス）</td></tr>
-      <tr><td class="k">2025.04.26</td><td>Warriors vs Rockets<span class="tag">R1</span></td><td>Chase Center（サンフランシスコ）</td></tr>
-      <tr><td class="k">2025.04.28</td><td>Warriors vs Rockets<span class="tag">R1</span></td><td>Chase Center（サンフランシスコ）</td></tr>
-    </tbody>
-  </table></div>
-  <figure class="photo"><img src="/img/chase-center-2025.jpg" alt="Chase Center にて、2025年4月" width="1600" height="1200" loading="lazy"><figcaption>Chase Center（サンフランシスコ）、2025年4月。Warriors vs Rockets プレーオフ1回戦。</figcaption></figure>
-</section>
-
-<section id="coach">
-  <div class="sh"><span class="n">04</span><h2>Coach</h2><p>現在の指導。</p></div>
-  <div class="tbl"><table>
-    <thead><tr><th>Since</th><th>Role</th><th>Detail</th></tr></thead>
-    <tbody>
-      <tr><td class="k">2026.01</td><td>バスケットボールコーチ — 幕張インターナショナルスクール</td><td>K〜G5（幼稚園〜小学5年）に週1回・1時間、英語で指導。</td></tr>
-      <tr><td class="k">2025.09</td><td>Athlete Force</td><td>バスケ指導、通訳、英語講師、デザイン。</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">能力値（OVR）は置いていない。自己採点になるため。</p>
-</section>
-
-<footer><span>© 2026 笹原理成</span><span><a href="/">← ホーム</a></span></footer>
-</div>
+  <section style="border-bottom:0"><div class="sh"><span class="k">6 AREAS</span><h2>ほかの領域</h2></div><div class="dom"><a href="/sport/" class="on"><b>I</b>スポーツ</a><a href="/study/"><b>II</b>学び</a><a href="/language/"><b>III</b>言葉</a><a href="/create/"><b>IV</b>つくる</a><a href="/game/"><b>V</b>ゲーム</a><a href="/building/"><b>VI</b>仕組み</a></div></section>
+</main>
+<footer class="wrap"><span>© 2026 笹原理成</span><a href="/">← ホーム</a></footer>
+<script>(function(){var d=document.documentElement,b=document.getElementById('thm');function lab(){b.textContent=d.dataset.theme==='dark'?'明るい画面':'暗い画面'}lab();b.onclick=function(){var go=function(){d.dataset.theme=d.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('theme',d.dataset.theme)}catch(e){}lab()};document.startViewTransition?document.startViewTransition(go):go()}})();</script>
 </body>
 </html>
