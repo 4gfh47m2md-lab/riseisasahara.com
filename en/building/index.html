@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building + Systems — Risei Sasahara</title>
+<meta name="description" content="Risei Sasaharaの記録。仕組み（Building + Systems）。">
+<!-- 自動で作っている（automation/homepage_domains.py・毎晩）。手で直さない。★2026-10-28 本人「6つの領域の中身を最新に」「デザインの感じをこのくらい画面の方に」 -->
+<link rel="stylesheet" href="/theme.css?v=20261028">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head,Inter),"Noto Sans JP",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+nav{display:flex;align-items:center;gap:18px;padding:20px 0;font-size:12px;font-weight:600;letter-spacing:.12em}
+nav .home{text-decoration:none;display:flex;align-items:center;gap:10px}nav .home i{width:8px;height:8px;border-radius:50%;background:var(--acc);display:inline-block}
+nav ul{display:flex;gap:16px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}nav ul a{text-decoration:none;color:var(--ink2)}nav ul a:hover,nav ul a.on{color:var(--ink)}
+nav ul a.on{border-bottom:2px solid var(--acc)}
+.thm{font:inherit;font-size:11px;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:3px 12px;cursor:pointer}
+@media (max-width:760px){nav ul{display:none}}
+.hero{padding:clamp(40px,7vw,96px) 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:12px;color:var(--ink2);letter-spacing:.08em}.crumb a{text-decoration:none}
+.no{font-family:var(--num),sans-serif;font-weight:700;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--acc);letter-spacing:-.02em;margin:18px 0 0}
+h1{margin:6px 0 0;font-size:clamp(34px,5.5vw,68px);line-height:1.05;font-weight:800;letter-spacing:-.02em}h1 span{color:var(--ink2);font-weight:400}
+.lead{max-width:44em;color:var(--ink2);font-size:clamp(15px,1.3vw,17px);margin:18px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+.st{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.st .l{font-size:11.5px;color:var(--ink2);letter-spacing:.06em}
+.st .n{font-family:var(--num),sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1.05;margin-top:4px;white-space:nowrap}
+.st .n small{font-family:var(--head,Inter),"Noto Sans JP",sans-serif;font-size:13px;font-weight:600;color:var(--ink2);margin-left:4px}
+.st .d{font-size:12px;color:var(--ink2);margin-top:4px}
+.asof{font-size:11.5px;color:var(--ink2);margin:10px 0 0}
+section{padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--line)}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.sh .k{font-family:var(--num),sans-serif;font-weight:600;color:var(--acc);letter-spacing:.08em;font-size:14px}
+.sh h2{margin:0;font-size:clamp(22px,2.8vw,32px);font-weight:800;border-left:4px solid var(--acc);padding-left:12px}
+.sh p{margin:0;color:var(--ink2);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.card .t{font-size:11px;letter-spacing:.1em;color:var(--acc-ink);font-weight:700}
+.card h3{margin:4px 0 4px;font-size:17px}
+.card p{margin:0;color:var(--ink2);font-size:14px}
+.card .big{font-family:var(--num),sans-serif;font-weight:700;font-size:28px;margin-top:6px}
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.tl .y{font-family:var(--num),sans-serif;font-weight:600;color:var(--acc-ink);letter-spacing:.04em;padding-top:2px}
+.tl h3{margin:0;font-size:16px}.tl p{margin:4px 0 0;color:var(--ink2);font-size:14px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-size:11.5px;color:var(--ink2);font-weight:600;letter-spacing:.06em}
+td.n{text-align:right;font-family:var(--num),sans-serif;font-weight:600}
+tr:last-child td{border-bottom:0}
+tr.sum td{font-weight:700;border-top:2px solid var(--line)}
+.bars{display:flex;gap:10px;align-items:flex-end;height:180px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+.bars .b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.bars .b i{display:block;width:100%;max-width:44px;background:var(--acc2);border-radius:6px 6px 0 0}
+.bars .b i.hi{background:var(--acc)}
+.bars .b em{font-style:normal;font-family:var(--num),sans-serif;font-weight:600;font-size:13px}
+.bars .b small{font-size:11px;color:var(--ink2);margin-top:4px;white-space:nowrap}
+.photo{margin:18px 0 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.photo img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover}
+.photo figcaption{padding:8px 12px;font-size:12px;color:var(--ink2);background:var(--bg2)}
+.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.wall figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.wall img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.wall figcaption{padding:8px 12px;font-size:12.5px;color:var(--ink2)}
+.more{display:inline-block;margin-top:14px;font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 20px}
+.more:hover{border-color:var(--acc)}
+dl.spec{display:grid;grid-template-columns:120px minmax(0,1fr);margin:0;border-top:1px solid var(--line)}
+dl.spec dt,dl.spec dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}dl.spec dt{color:var(--ink2);font-size:13px}dl.spec dd{font-size:14px}
+.dom{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:6px}
+.dom a{text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;background:var(--bg2)}
+.dom a b{display:block;font-family:var(--num),sans-serif;color:var(--acc);font-size:15px}
+.dom a.on{border-color:var(--acc)}
+footer{padding:28px 0 48px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.wall{grid-template-columns:repeat(2,minmax(0,1fr))}.dom{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.grid,.grid.two{grid-template-columns:1fr}.tl li{grid-template-columns:1fr;gap:4px}dl.spec{grid-template-columns:1fr}dl.spec dt{border-bottom:0;padding-bottom:0}}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){.card,.st,.tl li,.wall figure{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav><a class="home" href="/en/"><i></i>Risei Sasahara</a><ul><li><a href="#tech">Technology</a></li><li><a href="#work">What I built</a></li><li><a href="#how">How</a></li><li><a href="#tools">Tools</a></li><li><a href="/en/">Home</a></li></ul><button type="button" class="thm" id="thm">Light</button></nav></header>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="/en/">Home</a> / <a href="/#record">Records</a> / VI</div>
+    <div class="no">VI</div>
+    <h1>Building <span>+ Systems</span></h1>
+    <p class="lead">Things I build with AI: a system that collects my morning measurements automatically, this site, and a board that tracks progress toward an exam. Every number comes from my own records.</p>
+    <div class="stats"><div class="st"><div class="l">Sites and pages built</div><div class="n">401<small></small></div><div class="d">since September 5, 2026</div></div><div class="st"><div class="l">Automations running</div><div class="n">3<small></small></div><div class="d">on a schedule on my Mac</div></div><div class="st"><div class="l">Technologies built</div><div class="n">15<small></small></div><div class="d">colors, charts, systems</div></div><div class="st"><div class="l">Pages checked nightly</div><div class="n">395<small>pages</small></div><div class="d">at PC and phone sizes</div></div></div>
+    <p class="asof">Numbers as of October 28, 2026. Recounted automatically from my records every night.</p>
+  </div>
+  <section id="tech"><div class="sh"><span class="k">01</span><h2>New technologies</h2><p>Try each one in the Technology section on the top page.</p></div><div class="grid"><div class="card"><div class="t">Systems</div><h3>Page views</h3><p>Counts how many times each page is opened per day and sorts by most opened</p></div><div class="card"><div class="t">Systems</div><h3>Auto-updating the homepage from my tech log</h3><p>Every night, the newest color, font and chart in this log are used on the homepage automatically</p></div><div class="card"><div class="t">Color</div><h3>Realistic color swatch palette</h3><p>Common colors shown as realistic swatches; tap to choose</p></div><div class="card"><div class="t">Systems</div><h3>Nightly site check</h3><p>Views every page at PC and phone sizes, checks overflow and aligned heights, and fixes anything broken</p></div><div class="card"><div class="t">Input</div><h3>Input by photo</h3><p>AI reads a photo and fills in each field. Review, then press “Add” to save to the ledger</p></div><div class="card"><div class="t">Chart</div><h3>3D bar chart (rotates 360°)</h3><p>Bars drawn in 3D with SVG; drag to any angle. Face shading changes with direction</p></div></div><a class="more" href="/#tech">Try them in the Technology section →</a></section>
+  <section id="work"><div class="sh"><span class="k">02</span><h2>What I built</h2></div><div class="grid"><div class="card"><div class="t">Web App</div><h3>Progress board</h3><p>Toward the Eiken Grade 1 first stage: what I did and how many points each section moved, on one page.<br><a href="/building/eiken/">Open →</a></p></div><div class="card"><div class="t">Web Design</div><h3>Web design portfolio</h3><p>The websites I built, shown with sample numbers.<br><a href="/web/">Open →</a></p></div><div class="card"><div class="t">Website</div><h3>riseisasahara.com</h3><p>A record of who I am. Colors, fonts and charts use the newest from my tech log, automatically every night.</p></div><div class="card"><div class="t">Automation</div><h3>Morning measurements</h3><p>Sleep, condition, weather, work and game records collected automatically every morning. No more copying by hand.</p></div><div class="card"><div class="t">Automation</div><h3>Input by photo</h3><p>AI reads a photo and fills in each field.</p></div><div class="card"><div class="t">Automation</div><h3>Nightly site check</h3><p>Checks every page and fixes overflow and similar issues.</p></div></div></section>
+  <section id="how"><div class="sh"><span class="k">03</span><h2>How</h2></div><ul class="tl"><li><span class="y">01</span><div><h3>Put the problem in one line</h3><p>Write “what I can’t see yet” in my own words.</p></div></li><li><span class="y">02</span><div><h3>Use it myself first</h3><p>I am the first user. I don’t build what I wouldn’t touch every day.</p></div></li><li><span class="y">03</span><div><h3>Numbers come from records</h3><p>Numbers come from ledgers (CSV). No hand-typed numbers on screen.</p></div></li><li><span class="y">04</span><div><h3>Make it showable</h3><p>What I actually use becomes what I can show.</p></div></li></ul></section>
+  <section id="tools"><div class="sh"><span class="k">04</span><h2>Tools</h2></div><dl class="spec"><dt>Claude Code</dt><dd>Partner for design and building, from the terminal</dd><dt>Python</dt><dd>Reading and writing ledgers, totals, building pages</dd><dt>launchd</dt><dd>Runs on a schedule on my Mac</dd><dt>Cloudflare</dt><dd>A passphrase site on Workers and D1</dd><dt>HTML / CSS / SVG</dt><dd>This site and its charts. No libraries</dd></dl></section>
+
+  <section style="border-bottom:0"><div class="sh"><span class="k">6 AREAS</span><h2>Other areas</h2></div><div class="dom"><a href="/en/sport/"><b>I</b>Sport</a><a href="/en/study/"><b>II</b>Study</a><a href="/en/language/"><b>III</b>Language</a><a href="/en/create/"><b>IV</b>Create</a><a href="/en/game/"><b>V</b>Game</a><a href="/en/building/" class="on"><b>VI</b>Systems</a></div></section>
+</main>
+<footer class="wrap"><span>© 2026 Risei Sasahara</span><a href="/en/">← Home</a></footer>
+<script>(function(){var d=document.documentElement,b=document.getElementById('thm');function lab(){b.textContent=d.dataset.theme==='dark'?'Light':'Dark'}lab();b.onclick=function(){var go=function(){d.dataset.theme=d.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('theme',d.dataset.theme)}catch(e){}lab()};document.startViewTransition?document.startViewTransition(go):go()}})();</script>
+</body>
+</html>
