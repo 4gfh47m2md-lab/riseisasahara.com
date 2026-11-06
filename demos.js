@@ -124,6 +124,18 @@
       const use = p => { const L = p.light, g = el.querySelector('.pg'); g.style.background = L.bg; g.style.color = L.ink; g.style.borderColor = L.line; g.style.borderLeft = '4px solid ' + L.acc; el.querySelector('.e').style.color = L.ink2; el.querySelector('.a').style.color = L.acc; el.querySelector('.b').style.color = L.acc2; el.querySelectorAll('.sel button').forEach(b => b.classList.toggle('p', b.dataset.id === p.id)); };
       P.forEach(p => { const b = h('button', '', (+p.date.slice(5, 7)) + '/' + (+p.date.slice(8)) + ' ' + esc(p.name)); b.dataset.id = p.id; b.onclick = () => use(p); el.querySelector('.sel').appendChild(b); });
       if (P.length) use(P[P.length - 1]);
+    },
+    tank(el) {   // ★2026-11-06 本人「ここにコップに水を入れる技術を入れたい」＝/mizu の、押すと水がたまっていく入れもの（波・目盛り・目標の線）
+      const G = 2000; let v = 0;
+      el.innerHTML = '<p class="gd-h">押すたびに入れものに水がたまる。水面はゆれていて、目盛りと目標の線で、あとどのくらいかが見て分かる。</p>'
+        + '<div class="row" style="align-items:flex-end;gap:18px"><div class="tk" style="position:relative;width:110px;height:180px;border:4px solid #9cc4e0;border-top:0;border-radius:0 0 22px 22px;overflow:hidden;background:linear-gradient(#f7fbfe,#eaf4fb)">'
+        + '<div class="wt" style="position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(#4fb3ff,#1f7fd6);transition:height .6s cubic-bezier(.3,1.4,.5,1)"><svg viewBox="0 0 200 16" preserveAspectRatio="none" style="position:absolute;left:0;top:-10px;width:200%;height:11px;animation:gdwave 3.5s linear infinite"><path d="M0 8 Q 12.5 0 25 8 T 50 8 T 75 8 T 100 8 T 125 8 T 150 8 T 175 8 T 200 8 V16 H0 Z" fill="#4fb3ff"/></svg></div>'
+        + [500, 1000, 1500, 2000].map(x => `<div style="position:absolute;left:0;right:0;bottom:${x / G * 100}%;border-top:1px dashed ${x === G ? '#c8102e' : 'rgba(31,127,214,.45)'}"><span style="position:absolute;right:4px;top:${x === G ? 2 : -14}px;font-size:10px;color:${x === G ? '#c8102e' : '#5b8db5'}">${x === G ? '目標' : x}</span></div>`).join('')
+        + '</div><div><div class="num" style="font-size:30px"><span class="vv">0</span><small style="font-size:13px"> / 2,000ml</small></div><div class="row" style="margin-top:8px"><button class="p add" type="button">＋500ml</button><button class="rs" type="button">空にする</button></div><div class="msg" style="margin-top:6px;font-size:12.5px;color:var(--ink2)">あと 4本</div></div></div>';
+      if (!document.getElementById('gd-wave')) { const k = document.createElement('style'); k.id = 'gd-wave'; k.textContent = '@keyframes gdwave{to{transform:translateX(-50%)}}'; document.head.appendChild(k); }
+      const draw = () => { el.querySelector('.wt').style.height = Math.min(100, v / G * 100) + '%'; el.querySelector('.vv').textContent = v.toLocaleString(); el.querySelector('.msg').textContent = v >= G ? '目標までたまった' : 'あと ' + Math.ceil((G - v) / 500) + '本'; };
+      el.querySelector('.add').onclick = () => { v = Math.min(G + 500, v + 500); draw(); };
+      el.querySelector('.rs').onclick = () => { v = 0; draw(); };
     }
   };
   window.gijutsuDemo = function (id, box, o) {
