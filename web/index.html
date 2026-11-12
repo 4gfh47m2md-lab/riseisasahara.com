@@ -44,16 +44,16 @@
   <header class="hero">
     <div class="kick">Web — 2026</div>
     <h1>つくったWebサイト</h1>
-    <p class="lead">2026年9月に作ったWebサイトと、Webの道具。何をするページか、見た目、できること、しくみを、1つずつ書いています。画面の画像は、どれも見本の数字（作り物のデータ）で表示したものです。実際の記録は載せていません。</p>
+    <p class="lead">2026年に作ったWebサイトと、Webの道具。何をするページか、見た目、できること、しくみを、1つずつ書いています。画面の画像と3Dの人体は、どれも見本の数字（作り物のデータ）で表示したものです。実際の記録は載せていません。</p>
     <div class="facts">
-      <div><b>13<small>件</small></b><span>ここに載せたもの</span></div>
-      <div><b>19<small>日</small></b><span>2026-09-05 〜 09-23</span></div>
+      <div><b>14<small>件</small></b><span>ここに載せたもの</span></div>
+      <div><b>2026</b><span>2026-09-05 〜 11-12</span></div>
       <div><b>5<small>分</small></b><span>ページの入力が台帳に写る間隔</span></div>
       <div><b>0<small>個</small></b><span>グラフに使った外部の部品</span></div>
     </div>
     <div class="toc">
       <a href="#s01"><b>01</b>個人サイト</a><a href="#s02"><b>02</b>週の目安</a><a href="#s03"><b>03</b>毎日のチェック</a><a href="#s04"><b>04</b>ゲームの試合記録</a><a href="#s05"><b>05</b>1年ぶんの試合記録</a><a href="#s06"><b>06</b>バスケの記録</a><a href="#s07"><b>07</b>体育館の個人開放</a><a href="#s08"><b>08</b>NBA 日本時間</a><a href="#s09"><b>09</b>生徒の成績の推移</a><a href="#s10"><b>10</b>数学の勉強</a><a href="#s11"><b>11</b>単語テストの自動作成</a><a href="#s12"><b>12</b>カウンター</a><a href="#s13"><b>13</b>作ったサイトの一覧</a>
-    </div>
+    <a href="#s14"><b>14</b>全身の疲労（3D）</a></div>
   </header>
 
   <main>
@@ -187,17 +187,58 @@
         <div class="url">tracker.riseisasahara.com/sites<small>合言葉を入れた端末だけ</small></div><div class="date">公開 2026-09-22</div></div>
     </div></section>
 
+    <!-- ★2026-11-12 本人「この技術を自分のサイトにもだそう」→ 案（見本の数字・体の記録は出さない）に「うん」。人体はページの上でそのまま回せる -->
+    <section class="item" id="s14"><div class="grid">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>tracker.riseisasahara.com/hirou（見本の数字）</span></div>
+        <div id="body3d" style="position:relative;height:460px;background:#fbf7f6;cursor:grab"><div id="b3msg" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#999;font-size:13px">人体を読み込み中</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;background:#f4f4f2;font-size:12px;color:#666"><span>ドラッグで回せる（見本の数字）</span><span style="display:flex;align-items:center;gap:6px">軽い<i style="display:inline-block;width:110px;height:8px;border-radius:4px;background:linear-gradient(90deg,#fde8e8,#f58b8b,#b4232a,#6e0f14)"></i>重い</span></div></div>
+      <div class="side"><div class="no">14</div><h2>全身の疲労（3D）<small>Fatigue map in 3D</small></h2>
+        <p class="what">体の20か所の疲れを1〜5で出し、3Dの人体を赤の濃さで塗るページ。数字は自分で入れず、日々の記録から自動で出す。</p>
+        <dl><div><dt>Design</dt><dd>回せる1人の人体。疲れていない所は薄い赤、疲れているほど濃い赤。横に20か所の数字と、その理由。</dd></div>
+          <div><dt>できること</dt><dd><ul><li>ドラッグで人体を回して、前と後ろを見る</li><li>ジム・バスケ・仕事の立ち時間・歩数・ゲームの記録から、場所ごとの疲れを計算</li><li>疲れは1日で半分抜ける形で、前の日から持ち越す</li><li>場所ごとに「何で疲れたか」を出す</li><li>14日ぶんの表で、どこに疲れがたまっているかを見る</li></ul></dd></div>
+          <div><dt>しくみ</dt><dd>人体は three.js の見本の人体モデル（Xbot）。頂点ごとに、いちばん強く動かす骨と面の向きから20か所に分けて塗る。疲れの計算は手元の Python で30分おきに行い、ページへ渡す。</dd></div></dl>
+        <div class="url">tracker.riseisasahara.com/hirou<small>合言葉を入れた端末だけ（ここの人体は見本の数字）</small></div><div class="date">公開 2026-11-12</div></div>
+    </div></section>
+
     <section class="sys">
       <h2>共通のしくみ</h2>
       <div class="cols">
         <div><h3>データの流れ</h3><ul><li>ページで入れた分は、5分おきに手元の台帳（CSV）へ写る。台帳が正本</li><li>手元で集計した数字を、5分おきにページへ渡す</li><li>歩数は iPhone から自動で届く。ゲームの結果は画面写真の文字認識から</li></ul></div>
         <div><h3>公開のまえに確かめていること</h3><ul><li>合言葉なしで開けないこと、保存できないこと</li><li>実際に使うブラウザで、表示されているかを測る（広告ブロックで消える部品がないか）</li><li>人の名前・生徒の情報・権利のある画像を出していないか</li></ul></div>
-        <div><h3>制作の環境</h3><ul><li>Claude Code（AI）と対話しながら制作</li><li>Cloudflare Workers・D1（サイトと保存）／Python（集計と同期）</li><li>HTML・CSS・JavaScript（外部の部品は使っていない）</li></ul></div>
+        <div><h3>制作の環境</h3><ul><li>Claude Code（AI）と対話しながら制作</li><li>Cloudflare Workers・D1（サイトと保存）／Python（集計と同期）</li><li>HTML・CSS・JavaScript（グラフに外部の部品は使っていない。3Dの人体だけ three.js）</li></ul></div>
       </div>
     </section>
   </main>
 
   <footer><a href="/">← トップ</a><a href="/works/">作品 49点</a><a href="/building/">Building</a><span>riseisasahara.com/web/</span></footer>
 </div>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+/* ★2026-11-12 /hirou の3Dの人体を見本の数字で。本人の記録は使わない */
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+const GR = ['#fde8e8', '#fbc4c4', '#f58b8b', '#e5484d', '#b4232a', '#6e0f14'];
+const LV = { '肩': 3, '背中（上）': 4, '腰': 2, 'ふくらはぎ': 3, '足の裏': 4, '太もも（前）': 2, '二の腕（後ろ）': 2, '手・指': 1 };   // 見本の数字
+function partOf(b, nz, ny) { b = b.replace(/^mixamorig:?/, '');
+  if (/HeadTop|Eye|^Head$/.test(b)) return '頭'; if (/Neck/.test(b)) return '首'; if (/Shoulder/.test(b)) return '肩'; if (/Hand/.test(b)) return '手・指'; if (/ForeArm/.test(b)) return '前腕';
+  if (/Arm$/.test(b)) return nz >= 0 ? '二の腕（前）' : '二の腕（後ろ）'; if (/Spine2/.test(b)) return nz >= 0 ? '胸' : '背中（上）'; if (/Spine1/.test(b)) return nz >= 0 ? 'お腹' : '背中（上）';
+  if (/^Spine$/.test(b)) return nz >= 0 ? 'お腹' : '腰'; if (/Hips/.test(b)) return nz >= 0 ? 'お腹' : 'お尻'; if (/UpLeg/.test(b)) return nz >= 0 ? '太もも（前）' : '太もも（裏）';
+  if (/Leg$/.test(b)) return nz >= 0 ? 'すね' : 'ふくらはぎ'; if (/Foot|Toe/.test(b)) return ny < -.5 ? '足の裏' : '足首'; return ''; }
+(async () => { const box = document.getElementById('body3d'); try {
+  const R = new THREE.WebGLRenderer({ antialias: true, alpha: true }); R.setPixelRatio(Math.min(2, devicePixelRatio)); R.outputColorSpace = THREE.SRGBColorSpace;
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(30, 1, .1, 100); cam.position.set(1.6, 1.0, 4.3);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xd9c8c8, 1.6)); const dl = new THREE.DirectionalLight(0xffffff, 1.8); dl.position.set(2, 3, 4); scene.add(dl); const bl = new THREE.DirectionalLight(0xffffff, .9); bl.position.set(-2, 2, -4); scene.add(bl);
+  const g = await new GLTFLoader().loadAsync('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r160/examples/models/gltf/Xbot.glb'); scene.add(g.scene);
+  g.scene.traverse(o => { if (!o.isSkinnedMesh) return; const geo = o.geometry, n = geo.attributes.position.count, si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight, nr = geo.attributes.normal, col = new Float32Array(n * 3), c = new THREE.Color();
+    for (let i = 0; i < n; i++) { let bi = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; bi = si.getComponent(i, k); } } c.set(GR[LV[partOf(o.skeleton.bones[bi].name, nr.getZ(i), nr.getY(i))] || 0]); col.set([c.r, c.g, c.b], i * 3); }
+    geo.setAttribute('color', new THREE.BufferAttribute(col, 3)); o.material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .55, metalness: .05 }); });
+  const mixer = new THREE.AnimationMixer(g.scene), idle = g.animations.find(a => a.name === 'idle'); if (idle) mixer.clipAction(idle).play();
+  const ctl = new OrbitControls(cam, R.domElement); ctl.target.set(0, .95, 0); ctl.enablePan = false; ctl.enableZoom = false; ctl.minPolarAngle = ctl.maxPolarAngle = Math.PI / 2 - .12; ctl.autoRotate = true; ctl.autoRotateSpeed = 1.2; ctl.addEventListener('start', () => ctl.autoRotate = false); ctl.update();
+  const fit = () => { const w = box.clientWidth, h = box.clientHeight; R.setSize(w, h); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  box.innerHTML = ''; box.appendChild(R.domElement); fit(); addEventListener('resize', fit);
+  const clock = new THREE.Clock(); R.setAnimationLoop(() => { mixer.update(clock.getDelta()); ctl.update(); R.render(scene, cam); });
+} catch (e) { const m = document.getElementById('b3msg'); if (m) m.textContent = '3Dの人体を読み込めませんでした'; } })();
+</script>
 </body>
 </html>
