@@ -136,6 +136,70 @@
       const draw = () => { el.querySelector('.wt').style.height = Math.min(100, v / G * 100) + '%'; el.querySelector('.vv').textContent = v.toLocaleString(); el.querySelector('.msg').textContent = v >= G ? '目標までたまった' : 'あと ' + Math.ceil((G - v) / 500) + '本'; };
       el.querySelector('.add').onclick = () => { v = Math.min(G + 500, v + 500); draw(); };
       el.querySelector('.rs').onclick = () => { v = 0; draw(); };
+    },
+    body(el) {   // ★2026-11-13 本人「ここに、人体の疲労を可視化する図…を作って」→「体の疲れのは、元々作ってたのをそのまま使って」＝/hirou の3Dの人体（three.js の見本の Xbot・MIT）を同じ塗り方で。数字は見本
+      const GR = ['#fde8e8', '#fbc4c4', '#f58b8b', '#e5484d', '#b4232a', '#6e0f14'];
+      const PARTS = ['頭', '目', '首', '肩', '胸', 'お腹', '背中（上）', '腰', '二の腕（前）', '二の腕（後ろ）', '前腕', '手・指', 'お尻', '太もも（前）', '太もも（裏）', 'すね', 'ふくらはぎ', '足首', '足の裏'];
+      const LV = { '肩': 3, '背中（上）': 2, '太もも（前）': 2, 'すね': 4, 'ふくらはぎ': 5, '前腕': 1 };
+      el.innerHTML = '<p class="gd-h">体の場所ごとの疲れ（0〜5）で、3Dの人体を白から濃い赤に塗る。ドラッグで360度まわせる。右の数字を押すと塗りが変わる。</p>'
+        + '<div class="row" style="align-items:flex-start;gap:14px;flex-wrap:nowrap"><div class="sp" style="width:170px;height:340px;flex:none;cursor:grab;touch-action:none;display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:12px">読み込み中…</div>'
+        + '<div class="ps" style="flex:1;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:12px"></div></div>'
+        + '<div class="row" style="margin-top:8px;gap:4px;font-size:11px;color:var(--ink2)">' + GR.map((c, i) => `<span style="display:inline-flex;align-items:center;gap:3px"><i style="width:12px;height:12px;border-radius:3px;background:${c};display:inline-block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)"></i>${i}</span>`).join('') + '</div>';
+      let paint = () => {};
+      const list = () => { el.querySelector('.ps').innerHTML = PARTS.map(p => `<div class="row" style="gap:4px;flex-wrap:nowrap;justify-content:space-between"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p}</span><button type="button" data-p="${p}" style="padding:1px 9px;min-width:30px;background:${GR[LV[p] || 0]};color:${(LV[p] || 0) >= 3 ? '#fff' : '#333'};border-color:transparent">${LV[p] || 0}</button></div>`).join('');
+        el.querySelectorAll('[data-p]').forEach(b => b.onclick = () => { const p = b.dataset.p; LV[p] = ((LV[p] || 0) + 1) % 6; list(); paint(); }); };
+      list();
+      const partOf = (bone, nz, ny) => { const b = bone.replace(/^mixamorig:?/, '');
+        if (/HeadTop|Eye|^Head$/.test(b)) return '頭'; if (/Neck/.test(b)) return '首'; if (/Shoulder/.test(b)) return '肩'; if (/Hand/.test(b)) return '手・指'; if (/ForeArm/.test(b)) return '前腕';
+        if (/Arm$/.test(b)) return nz >= 0 ? '二の腕（前）' : '二の腕（後ろ）'; if (/Spine2/.test(b)) return nz >= 0 ? '胸' : '背中（上）'; if (/Spine1/.test(b)) return nz >= 0 ? 'お腹' : '背中（上）';
+        if (/^Spine$/.test(b)) return nz >= 0 ? 'お腹' : '腰'; if (/Hips/.test(b)) return nz >= 0 ? 'お腹' : 'お尻'; if (/UpLeg/.test(b)) return nz >= 0 ? '太もも（前）' : '太もも（裏）';
+        if (/Leg$/.test(b)) return nz >= 0 ? 'すね' : 'ふくらはぎ'; if (/Foot|Toe/.test(b)) return ny < -.5 ? '足の裏' : '足首'; return ''; };
+      const V = 'https://esm.sh/three@0.160.0';
+      Promise.all([import(V), import(V + '/examples/jsm/loaders/GLTFLoader.js'), import(V + '/examples/jsm/controls/OrbitControls.js')]).then(async ([THREE, { GLTFLoader }, { OrbitControls }]) => {
+        const box = el.querySelector('.sp'), W = 170, H = 340;
+        const R = new THREE.WebGLRenderer({ antialias: true, alpha: true }); R.setPixelRatio(Math.min(2, devicePixelRatio)); R.outputColorSpace = THREE.SRGBColorSpace; R.setSize(W, H);
+        const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(30, W / H, .1, 100); cam.position.set(0, 1.0, 4.6);
+        scene.add(new THREE.HemisphereLight(0xffffff, 0xd9c8c8, 1.6)); const dl = new THREE.DirectionalLight(0xffffff, 1.8); dl.position.set(2, 3, 4); scene.add(dl); const bl = new THREE.DirectionalLight(0xffffff, .9); bl.position.set(-2, 2, -4); scene.add(bl);
+        const g = await new GLTFLoader().loadAsync('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r160/examples/models/gltf/Xbot.glb'), model = g.scene, meshes = []; scene.add(model);
+        model.traverse(o => { if (!o.isSkinnedMesh) return; const geo = o.geometry, n = geo.attributes.position.count, si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight, nr = geo.attributes.normal, bones = o.skeleton.bones, parts = new Array(n);
+          for (let i = 0; i < n; i++) { let bi = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; bi = si.getComponent(i, k); } } parts[i] = partOf(bones[bi].name, nr.getZ(i), nr.getY(i)); }
+          geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(n * 3), 3)); o.material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .55, metalness: .05 }); o.userData.parts = parts; meshes.push(o); });
+        paint = () => meshes.forEach(m => { const P = m.userData.parts, col = m.geometry.attributes.color, c = new THREE.Color(); for (let i = 0; i < P.length; i++) { c.set(GR[LV[P[i]] || 0]); col.setXYZ(i, c.r, c.g, c.b); } col.needsUpdate = true; });
+        paint();
+        const mixer = new THREE.AnimationMixer(model), idle = g.animations.find(a => a.name === 'idle'); if (idle) mixer.clipAction(idle).play();
+        const ctl = new OrbitControls(cam, R.domElement); ctl.target.set(0, .95, 0); ctl.enablePan = false; ctl.enableZoom = false; ctl.minPolarAngle = .01; ctl.maxPolarAngle = Math.PI - .01; ctl.update();
+        box.innerHTML = ''; box.appendChild(R.domElement); const clock = new THREE.Clock();
+        R.setAnimationLoop(() => { if (!el.isConnected) { R.setAnimationLoop(null); R.dispose(); return; } mixer.update(clock.getDelta()); R.render(scene, cam); });
+      }).catch(() => { el.querySelector('.sp').textContent = '3D を読めなかった'; });
+    },
+    floor3d(el) {   // ★2026-11-13 本人「…EDOの図面のやつを作って」＝/edo3d の、時間ごとに階ごとの机と座っている人を教科の色で出す3Dの図面（見本の配置・人の名前は出さない）
+      const SUB = { '英語': '#d64545', '数学': '#2f6fd6', '国語': '#2e9e5b', '理科': '#e0a21b' }, SK = Object.keys(SUB), FL = ['1F', '2F', '4F'], T = ['16:50', '17:50', '18:50', '19:50'];
+      const seat = (f, t, i) => { const x = (f * 7 + t * 13 + i * 5) % 11; return x < 3 + t ? SK[(i + f + t) % 4] : null; };
+      let ti = 1, rx = 58, rz = -32, drag = null;
+      el.innerHTML = '<p class="gd-h">時間を選ぶと、その時間の3つの階の机と、座っている人が教科の色で出る。ドラッグで360度まわせる。</p>'
+        + '<div class="row" style="margin-bottom:8px">' + T.map((t, i) => `<button type="button" data-t="${i}">${t}</button>`).join('') + '</div>'
+        + '<div class="st" style="height:300px;perspective:900px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:grab;touch-action:none;border:1px solid var(--line);border-radius:10px;background:var(--bg2)"><div class="w" style="position:relative;width:220px;height:140px;transform-style:preserve-3d"></div></div>'
+        + '<div class="row lg" style="margin-top:8px;gap:12px;font-size:12px"></div>';
+      const w = el.querySelector('.w');
+      const draw = () => {
+        el.querySelectorAll('[data-t]').forEach(b => b.classList.toggle('p', +b.dataset.t === ti));
+        const cnt = {}; let html = '';
+        FL.forEach((f, fi) => { let d = '';
+          for (let i = 0; i < 10; i++) { const s = seat(fi, ti, i), x = 14 + (i % 5) * 40, y = 26 + Math.floor(i / 5) * 56;
+            d += `<div style="position:absolute;left:${x}px;top:${y}px;width:30px;height:18px;background:#b9a27f;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.2)"></div>`;
+            if (s) { cnt[s] = (cnt[s] || 0) + 1; d += `<div style="position:absolute;left:${x + 9}px;top:${y + 20}px;width:12px;height:12px;border-radius:50%;background:${SUB[s]};transform:rotateX(-90deg) translateY(-6px);transform-origin:bottom"></div>`; } }
+          d += `<div style="position:absolute;left:6px;top:4px;font-size:11px;font-weight:700;color:var(--ink2)">${f}</div><div style="position:absolute;right:8px;top:4px;width:26px;height:12px;background:#6b7a8f;border-radius:2px" title="先生の机"></div>`;
+          html += `<div style="position:absolute;inset:0;transform:translateZ(${fi * 70}px);background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:6px;transform-style:preserve-3d">${d}</div>`; });
+        w.innerHTML = html; w.style.transform = `rotateX(${rx}deg) rotateZ(${rz}deg) translateZ(-70px)`;
+        el.querySelector('.lg').innerHTML = SK.map(k => `<span style="display:inline-flex;align-items:center;gap:4px"><i style="width:10px;height:10px;border-radius:50%;background:${SUB[k]};display:inline-block"></i>${k} ${cnt[k] || 0}人</span>`).join('') + `<span style="color:var(--ink2)">合計 ${Object.values(cnt).reduce((a, b) => a + b, 0)}人</span>`;
+      };
+      el.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { ti = +b.dataset.t; draw(); });
+      const st = el.querySelector('.st');
+      st.onpointerdown = e => { drag = [e.clientX, e.clientY, rx, rz]; st.setPointerCapture(e.pointerId); st.style.cursor = 'grabbing'; };
+      st.onpointermove = e => { if (!drag) return; rz = drag[3] + (e.clientX - drag[0]) * .5; rx = Math.max(0, Math.min(85, drag[2] - (e.clientY - drag[1]) * .4)); w.style.transform = `rotateX(${rx}deg) rotateZ(${rz}deg) translateZ(-70px)`; };
+      st.onpointerup = st.onpointercancel = () => { drag = null; st.style.cursor = 'grab'; };
+      st.ondblclick = () => { rx = 58; rz = -32; draw(); };
+      draw();
     }
   };
   window.gijutsuDemo = function (id, box, o) {
